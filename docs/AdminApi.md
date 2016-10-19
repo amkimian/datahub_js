@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="createUser"></a>
 # **createUser**
-> createUser(adminKey, opts)
+> User createUser(adminKey, opts)
 
 
 
@@ -29,7 +29,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.createUser(adminKey, opts, callback);
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**User**](User.md)
 
 ### Authorization
 

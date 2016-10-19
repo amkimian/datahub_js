@@ -34,7 +34,7 @@
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.DataSetRelease = factory(root.MimirDataHubApi.ApiClient);
+    root.MimirDataHubApi.GeneralError = factory(root.MimirDataHubApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,72 +43,45 @@
 
 
   /**
-   * The DataSetRelease model module.
-   * @module model/DataSetRelease
+   * The GeneralError model module.
+   * @module model/GeneralError
    * @version 0.0.3
    */
 
   /**
-   * Constructs a new <code>DataSetRelease</code>.
-   * @alias module:model/DataSetRelease
+   * Constructs a new <code>GeneralError</code>.
+   * @alias module:model/GeneralError
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
-
   };
 
   /**
-   * Constructs a <code>DataSetRelease</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GeneralError</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/DataSetRelease} obj Optional instance to populate.
-   * @return {module:model/DataSetRelease} The populated <code>DataSetRelease</code> instance.
+   * @param {module:model/GeneralError} obj Optional instance to populate.
+   * @return {module:model/GeneralError} The populated <code>GeneralError</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('id')) {
-        obj['id'] = ApiClient.convertToType(data['id'], 'String');
-      }
-      if (data.hasOwnProperty('dataset')) {
-        obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
-      }
-      if (data.hasOwnProperty('user')) {
-        obj['user'] = ApiClient.convertToType(data['user'], 'String');
-      }
-      if (data.hasOwnProperty('state')) {
-        obj['state'] = ApiClient.convertToType(data['state'], 'String');
+      if (data.hasOwnProperty('message')) {
+        obj['message'] = ApiClient.convertToType(data['message'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * The id of this release
-   * @member {String} id
+   * A message describing the error
+   * @member {String} message
    */
-  exports.prototype['id'] = undefined;
-  /**
-   * The id of the data set this release relates to
-   * @member {String} dataset
-   */
-  exports.prototype['dataset'] = undefined;
-  /**
-   * The id of the user this data set/release relates to
-   * @member {String} user
-   */
-  exports.prototype['user'] = undefined;
-  /**
-   * Is this release published (and therefore immutable)
-   * @member {String} state
-   */
-  exports.prototype['state'] = undefined;
+  exports.prototype['message'] = undefined;
 
 
 

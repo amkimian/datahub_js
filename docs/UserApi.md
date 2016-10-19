@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**deleteUser**](UserApi.md#deleteUser) | **DELETE** /admin/user/{userId} | 
 [**getUser**](UserApi.md#getUser) | **GET** /admin/user/{userId} | 
 [**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /admin/getUserByEmail | 
+[**getUserByTag**](UserApi.md#getUserByTag) | **GET** /admin/getUserByTag | 
 [**getUserByToken**](UserApi.md#getUserByToken) | **GET** /admin/getUserByToken | 
 
 
@@ -143,6 +144,56 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **adminKey** | **String**| The admin user api key | 
  **email** | **String**| The email to search for | 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getUserByTag"></a>
+# **getUserByTag**
+> User getUserByTag(adminKey, tagName, tagValue)
+
+
+
+### Example
+```javascript
+var MimirDataHubApi = require('mimir_data_hub_api');
+
+var apiInstance = new MimirDataHubApi.UserApi();
+
+var adminKey = "adminKey_example"; // String | The admin user api key
+
+var tagName = "tagName_example"; // String | The tag field to search (e.g. github)
+
+var tagValue = "tagValue_example"; // String | The tag value to search
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getUserByTag(adminKey, tagName, tagValue, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **adminKey** | **String**| The admin user api key | 
+ **tagName** | **String**| The tag field to search (e.g. github) | 
+ **tagValue** | **String**| The tag value to search | 
 
 ### Return type
 

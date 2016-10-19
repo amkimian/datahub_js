@@ -1,6 +1,6 @@
 {
   "name": "mimir_data_hub_api",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "ERROR_UNKNOWN",
   "license": "Apache-2.0",
   "main": "src/index.js",

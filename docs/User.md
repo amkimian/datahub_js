@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **id** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
+**gravatar** | **String** |  | [optional] 
 **apiKey** | **String** | The api key that can be used to impersonate this user | [optional] 
 **password** | **String** |  | [optional] 
 **passwordResetToken** | **String** |  | [optional] 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /admin/getUserByEmail | 
 [**getUserByTag**](UserApi.md#getUserByTag) | **GET** /admin/getUserByTag | 
 [**getUserByToken**](UserApi.md#getUserByToken) | **GET** /admin/getUserByToken | 
+[**putUser**](UserApi.md#putUser) | **PUT** /admin/user/{userId} | 
 
 
 <a name="deleteUser"></a>
@@ -244,6 +245,57 @@ Name | Type | Description  | Notes
  **adminKey** | **String**| The admin user api key | 
  **token** | **String**| The token passed by an email | 
  **expiry** | **Date**| The latest date for which the token is valid | 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="putUser"></a>
+# **putUser**
+> User putUser(userId, body, opts)
+
+
+
+### Example
+```javascript
+var MimirDataHubApi = require('mimir_data_hub_api');
+
+var apiInstance = new MimirDataHubApi.UserApi();
+
+var userId = "userId_example"; // String | 
+
+var body = new MimirDataHubApi.User(); // User | 
+
+var opts = { 
+  'apiKey': "apiKey_example" // String | The user api key
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.putUser(userId, body, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | **String**|  | 
+ **body** | [**User**](User.md)|  | 
+ **apiKey** | **String**| The user api key | [optional] 
 
 ### Return type
 

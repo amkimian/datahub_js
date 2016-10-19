@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/BlockId', 'model/DataElement', 'model/DataElementBlock', 'model/DataSet', 'model/DataSetRelease', 'model/GeneralError', 'model/User', 'model/UserProfile', 'api/AdminApi', 'api/BlockApi', 'api/DatasetApi', 'api/ElementApi', 'api/ReleaseApi', 'api/UserApi'], factory);
+    define(['ApiClient', 'model/BlockId', 'model/DataElement', 'model/DataElementBlock', 'model/DataSet', 'model/DataSetRelease', 'model/GeneralError', 'model/User', 'model/UserProfile', 'model/UserTokens', 'api/AdminApi', 'api/BlockApi', 'api/DatasetApi', 'api/ElementApi', 'api/ReleaseApi', 'api/UserApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/BlockId'), require('./model/DataElement'), require('./model/DataElementBlock'), require('./model/DataSet'), require('./model/DataSetRelease'), require('./model/GeneralError'), require('./model/User'), require('./model/UserProfile'), require('./api/AdminApi'), require('./api/BlockApi'), require('./api/DatasetApi'), require('./api/ElementApi'), require('./api/ReleaseApi'), require('./api/UserApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/BlockId'), require('./model/DataElement'), require('./model/DataElementBlock'), require('./model/DataSet'), require('./model/DataSetRelease'), require('./model/GeneralError'), require('./model/User'), require('./model/UserProfile'), require('./model/UserTokens'), require('./api/AdminApi'), require('./api/BlockApi'), require('./api/DatasetApi'), require('./api/ElementApi'), require('./api/ReleaseApi'), require('./api/UserApi'));
   }
-}(function(ApiClient, BlockId, DataElement, DataElementBlock, DataSet, DataSetRelease, GeneralError, User, UserProfile, AdminApi, BlockApi, DatasetApi, ElementApi, ReleaseApi, UserApi) {
+}(function(ApiClient, BlockId, DataElement, DataElementBlock, DataSet, DataSetRelease, GeneralError, User, UserProfile, UserTokens, AdminApi, BlockApi, DatasetApi, ElementApi, ReleaseApi, UserApi) {
   'use strict';
 
   /**
@@ -110,6 +110,11 @@
      * @property {module:model/UserProfile}
      */
     UserProfile: UserProfile,
+    /**
+     * The UserTokens model constructor.
+     * @property {module:model/UserTokens}
+     */
+    UserTokens: UserTokens,
     /**
      * The AdminApi service constructor.
      * @property {module:api/AdminApi}

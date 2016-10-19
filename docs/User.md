@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **google** | **String** |  | [optional] 
 **github** | **String** |  | [optional] 
 **linkedin** | **String** |  | [optional] 
-**tokens** | **[String]** |  | [optional] 
+**tokens** | [**[UserTokens]**](UserTokens.md) |  | [optional] 
 **profile** | [**UserProfile**](UserProfile.md) |  | [optional] 
 
 

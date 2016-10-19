@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/UserProfile'], factory);
+    define(['ApiClient', 'model/UserProfile', 'model/UserTokens'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./UserProfile'));
+    module.exports = factory(require('../ApiClient'), require('./UserProfile'), require('./UserTokens'));
   } else {
     // Browser globals (root is window)
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.User = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.UserProfile);
+    root.MimirDataHubApi.User = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.UserProfile, root.MimirDataHubApi.UserTokens);
   }
-}(this, function(ApiClient, UserProfile) {
+}(this, function(ApiClient, UserProfile, UserTokens) {
   'use strict';
 
 
@@ -120,7 +120,7 @@
         obj['linkedin'] = ApiClient.convertToType(data['linkedin'], 'String');
       }
       if (data.hasOwnProperty('tokens')) {
-        obj['tokens'] = ApiClient.convertToType(data['tokens'], ['String']);
+        obj['tokens'] = ApiClient.convertToType(data['tokens'], [UserTokens]);
       }
       if (data.hasOwnProperty('profile')) {
         obj['profile'] = UserProfile.constructFromObject(data['profile']);
@@ -179,7 +179,7 @@
    */
   exports.prototype['linkedin'] = undefined;
   /**
-   * @member {Array.<String>} tokens
+   * @member {Array.<module:model/UserTokens>} tokens
    */
   exports.prototype['tokens'] = undefined;
   /**

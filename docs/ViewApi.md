@@ -4,8 +4,61 @@ All URIs are relative to *http://localhost:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getDataSetReleases**](ViewApi.md#getDataSetReleases) | **GET** /view/releases/{userId}/{dataset} | 
 [**getUserViews**](ViewApi.md#getUserViews) | **GET** /view/getUserViews | 
 
+
+<a name="getDataSetReleases"></a>
+# **getDataSetReleases**
+> [DataSetRelease] getDataSetReleases(apiKey, userId, dataset)
+
+
+
+Returns releases for a given data set
+
+### Example
+```javascript
+var MimirDataHubApi = require('mimir_data_hub_api');
+
+var apiInstance = new MimirDataHubApi.ViewApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var userId = "userId_example"; // String | The user id that owns the data set
+
+var dataset = "dataset_example"; // String | The id of the data set
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getDataSetReleases(apiKey, userId, dataset, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **userId** | **String**| The user id that owns the data set | 
+ **dataset** | **String**| The id of the data set | 
+
+### Return type
+
+[**[DataSetRelease]**](DataSetRelease.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="getUserViews"></a>
 # **getUserViews**

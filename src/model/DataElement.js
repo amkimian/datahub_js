@@ -82,8 +82,8 @@
       if (data.hasOwnProperty('dataset')) {
         obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
       }
-      if (data.hasOwnProperty('user')) {
-        obj['user'] = ApiClient.convertToType(data['user'], 'String');
+      if (data.hasOwnProperty('owner')) {
+        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
       }
       if (data.hasOwnProperty('release')) {
         obj['release'] = ApiClient.convertToType(data['release'], 'String');
@@ -113,9 +113,9 @@
   exports.prototype['dataset'] = undefined;
   /**
    * The user this element relates to
-   * @member {String} user
+   * @member {String} owner
    */
-  exports.prototype['user'] = undefined;
+  exports.prototype['owner'] = undefined;
   /**
    * The release this element relates to
    * @member {String} release

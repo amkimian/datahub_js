@@ -34,7 +34,7 @@
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.UserProfile = factory(root.MimirDataHubApi.ApiClient);
+    root.MimirDataHubApi.DataSetView = factory(root.MimirDataHubApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,14 +43,14 @@
 
 
   /**
-   * The UserProfile model module.
-   * @module model/UserProfile
+   * The DataSetView model module.
+   * @module model/DataSetView
    * @version 0.0.7
    */
 
   /**
-   * Constructs a new <code>UserProfile</code>.
-   * @alias module:model/UserProfile
+   * Constructs a new <code>DataSetView</code>.
+   * @alias module:model/DataSetView
    * @class
    */
   var exports = function() {
@@ -59,60 +59,45 @@
 
 
 
-
-
   };
 
   /**
-   * Constructs a <code>UserProfile</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>DataSetView</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/UserProfile} obj Optional instance to populate.
-   * @return {module:model/UserProfile} The populated <code>UserProfile</code> instance.
+   * @param {module:model/DataSetView} obj Optional instance to populate.
+   * @return {module:model/DataSetView} The populated <code>DataSetView</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('id')) {
+        obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('gender')) {
-        obj['gender'] = ApiClient.convertToType(data['gender'], 'String');
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
-      if (data.hasOwnProperty('location')) {
-        obj['location'] = ApiClient.convertToType(data['location'], 'String');
-      }
-      if (data.hasOwnProperty('website')) {
-        obj['website'] = ApiClient.convertToType(data['website'], 'String');
-      }
-      if (data.hasOwnProperty('picture')) {
-        obj['picture'] = ApiClient.convertToType(data['picture'], 'String');
+      if (data.hasOwnProperty('owner')) {
+        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} name
+   * The short name of this dataset
+   * @member {String} id
    */
-  exports.prototype['name'] = undefined;
+  exports.prototype['id'] = undefined;
   /**
-   * @member {String} gender
+   * @member {String} description
    */
-  exports.prototype['gender'] = undefined;
+  exports.prototype['description'] = undefined;
   /**
-   * @member {String} location
+   * @member {String} owner
    */
-  exports.prototype['location'] = undefined;
-  /**
-   * @member {String} website
-   */
-  exports.prototype['website'] = undefined;
-  /**
-   * @member {String} picture
-   */
-  exports.prototype['picture'] = undefined;
+  exports.prototype['owner'] = undefined;
 
 
 

@@ -25,29 +25,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/User', 'model/GeneralError'], factory);
+    define(['ApiClient', 'model/DataSetView'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/User'), require('../model/GeneralError'));
+    module.exports = factory(require('../ApiClient'), require('../model/DataSetView'));
   } else {
     // Browser globals (root is window)
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.AdminApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.User, root.MimirDataHubApi.GeneralError);
+    root.MimirDataHubApi.ViewApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataSetView);
   }
-}(this, function(ApiClient, User, GeneralError) {
+}(this, function(ApiClient, DataSetView) {
   'use strict';
 
   /**
-   * Admin service.
-   * @module api/AdminApi
+   * View service.
+   * @module api/ViewApi
    * @version 0.0.7
    */
 
   /**
-   * Constructs a new AdminApi. 
-   * @alias module:api/AdminApi
+   * Constructs a new ViewApi. 
+   * @alias module:api/ViewApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -57,27 +57,28 @@
 
 
     /**
-     * Callback function to receive the result of the createUser operation.
-     * @callback module:api/AdminApi~createUserCallback
+     * Callback function to receive the result of the getUserViews operation.
+     * @callback module:api/ViewApi~getUserViewsCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
+     * @param {Array.<module:model/DataSetView>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * @param {String} adminKey The admin user api key
+     * Returns view information for datasets of a user
+     * @param {String} apiKey The user api key
      * @param {Object} opts Optional parameters
-     * @param {module:model/User} opts.body A new user
-     * @param {module:api/AdminApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * @param {Integer} opts.page The page of results to return
+     * @param {module:api/ViewApi~getUserViewsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/DataSetView>}
      */
-    this.createUser = function(adminKey, opts, callback) {
+    this.getUserViews = function(apiKey, opts, callback) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = null;
 
-      // verify the required parameter 'adminKey' is set
-      if (adminKey == undefined || adminKey == null) {
-        throw "Missing the required parameter 'adminKey' when calling createUser";
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getUserViews";
       }
 
 
@@ -86,18 +87,19 @@
       var queryParams = {
       };
       var headerParams = {
-        'admin_key': adminKey
+        'api_key': apiKey,
+        'page': opts['page']
       };
       var formParams = {
       };
 
       var authNames = [];
-      var contentTypes = ['application/json'];
+      var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = User;
+      var returnType = [DataSetView];
 
       return this.apiClient.callApi(
-        '/admin/user', 'POST',
+        '/view/getUserViews', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

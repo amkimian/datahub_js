@@ -169,7 +169,7 @@ No authorization required
 
 <a name="findUserDataSets"></a>
 # **findUserDataSets**
-> [DataSet] findUserDataSets(opts)
+> [DataSet] findUserDataSets(apiKey, opts)
 
 
 
@@ -179,8 +179,9 @@ var MimirDataHubApi = require('mimir_data_hub_api');
 
 var apiInstance = new MimirDataHubApi.DatasetApi();
 
+var apiKey = "apiKey_example"; // String | The user api key
+
 var opts = { 
-  'apiKey': "apiKey_example", // String | The user api key
   'tags': ["tags_example"], // [String] | Tags to filter by
   'page': 56, // Integer | Page to return (defaults to zero)
   'subscribed': true // Boolean | If true, also return subscribed data sets
@@ -193,14 +194,14 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.findUserDataSets(opts, callback);
+apiInstance.findUserDataSets(apiKey, opts, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **apiKey** | **String**| The user api key | [optional] 
+ **apiKey** | **String**| The user api key | 
  **tags** | [**[String]**](String.md)| Tags to filter by | [optional] 
  **page** | **Integer**| Page to return (defaults to zero) | [optional] 
  **subscribed** | **Boolean**| If true, also return subscribed data sets | [optional] 

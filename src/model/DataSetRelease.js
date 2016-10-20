@@ -60,6 +60,7 @@
 
 
 
+
   };
 
   /**
@@ -85,6 +86,9 @@
       if (data.hasOwnProperty('state')) {
         obj['state'] = ApiClient.convertToType(data['state'], 'String');
       }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
+      }
     }
     return obj;
   }
@@ -109,6 +113,11 @@
    * @member {String} state
    */
   exports.prototype['state'] = undefined;
+  /**
+   * Some commentary on this release
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
 
 
 

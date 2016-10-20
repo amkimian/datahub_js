@@ -107,8 +107,8 @@
     }
 
     /**
-     * Callback function to receive the result of the datasetsUserIdDataSetDelete operation.
-     * @callback module:api/DatasetApi~datasetsUserIdDataSetDeleteCallback
+     * Callback function to receive the result of the deleteDataSet operation.
+     * @callback module:api/DatasetApi~deleteDataSetCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
@@ -121,20 +121,20 @@
      * @param {String} dataSet The id of the dataset
      * @param {Object} opts Optional parameters
      * @param {String} opts.apiKey The user api key
-     * @param {module:api/DatasetApi~datasetsUserIdDataSetDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/DatasetApi~deleteDataSetCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.datasetsUserIdDataSetDelete = function(userId, dataSet, opts, callback) {
+    this.deleteDataSet = function(userId, dataSet, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling datasetsUserIdDataSetDelete";
+        throw "Missing the required parameter 'userId' when calling deleteDataSet";
       }
 
       // verify the required parameter 'dataSet' is set
       if (dataSet == undefined || dataSet == null) {
-        throw "Missing the required parameter 'dataSet' when calling datasetsUserIdDataSetDelete";
+        throw "Missing the required parameter 'dataSet' when calling deleteDataSet";
       }
 
 
@@ -306,6 +306,54 @@
 
       return this.apiClient.callApi(
         '/datasets/{userId}/{dataSet}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMyDataSets operation.
+     * @callback module:api/DatasetApi~getMyDataSetsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/DataSet>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {String} apiKey The user api key
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.page Page to return (defaults to zero)
+     * @param {module:api/DatasetApi~getMyDataSetsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/DataSet>}
+     */
+    this.getMyDataSets = function(apiKey, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getMyDataSets";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'page': opts['page']
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [DataSet];
+
+      return this.apiClient.callApi(
+        '/marketplace/getMyDataSets', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

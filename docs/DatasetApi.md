@@ -5,10 +5,11 @@ All URIs are relative to *http://localhost:8081/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addDataSet**](DatasetApi.md#addDataSet) | **POST** /datasets/{userId} | Create a new data set, associated with the given user id
-[**datasetsUserIdDataSetDelete**](DatasetApi.md#datasetsUserIdDataSetDelete) | **DELETE** /datasets/{userId}/{dataSet} | Remove a data set and all releases and elements
+[**deleteDataSet**](DatasetApi.md#deleteDataSet) | **DELETE** /datasets/{userId}/{dataSet} | Remove a data set and all releases and elements
 [**findDataSetsByTags**](DatasetApi.md#findDataSetsByTags) | **GET** /marketplace/getByTag | 
 [**findUserDataSets**](DatasetApi.md#findUserDataSets) | **GET** /user/getDataSets | 
 [**getDataSetById**](DatasetApi.md#getDataSetById) | **GET** /datasets/{userId}/{dataSet} | Find a dataset for a user and a dataset
+[**getMyDataSets**](DatasetApi.md#getMyDataSets) | **GET** /marketplace/getMyDataSets | 
 [**updateDataSet**](DatasetApi.md#updateDataSet) | **PUT** /datasets/{userId} | Update an existing data set.
 
 
@@ -64,9 +65,9 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="datasetsUserIdDataSetDelete"></a>
-# **datasetsUserIdDataSetDelete**
-> datasetsUserIdDataSetDelete(userId, dataSet, opts)
+<a name="deleteDataSet"></a>
+# **deleteDataSet**
+> deleteDataSet(userId, dataSet, opts)
 
 Remove a data set and all releases and elements
 
@@ -93,7 +94,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.datasetsUserIdDataSetDelete(userId, dataSet, opts, callback);
+apiInstance.deleteDataSet(userId, dataSet, opts, callback);
 ```
 
 ### Parameters
@@ -260,6 +261,54 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataSet**](DataSet.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getMyDataSets"></a>
+# **getMyDataSets**
+> [DataSet] getMyDataSets(apiKey, opts)
+
+
+
+### Example
+```javascript
+var MimirDataHubApi = require('mimir_data_hub_api');
+
+var apiInstance = new MimirDataHubApi.DatasetApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var opts = { 
+  'page': 56 // Integer | Page to return (defaults to zero)
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getMyDataSets(apiKey, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **page** | **Integer**| Page to return (defaults to zero) | [optional] 
+
+### Return type
+
+[**[DataSet]**](DataSet.md)
 
 ### Authorization
 

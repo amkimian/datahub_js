@@ -66,18 +66,21 @@
 
     /**
      * @param {String} adminKey The admin user api key
-     * @param {Object} opts Optional parameters
-     * @param {module:model/User} opts.body A new user
+     * @param {module:model/User} body A new user
      * @param {module:api/AdminApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/User}
      */
-    this.createUser = function(adminKey, opts, callback) {
-      opts = opts || {};
-      var postBody = opts['body'];
+    this.createUser = function(adminKey, body, callback) {
+      var postBody = body;
 
       // verify the required parameter 'adminKey' is set
       if (adminKey == undefined || adminKey == null) {
         throw "Missing the required parameter 'adminKey' when calling createUser";
+      }
+
+      // verify the required parameter 'body' is set
+      if (body == undefined || body == null) {
+        throw "Missing the required parameter 'body' when calling createUser";
       }
 
 

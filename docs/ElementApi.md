@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="addElement"></a>
 # **addElement**
-> addElement(userId, dataSet, release, opts)
+> addElement(userId, dataSet, release, body, opts)
 
 Create a new open element
 
@@ -30,9 +30,10 @@ var dataSet = "dataSet_example"; // String | The id of the data set
 
 var release = "release_example"; // String | The id of the release this element belongs to
 
+var body = new MimirDataHubApi.DataElement(); // DataElement | Element object that defines the element in a data set
+
 var opts = { 
-  'apiKey': "apiKey_example", // String | The user api key
-  'body': new MimirDataHubApi.DataElement() // DataElement | Element object that defines the element in a data set
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -42,7 +43,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.addElement(userId, dataSet, release, opts, callback);
+apiInstance.addElement(userId, dataSet, release, body, opts, callback);
 ```
 
 ### Parameters
@@ -52,8 +53,8 @@ Name | Type | Description  | Notes
  **userId** | **String**| The id of the user that this dataset is associated with | 
  **dataSet** | **String**| The id of the data set | 
  **release** | **String**| The id of the release this element belongs to | 
+ **body** | [**DataElement**](DataElement.md)| Element object that defines the element in a data set | 
  **apiKey** | **String**| The user api key | [optional] 
- **body** | [**DataElement**](DataElement.md)| Element object that defines the element in a data set | [optional] 
 
 ### Return type
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="addRelease"></a>
 # **addRelease**
-> addRelease(userId, dataSet, opts)
+> addRelease(userId, dataSet, body, opts)
 
 Create a new open release
 
@@ -27,9 +27,10 @@ var userId = "userId_example"; // String | The id of the user that this dataset 
 
 var dataSet = "dataSet_example"; // String | The id of the data set
 
+var body = new MimirDataHubApi.DataSetRelease(); // DataSetRelease | Release object that defines the element in a data set
+
 var opts = { 
-  'apiKey': "apiKey_example", // String | The user api key
-  'body': new MimirDataHubApi.DataSetRelease() // DataSetRelease | Release object that defines the element in a data set
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -39,7 +40,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.addRelease(userId, dataSet, opts, callback);
+apiInstance.addRelease(userId, dataSet, body, opts, callback);
 ```
 
 ### Parameters
@@ -48,8 +49,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The id of the user that this dataset is associated with | 
  **dataSet** | **String**| The id of the data set | 
+ **body** | [**DataSetRelease**](DataSetRelease.md)| Release object that defines the element in a data set | 
  **apiKey** | **String**| The user api key | [optional] 
- **body** | [**DataSetRelease**](DataSetRelease.md)| Release object that defines the element in a data set | [optional] 
 
 ### Return type
 

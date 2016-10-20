@@ -69,14 +69,14 @@
      * This creates a new release in a data set. The release defaults to the open (and therefore unpublished) state. 
      * @param {String} userId The id of the user that this dataset is associated with
      * @param {String} dataSet The id of the data set
+     * @param {module:model/DataSetRelease} body Release object that defines the element in a data set
      * @param {Object} opts Optional parameters
      * @param {String} opts.apiKey The user api key
-     * @param {module:model/DataSetRelease} opts.body Release object that defines the element in a data set
      * @param {module:api/ReleaseApi~addReleaseCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addRelease = function(userId, dataSet, opts, callback) {
+    this.addRelease = function(userId, dataSet, body, opts, callback) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = body;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
@@ -86,6 +86,11 @@
       // verify the required parameter 'dataSet' is set
       if (dataSet == undefined || dataSet == null) {
         throw "Missing the required parameter 'dataSet' when calling addRelease";
+      }
+
+      // verify the required parameter 'body' is set
+      if (body == undefined || body == null) {
+        throw "Missing the required parameter 'body' when calling addRelease";
       }
 
 

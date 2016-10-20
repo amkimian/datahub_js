@@ -68,18 +68,23 @@
      * Create a new data set, associated with the given user id
      * This creates a new data set that can then be added to 
      * @param {String} userId The id of the user that this dataset is associated with
+     * @param {module:model/DataSet} body DataSet object that defines the element
      * @param {Object} opts Optional parameters
      * @param {String} opts.apiKey The user api key
-     * @param {module:model/DataSet} opts.body DataSet object that defines the element
      * @param {module:api/DatasetApi~addDataSetCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addDataSet = function(userId, opts, callback) {
+    this.addDataSet = function(userId, body, opts, callback) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = body;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
         throw "Missing the required parameter 'userId' when calling addDataSet";
+      }
+
+      // verify the required parameter 'body' is set
+      if (body == undefined || body == null) {
+        throw "Missing the required parameter 'body' when calling addDataSet";
       }
 
 

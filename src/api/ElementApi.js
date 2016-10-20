@@ -70,14 +70,14 @@
      * @param {String} userId The id of the user that this dataset is associated with
      * @param {String} dataSet The id of the data set
      * @param {String} release The id of the release this element belongs to
+     * @param {module:model/DataElement} body Element object that defines the element in a data set
      * @param {Object} opts Optional parameters
      * @param {String} opts.apiKey The user api key
-     * @param {module:model/DataElement} opts.body Element object that defines the element in a data set
      * @param {module:api/ElementApi~addElementCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addElement = function(userId, dataSet, release, opts, callback) {
+    this.addElement = function(userId, dataSet, release, body, opts, callback) {
       opts = opts || {};
-      var postBody = opts['body'];
+      var postBody = body;
 
       // verify the required parameter 'userId' is set
       if (userId == undefined || userId == null) {
@@ -92,6 +92,11 @@
       // verify the required parameter 'release' is set
       if (release == undefined || release == null) {
         throw "Missing the required parameter 'release' when calling addElement";
+      }
+
+      // verify the required parameter 'body' is set
+      if (body == undefined || body == null) {
+        throw "Missing the required parameter 'body' when calling addElement";
       }
 
 

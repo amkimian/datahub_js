@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="addDataSet"></a>
 # **addDataSet**
-> addDataSet(userId, opts)
+> addDataSet(userId, body, opts)
 
 Create a new data set, associated with the given user id
 
@@ -29,9 +29,10 @@ var apiInstance = new MimirDataHubApi.DatasetApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
+var body = new MimirDataHubApi.DataSet(); // DataSet | DataSet object that defines the element
+
 var opts = { 
-  'apiKey': "apiKey_example", // String | The user api key
-  'body': new MimirDataHubApi.DataSet() // DataSet | DataSet object that defines the element
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -41,7 +42,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.addDataSet(userId, opts, callback);
+apiInstance.addDataSet(userId, body, opts, callback);
 ```
 
 ### Parameters
@@ -49,8 +50,8 @@ apiInstance.addDataSet(userId, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The id of the user that this dataset is associated with | 
+ **body** | [**DataSet**](DataSet.md)| DataSet object that defines the element | 
  **apiKey** | **String**| The user api key | [optional] 
- **body** | [**DataSet**](DataSet.md)| DataSet object that defines the element | [optional] 
 
 ### Return type
 

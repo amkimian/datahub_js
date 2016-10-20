@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="createUser"></a>
 # **createUser**
-> User createUser(adminKey, opts)
+> User createUser(adminKey, body)
 
 
 
@@ -21,9 +21,8 @@ var apiInstance = new MimirDataHubApi.AdminApi();
 
 var adminKey = "adminKey_example"; // String | The admin user api key
 
-var opts = { 
-  'body': new MimirDataHubApi.User() // User | A new user
-};
+var body = new MimirDataHubApi.User(); // User | A new user
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -32,7 +31,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.createUser(adminKey, opts, callback);
+apiInstance.createUser(adminKey, body, callback);
 ```
 
 ### Parameters
@@ -40,7 +39,7 @@ apiInstance.createUser(adminKey, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **adminKey** | **String**| The admin user api key | 
- **body** | [**User**](User.md)| A new user | [optional] 
+ **body** | [**User**](User.md)| A new user | 
 
 ### Return type
 

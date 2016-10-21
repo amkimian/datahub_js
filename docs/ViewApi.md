@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getDataSetReleases"></a>
 # **getDataSetReleases**
-> [DataElement] getDataSetReleases(apiKey, userId, dataset)
+> [DataSetRelease] getDataSetReleases(apiKey, userId, dataset)
 
 
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[DataElement]**](DataElement.md)
+[**[DataSetRelease]**](DataSetRelease.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ No authorization required
 
 <a name="getReleaseElements"></a>
 # **getReleaseElements**
-> [DataSetRelease] getReleaseElements(apiKey, userId, dataset, release)
+> [DataElement] getReleaseElements(apiKey, userId, dataset, release)
 
 
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[DataSetRelease]**](DataSetRelease.md)
+[**[DataElement]**](DataElement.md)
 
 ### Authorization
 

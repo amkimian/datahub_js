@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataElement', 'model/DataSetRelease', 'model/DataSetView'], factory);
+    define(['ApiClient', 'model/DataSetRelease', 'model/DataElement', 'model/DataSetView'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/DataElement'), require('../model/DataSetRelease'), require('../model/DataSetView'));
+    module.exports = factory(require('../ApiClient'), require('../model/DataSetRelease'), require('../model/DataElement'), require('../model/DataSetView'));
   } else {
     // Browser globals (root is window)
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.ViewApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataElement, root.MimirDataHubApi.DataSetRelease, root.MimirDataHubApi.DataSetView);
+    root.MimirDataHubApi.ViewApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataSetRelease, root.MimirDataHubApi.DataElement, root.MimirDataHubApi.DataSetView);
   }
-}(this, function(ApiClient, DataElement, DataSetRelease, DataSetView) {
+}(this, function(ApiClient, DataSetRelease, DataElement, DataSetView) {
   'use strict';
 
   /**
@@ -60,7 +60,7 @@
      * Callback function to receive the result of the getDataSetReleases operation.
      * @callback module:api/ViewApi~getDataSetReleasesCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/DataElement>} data The data returned by the service call.
+     * @param {Array.<module:model/DataSetRelease>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -70,7 +70,7 @@
      * @param {String} userId The user id that owns the data set
      * @param {String} dataset The id of the data set
      * @param {module:api/ViewApi~getDataSetReleasesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/DataElement>}
+     * data is of type: {@link Array.<module:model/DataSetRelease>}
      */
     this.getDataSetReleases = function(apiKey, userId, dataset, callback) {
       var postBody = null;
@@ -106,7 +106,7 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = [DataElement];
+      var returnType = [DataSetRelease];
 
       return this.apiClient.callApi(
         '/view/releases/{userId}/{dataset}', 'GET',
@@ -119,7 +119,7 @@
      * Callback function to receive the result of the getReleaseElements operation.
      * @callback module:api/ViewApi~getReleaseElementsCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/DataSetRelease>} data The data returned by the service call.
+     * @param {Array.<module:model/DataElement>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -130,7 +130,7 @@
      * @param {String} dataset 
      * @param {String} release 
      * @param {module:api/ViewApi~getReleaseElementsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/DataSetRelease>}
+     * data is of type: {@link Array.<module:model/DataElement>}
      */
     this.getReleaseElements = function(apiKey, userId, dataset, release, callback) {
       var postBody = null;
@@ -172,7 +172,7 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = [DataSetRelease];
+      var returnType = [DataElement];
 
       return this.apiClient.callApi(
         '/view/elements/{userId}/{dataset}/{release}', 'GET',

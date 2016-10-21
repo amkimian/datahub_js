@@ -34,7 +34,7 @@
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.UserProfile = factory(root.MimirDataHubApi.ApiClient);
+    root.MimirDataHubApi.GeneralText = factory(root.MimirDataHubApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,76 +43,45 @@
 
 
   /**
-   * The UserProfile model module.
-   * @module model/UserProfile
+   * The GeneralText model module.
+   * @module model/GeneralText
    * @version 0.0.9
    */
 
   /**
-   * Constructs a new <code>UserProfile</code>.
-   * @alias module:model/UserProfile
+   * Constructs a new <code>GeneralText</code>.
+   * @alias module:model/GeneralText
    * @class
    */
   var exports = function() {
     var _this = this;
 
 
-
-
-
-
   };
 
   /**
-   * Constructs a <code>UserProfile</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GeneralText</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/UserProfile} obj Optional instance to populate.
-   * @return {module:model/UserProfile} The populated <code>UserProfile</code> instance.
+   * @param {module:model/GeneralText} obj Optional instance to populate.
+   * @return {module:model/GeneralText} The populated <code>GeneralText</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('gender')) {
-        obj['gender'] = ApiClient.convertToType(data['gender'], 'String');
-      }
-      if (data.hasOwnProperty('location')) {
-        obj['location'] = ApiClient.convertToType(data['location'], 'String');
-      }
-      if (data.hasOwnProperty('website')) {
-        obj['website'] = ApiClient.convertToType(data['website'], 'String');
-      }
-      if (data.hasOwnProperty('picture')) {
-        obj['picture'] = ApiClient.convertToType(data['picture'], 'String');
+      if (data.hasOwnProperty('content')) {
+        obj['content'] = ApiClient.convertToType(data['content'], 'String');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} name
+   * The content of the general text
+   * @member {String} content
    */
-  exports.prototype['name'] = undefined;
-  /**
-   * @member {String} gender
-   */
-  exports.prototype['gender'] = undefined;
-  /**
-   * @member {String} location
-   */
-  exports.prototype['location'] = undefined;
-  /**
-   * @member {String} website
-   */
-  exports.prototype['website'] = undefined;
-  /**
-   * @member {String} picture
-   */
-  exports.prototype['picture'] = undefined;
+  exports.prototype['content'] = undefined;
 
 
 

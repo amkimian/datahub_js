@@ -68,6 +68,7 @@
 
 
 
+
   };
 
   /**
@@ -95,6 +96,9 @@
       }
       if (data.hasOwnProperty('mimeType')) {
         obj['mimeType'] = ApiClient.convertToType(data['mimeType'], 'String');
+      }
+      if (data.hasOwnProperty('description')) {
+        obj['description'] = ApiClient.convertToType(data['description'], 'String');
       }
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
@@ -146,6 +150,11 @@
    * @member {String} mimeType
    */
   exports.prototype['mimeType'] = undefined;
+  /**
+   * Some information about this element
+   * @member {String} description
+   */
+  exports.prototype['description'] = undefined;
   /**
    * The underlying data type of this element
    * @member {String} type

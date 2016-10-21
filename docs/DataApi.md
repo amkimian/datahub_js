@@ -98,7 +98,7 @@ var release = "release_example"; // String | The name of the release
 
 var element = "element_example"; // String | The element name
 
-var data = new MimirDataHubApi.GeneralText(); // GeneralText | The CSV data to write
+var data = "data_example"; // String | The CSV data to write
 
 
 var callback = function(error, data, response) {
@@ -120,7 +120,7 @@ Name | Type | Description  | Notes
  **dataset** | **String**| The name of the data set | 
  **release** | **String**| The name of the release | 
  **element** | **String**| The element name | 
- **data** | [**GeneralText**](GeneralText.md)| The CSV data to write | 
+ **data** | **String**| The CSV data to write | 
 
 ### Return type
 

@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/GeneralText'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/GeneralText'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.DataApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.GeneralText);
+    root.MimirDataHubApi.DataApi = factory(root.MimirDataHubApi.ApiClient);
   }
-}(this, function(ApiClient, GeneralText) {
+}(this, function(ApiClient) {
   'use strict';
 
   /**
@@ -151,7 +151,7 @@
      * @param {String} dataset The name of the data set
      * @param {String} release The name of the release
      * @param {String} element The element name
-     * @param {module:model/GeneralText} data The CSV data to write
+     * @param {String} data The CSV data to write
      * @param {module:api/DataApi~putCSVDataCallback} callback The callback function, accepting three arguments: error, data, response
      */
     this.putCSVData = function(apiKey, owner, dataset, release, element, data, callback) {

@@ -261,7 +261,7 @@ No authorization required
 
 <a name="putUser"></a>
 # **putUser**
-> User putUser(userId, body, opts)
+> putUser(userId, body, opts)
 
 
 
@@ -283,7 +283,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 };
 apiInstance.putUser(userId, body, opts, callback);
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+null (empty response body)
 
 ### Authorization
 

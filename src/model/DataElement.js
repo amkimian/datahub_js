@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/DataElementCsvInfo'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('./DataElementCsvInfo'));
   } else {
     // Browser globals (root is window)
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.DataElement = factory(root.MimirDataHubApi.ApiClient);
+    root.MimirDataHubApi.DataElement = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataElementCsvInfo);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, DataElementCsvInfo) {
   'use strict';
 
 
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -120,6 +121,9 @@
       }
       if (data.hasOwnProperty('keyField')) {
         obj['keyField'] = ApiClient.convertToType(data['keyField'], 'String');
+      }
+      if (data.hasOwnProperty('csvInfo')) {
+        obj['csvInfo'] = DataElementCsvInfo.constructFromObject(data['csvInfo']);
       }
     }
     return obj;
@@ -190,6 +194,10 @@
    * @member {String} keyField
    */
   exports.prototype['keyField'] = undefined;
+  /**
+   * @member {module:model/DataElementCsvInfo} csvInfo
+   */
+  exports.prototype['csvInfo'] = undefined;
 
 
 

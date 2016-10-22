@@ -326,7 +326,7 @@
      * Callback function to receive the result of the putUser operation.
      * @callback module:api/UserApi~putUserCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -336,7 +336,6 @@
      * @param {Object} opts Optional parameters
      * @param {String} opts.apiKey The user api key
      * @param {module:api/UserApi~putUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
      */
     this.putUser = function(userId, body, opts, callback) {
       opts = opts || {};
@@ -367,7 +366,7 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = User;
+      var returnType = null;
 
       return this.apiClient.callApi(
         '/admin/user/{userId}', 'PUT',

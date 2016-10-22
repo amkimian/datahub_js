@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataElement', 'model/BlockId'], factory);
+    define(['ApiClient', 'model/DataElement'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/DataElement'), require('../model/BlockId'));
+    module.exports = factory(require('../ApiClient'), require('../model/DataElement'));
   } else {
     // Browser globals (root is window)
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.ElementApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataElement, root.MimirDataHubApi.BlockId);
+    root.MimirDataHubApi.ElementApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataElement);
   }
-}(this, function(ApiClient, DataElement, BlockId) {
+}(this, function(ApiClient, DataElement) {
   'use strict';
 
   /**
@@ -196,77 +196,6 @@
     }
 
     /**
-     * Callback function to receive the result of the elementsUserIdDataSetReleaseElementPost operation.
-     * @callback module:api/ElementApi~elementsUserIdDataSetReleaseElementPostCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/BlockId} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Add a data block to an element
-     * Create a new block aganst an element
-     * @param {String} userId The id of the user that this dataset is associated with
-     * @param {String} dataSet The id of the data set
-     * @param {String} release The id of the release
-     * @param {String} element The id of the element
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.apiKey The user api key
-     * @param {module:api/ElementApi~elementsUserIdDataSetReleaseElementPostCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/BlockId}
-     */
-    this.elementsUserIdDataSetReleaseElementPost = function(userId, dataSet, release, element, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling elementsUserIdDataSetReleaseElementPost";
-      }
-
-      // verify the required parameter 'dataSet' is set
-      if (dataSet == undefined || dataSet == null) {
-        throw "Missing the required parameter 'dataSet' when calling elementsUserIdDataSetReleaseElementPost";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling elementsUserIdDataSetReleaseElementPost";
-      }
-
-      // verify the required parameter 'element' is set
-      if (element == undefined || element == null) {
-        throw "Missing the required parameter 'element' when calling elementsUserIdDataSetReleaseElementPost";
-      }
-
-
-      var pathParams = {
-        'userId': userId,
-        'dataSet': dataSet,
-        'release': release,
-        'element': element
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'api_key': opts['apiKey']
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = BlockId;
-
-      return this.apiClient.callApi(
-        '/elements/{userId}/{dataSet}/{release}/{element}', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the getElement operation.
      * @callback module:api/ElementApi~getElementCallback
      * @param {String} error Error message, if any.
@@ -332,6 +261,83 @@
 
       return this.apiClient.callApi(
         '/elements/{userId}/{dataSet}/{release}/{element}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateElement operation.
+     * @callback module:api/ElementApi~updateElementCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/DataElement} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Updates an element
+     * Updates an element
+     * @param {String} userId The id of the user that this dataset is associated with
+     * @param {String} dataSet The id of the data set
+     * @param {String} release The id of the release
+     * @param {String} element The id of the element
+     * @param {module:model/DataElement} body The updated element
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.apiKey The user api key
+     * @param {module:api/ElementApi~updateElementCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/DataElement}
+     */
+    this.updateElement = function(userId, dataSet, release, element, body, opts, callback) {
+      opts = opts || {};
+      var postBody = body;
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling updateElement";
+      }
+
+      // verify the required parameter 'dataSet' is set
+      if (dataSet == undefined || dataSet == null) {
+        throw "Missing the required parameter 'dataSet' when calling updateElement";
+      }
+
+      // verify the required parameter 'release' is set
+      if (release == undefined || release == null) {
+        throw "Missing the required parameter 'release' when calling updateElement";
+      }
+
+      // verify the required parameter 'element' is set
+      if (element == undefined || element == null) {
+        throw "Missing the required parameter 'element' when calling updateElement";
+      }
+
+      // verify the required parameter 'body' is set
+      if (body == undefined || body == null) {
+        throw "Missing the required parameter 'body' when calling updateElement";
+      }
+
+
+      var pathParams = {
+        'userId': userId,
+        'dataSet': dataSet,
+        'release': release,
+        'element': element
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': opts['apiKey']
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = DataElement;
+
+      return this.apiClient.callApi(
+        '/elements/{userId}/{dataSet}/{release}/{element}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

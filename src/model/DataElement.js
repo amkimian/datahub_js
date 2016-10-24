@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataElementCsvInfo'], factory);
+    define(['ApiClient', 'model/DataElementCsvInfo', 'model/DataElementDisplayInfo'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./DataElementCsvInfo'));
+    module.exports = factory(require('../ApiClient'), require('./DataElementCsvInfo'), require('./DataElementDisplayInfo'));
   } else {
     // Browser globals (root is window)
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.DataElement = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataElementCsvInfo);
+    root.MimirDataHubApi.DataElement = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataElementCsvInfo, root.MimirDataHubApi.DataElementDisplayInfo);
   }
-}(this, function(ApiClient, DataElementCsvInfo) {
+}(this, function(ApiClient, DataElementCsvInfo, DataElementDisplayInfo) {
   'use strict';
 
 
@@ -55,6 +55,7 @@
    */
   var exports = function() {
     var _this = this;
+
 
 
 
@@ -121,6 +122,9 @@
       }
       if (data.hasOwnProperty('keyField')) {
         obj['keyField'] = ApiClient.convertToType(data['keyField'], 'String');
+      }
+      if (data.hasOwnProperty('displayInfo')) {
+        obj['displayInfo'] = DataElementDisplayInfo.constructFromObject(data['displayInfo']);
       }
       if (data.hasOwnProperty('csvInfo')) {
         obj['csvInfo'] = DataElementCsvInfo.constructFromObject(data['csvInfo']);
@@ -194,6 +198,10 @@
    * @member {String} keyField
    */
   exports.prototype['keyField'] = undefined;
+  /**
+   * @member {module:model/DataElementDisplayInfo} displayInfo
+   */
+  exports.prototype['displayInfo'] = undefined;
   /**
    * @member {module:model/DataElementCsvInfo} csvInfo
    */

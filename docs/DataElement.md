@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **content** | **String** | If the type is text, this is the text | [optional] 
 **blockId** | **Integer** | If the type is csv, this is the next block when added | [optional] 
 **keyField** | **String** | If the type is keyed, this is the key field that represents the unique key | [optional] 
+**displayInfo** | [**DataElementDisplayInfo**](DataElementDisplayInfo.md) |  | [optional] 
 **csvInfo** | [**DataElementCsvInfo**](DataElementCsvInfo.md) |  | [optional] 
 
 

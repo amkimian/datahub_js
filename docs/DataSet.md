@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **open** | **Boolean** |  | [optional] 
 **relatedDataSets** | **[String]** |  | [optional] 
 **sampleRelease** | **String** | The id of a release that contains a sample of this data set | [optional] 
+**sampleElement** | **String** | The id of an element in that release that contains the data for a sample | [optional] 
 
 

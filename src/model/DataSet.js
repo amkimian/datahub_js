@@ -62,6 +62,7 @@
 
 
 
+
   };
 
   /**
@@ -93,6 +94,9 @@
       if (data.hasOwnProperty('sampleRelease')) {
         obj['sampleRelease'] = ApiClient.convertToType(data['sampleRelease'], 'String');
       }
+      if (data.hasOwnProperty('sampleElement')) {
+        obj['sampleElement'] = ApiClient.convertToType(data['sampleElement'], 'String');
+      }
     }
     return obj;
   }
@@ -123,6 +127,11 @@
    * @member {String} sampleRelease
    */
   exports.prototype['sampleRelease'] = undefined;
+  /**
+   * The id of an element in that release that contains the data for a sample
+   * @member {String} sampleElement
+   */
+  exports.prototype['sampleElement'] = undefined;
 
 
 

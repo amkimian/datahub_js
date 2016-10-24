@@ -380,29 +380,44 @@
     /**
      * Update an existing data set.
      * 
-     * @param {String} userId The id of the user that this dataset is associated with
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.apiKey The user api key
-     * @param {module:model/DataSet} opts.body DataSet object that defines the element
+     * @param {String} apiKey The user api key
+     * @param {String} owner The id of the user that this dataset is associated with
+     * @param {String} dataset The data set id to update
+     * @param {module:model/DataSet} body DataSet object that defines the element
      * @param {module:api/DatasetApi~updateDataSetCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.updateDataSet = function(userId, opts, callback) {
-      opts = opts || {};
-      var postBody = opts['body'];
+    this.updateDataSet = function(apiKey, owner, dataset, body, callback) {
+      var postBody = body;
 
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateDataSet";
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling updateDataSet";
+      }
+
+      // verify the required parameter 'owner' is set
+      if (owner == undefined || owner == null) {
+        throw "Missing the required parameter 'owner' when calling updateDataSet";
+      }
+
+      // verify the required parameter 'dataset' is set
+      if (dataset == undefined || dataset == null) {
+        throw "Missing the required parameter 'dataset' when calling updateDataSet";
+      }
+
+      // verify the required parameter 'body' is set
+      if (body == undefined || body == null) {
+        throw "Missing the required parameter 'body' when calling updateDataSet";
       }
 
 
       var pathParams = {
-        'userId': userId
+        'owner': owner,
+        'dataset': dataset
       };
       var queryParams = {
       };
       var headerParams = {
-        'api_key': opts['apiKey']
+        'api_key': apiKey
       };
       var formParams = {
       };
@@ -413,7 +428,7 @@
       var returnType = null;
 
       return this.apiClient.callApi(
-        '/datasets/{userId}', 'PUT',
+        '/datasets/{userId}/{dataSet}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

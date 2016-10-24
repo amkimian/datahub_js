@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**findUserDataSets**](DatasetApi.md#findUserDataSets) | **GET** /user/getDataSets | 
 [**getDataSetById**](DatasetApi.md#getDataSetById) | **GET** /datasets/{userId}/{dataSet} | Find a dataset for a user and a dataset
 [**getMyDataSets**](DatasetApi.md#getMyDataSets) | **GET** /marketplace/getMyDataSets | 
-[**updateDataSet**](DatasetApi.md#updateDataSet) | **PUT** /datasets/{userId} | Update an existing data set.
+[**updateDataSet**](DatasetApi.md#updateDataSet) | **PUT** /datasets/{userId}/{dataSet} | Update an existing data set.
 
 
 <a name="addDataSet"></a>
@@ -323,7 +323,7 @@ No authorization required
 
 <a name="updateDataSet"></a>
 # **updateDataSet**
-> updateDataSet(userId, opts)
+> updateDataSet(apiKey, owner, dataset, body)
 
 Update an existing data set.
 
@@ -335,12 +335,14 @@ var MimirDataHubApi = require('mimir_data_hub_api');
 
 var apiInstance = new MimirDataHubApi.DatasetApi();
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var apiKey = "apiKey_example"; // String | The user api key
 
-var opts = { 
-  'apiKey': "apiKey_example", // String | The user api key
-  'body': new MimirDataHubApi.DataSet() // DataSet | DataSet object that defines the element
-};
+var owner = "owner_example"; // String | The id of the user that this dataset is associated with
+
+var dataset = "dataset_example"; // String | The data set id to update
+
+var body = new MimirDataHubApi.DataSet(); // DataSet | DataSet object that defines the element
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -349,16 +351,17 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.updateDataSet(userId, opts, callback);
+apiInstance.updateDataSet(apiKey, owner, dataset, body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **apiKey** | **String**| The user api key | [optional] 
- **body** | [**DataSet**](DataSet.md)| DataSet object that defines the element | [optional] 
+ **apiKey** | **String**| The user api key | 
+ **owner** | **String**| The id of the user that this dataset is associated with | 
+ **dataset** | **String**| The data set id to update | 
+ **body** | [**DataSet**](DataSet.md)| DataSet object that defines the element | 
 
 ### Return type
 

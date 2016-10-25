@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**findDataSetsByTags**](DatasetApi.md#findDataSetsByTags) | **GET** /marketplace/getByTag | 
 [**findUserDataSets**](DatasetApi.md#findUserDataSets) | **GET** /user/getDataSets | 
 [**getDataSetById**](DatasetApi.md#getDataSetById) | **GET** /datasets/{userId}/{dataSet} | Find a dataset for a user and a dataset
+[**getFront**](DatasetApi.md#getFront) | **GET** /marketplace/getFront | 
 [**getMyDataSets**](DatasetApi.md#getMyDataSets) | **GET** /marketplace/getMyDataSets | 
 [**updateDataSet**](DatasetApi.md#updateDataSet) | **PUT** /datasets/{userId}/{dataSet} | Update an existing data set.
 
@@ -263,6 +264,53 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataSet**](DataSet.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getFront"></a>
+# **getFront**
+> [DataSet] getFront(opts)
+
+
+
+### Example
+```javascript
+var MimirDataHubApi = require('mimir_data_hub_api');
+
+var apiInstance = new MimirDataHubApi.DatasetApi();
+
+var opts = { 
+  'page': 56, // Integer | Page to return (defaults to zero)
+  'limit': 56 // Integer | The maximum amount of records to be returned (the size of the page)
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getFront(opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Page to return (defaults to zero) | [optional] 
+ **limit** | **Integer**| The maximum amount of records to be returned (the size of the page) | [optional] 
+
+### Return type
+
+[**[DataSet]**](DataSet.md)
 
 ### Authorization
 

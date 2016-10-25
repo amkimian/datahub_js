@@ -322,6 +322,49 @@
     }
 
     /**
+     * Callback function to receive the result of the getFront operation.
+     * @callback module:api/DatasetApi~getFrontCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/DataSet>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.page Page to return (defaults to zero)
+     * @param {Integer} opts.limit The maximum amount of records to be returned (the size of the page)
+     * @param {module:api/DatasetApi~getFrontCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/DataSet>}
+     */
+    this.getFront = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'page': opts['page'],
+        'limit': opts['limit']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [DataSet];
+
+      return this.apiClient.callApi(
+        '/marketplace/getFront', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getMyDataSets operation.
      * @callback module:api/DatasetApi~getMyDataSetsCallback
      * @param {String} error Error message, if any.

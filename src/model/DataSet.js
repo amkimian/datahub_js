@@ -63,6 +63,7 @@
 
 
 
+
   };
 
   /**
@@ -96,6 +97,9 @@
       }
       if (data.hasOwnProperty('sampleElement')) {
         obj['sampleElement'] = ApiClient.convertToType(data['sampleElement'], 'String');
+      }
+      if (data.hasOwnProperty('tags')) {
+        obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
       }
     }
     return obj;
@@ -132,6 +136,11 @@
    * @member {String} sampleElement
    */
   exports.prototype['sampleElement'] = undefined;
+  /**
+   * Searchable terms for this data set
+   * @member {Array.<String>} tags
+   */
+  exports.prototype['tags'] = undefined;
 
 
 

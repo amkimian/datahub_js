@@ -71,6 +71,7 @@
 
 
 
+
   };
 
   /**
@@ -122,6 +123,9 @@
       }
       if (data.hasOwnProperty('keyField')) {
         obj['keyField'] = ApiClient.convertToType(data['keyField'], 'String');
+      }
+      if (data.hasOwnProperty('published')) {
+        obj['published'] = ApiClient.convertToType(data['published'], 'Boolean');
       }
       if (data.hasOwnProperty('displayInfo')) {
         obj['displayInfo'] = DataElementDisplayInfo.constructFromObject(data['displayInfo']);
@@ -198,6 +202,11 @@
    * @member {String} keyField
    */
   exports.prototype['keyField'] = undefined;
+  /**
+   * Whether this element has been published (by publishing its release)
+   * @member {Boolean} published
+   */
+  exports.prototype['published'] = undefined;
   /**
    * @member {module:model/DataElementDisplayInfo} displayInfo
    */

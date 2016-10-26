@@ -244,6 +244,73 @@
         authNames, contentTypes, accepts, returnType, callback
       );
     }
+
+    /**
+     * Callback function to receive the result of the publishRelease operation.
+     * @callback module:api/ReleaseApi~publishReleaseCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/DataSetRelease} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Publish a release
+     * This marks a release as published 
+     * @param {String} apiKey The user api key
+     * @param {String} userId The id of the user that this dataset is associated with
+     * @param {String} dataSet The id of the data set
+     * @param {String} release The id of the release
+     * @param {module:api/ReleaseApi~publishReleaseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/DataSetRelease}
+     */
+    this.publishRelease = function(apiKey, userId, dataSet, release, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling publishRelease";
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling publishRelease";
+      }
+
+      // verify the required parameter 'dataSet' is set
+      if (dataSet == undefined || dataSet == null) {
+        throw "Missing the required parameter 'dataSet' when calling publishRelease";
+      }
+
+      // verify the required parameter 'release' is set
+      if (release == undefined || release == null) {
+        throw "Missing the required parameter 'release' when calling publishRelease";
+      }
+
+
+      var pathParams = {
+        'userId': userId,
+        'dataSet': dataSet,
+        'release': release
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = DataSetRelease;
+
+      return this.apiClient.callApi(
+        '/release/publish/{userId}/{dataSet}/{release}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
   };
 
   return exports;

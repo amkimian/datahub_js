@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addRelease**](ReleaseApi.md#addRelease) | **POST** /releases/{userId}/{dataSet} | Create a new open release
 [**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /releases/{userId}/{dataSet}/{release} | Get release information
 [**getRelease**](ReleaseApi.md#getRelease) | **GET** /releases/{userId}/{dataSet}/{release} | Get release information
+[**publishRelease**](ReleaseApi.md#publishRelease) | **GET** /release/publish/{userId}/{dataSet}/{release} | Publish a release
 
 
 <a name="addRelease"></a>
@@ -163,6 +164,61 @@ Name | Type | Description  | Notes
  **dataSet** | **String**| The id of the data set | 
  **release** | **String**| The id of the release | 
  **apiKey** | **String**| The user api key | [optional] 
+
+### Return type
+
+[**DataSetRelease**](DataSetRelease.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="publishRelease"></a>
+# **publishRelease**
+> DataSetRelease publishRelease(apiKey, userId, dataSet, release)
+
+Publish a release
+
+This marks a release as published 
+
+### Example
+```javascript
+var MimirDataHubApi = require('mimir_data_hub_api');
+
+var apiInstance = new MimirDataHubApi.ReleaseApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+
+var dataSet = "dataSet_example"; // String | The id of the data set
+
+var release = "release_example"; // String | The id of the release
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.publishRelease(apiKey, userId, dataSet, release, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **userId** | **String**| The id of the user that this dataset is associated with | 
+ **dataSet** | **String**| The id of the data set | 
+ **release** | **String**| The id of the release | 
 
 ### Return type
 

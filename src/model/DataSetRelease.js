@@ -83,8 +83,8 @@
       if (data.hasOwnProperty('owner')) {
         obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
       }
-      if (data.hasOwnProperty('state')) {
-        obj['state'] = ApiClient.convertToType(data['state'], 'String');
+      if (data.hasOwnProperty('published')) {
+        obj['published'] = ApiClient.convertToType(data['published'], 'Boolean');
       }
       if (data.hasOwnProperty('description')) {
         obj['description'] = ApiClient.convertToType(data['description'], 'String');
@@ -109,10 +109,10 @@
    */
   exports.prototype['owner'] = undefined;
   /**
-   * Is this release published (and therefore immutable)
-   * @member {String} state
+   * Whether this release is locked down and published (you cannot unpublish ideally)
+   * @member {Boolean} published
    */
-  exports.prototype['state'] = undefined;
+  exports.prototype['published'] = undefined;
   /**
    * Some commentary on this release
    * @member {String} description

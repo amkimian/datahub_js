@@ -159,6 +159,51 @@
         authNames, contentTypes, accepts, returnType, callback
       );
     }
+
+    /**
+     * Callback function to receive the result of the processCart operation.
+     * @callback module:api/InvoiceApi~processCartCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Invoice} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Process a successful payment
+     * @param {String} apiKey The user api key
+     * @param {module:api/InvoiceApi~processCartCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Invoice}
+     */
+    this.processCart = function(apiKey, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling processCart";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = [];
+      var returnType = Invoice;
+
+      return this.apiClient.callApi(
+        '/invoice/processCurrent', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
   };
 
   return exports;

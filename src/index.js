@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataElement', 'model/DataElementCsvInfo', 'model/DataElementDisplayInfo', 'model/DataSet', 'model/DataSetRelease', 'model/DataSetView', 'model/GeneralError', 'model/GeneralText', 'model/Invoice', 'model/InvoiceEntry', 'model/PriceInfo', 'model/Subscription', 'model/User', 'model/UserProfile', 'model/UserTokens', 'api/AdminApi', 'api/DataApi', 'api/DatasetApi', 'api/DefaultApi', 'api/ElementApi', 'api/MarketplaceApi', 'api/ReleaseApi', 'api/UserApi', 'api/ViewApi'], factory);
+    define(['ApiClient', 'model/DataElement', 'model/DataElementCsvInfo', 'model/DataElementDisplayInfo', 'model/DataSet', 'model/DataSetRelease', 'model/DataSetView', 'model/GeneralError', 'model/GeneralText', 'model/Invoice', 'model/InvoiceEntry', 'model/PriceInfo', 'model/Subscription', 'model/User', 'model/UserProfile', 'model/UserTokens', 'api/AdminApi', 'api/DataApi', 'api/DatasetApi', 'api/ElementApi', 'api/InvoiceApi', 'api/MarketplaceApi', 'api/ReleaseApi', 'api/UserApi', 'api/ViewApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/DataElement'), require('./model/DataElementCsvInfo'), require('./model/DataElementDisplayInfo'), require('./model/DataSet'), require('./model/DataSetRelease'), require('./model/DataSetView'), require('./model/GeneralError'), require('./model/GeneralText'), require('./model/Invoice'), require('./model/InvoiceEntry'), require('./model/PriceInfo'), require('./model/Subscription'), require('./model/User'), require('./model/UserProfile'), require('./model/UserTokens'), require('./api/AdminApi'), require('./api/DataApi'), require('./api/DatasetApi'), require('./api/DefaultApi'), require('./api/ElementApi'), require('./api/MarketplaceApi'), require('./api/ReleaseApi'), require('./api/UserApi'), require('./api/ViewApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/DataElement'), require('./model/DataElementCsvInfo'), require('./model/DataElementDisplayInfo'), require('./model/DataSet'), require('./model/DataSetRelease'), require('./model/DataSetView'), require('./model/GeneralError'), require('./model/GeneralText'), require('./model/Invoice'), require('./model/InvoiceEntry'), require('./model/PriceInfo'), require('./model/Subscription'), require('./model/User'), require('./model/UserProfile'), require('./model/UserTokens'), require('./api/AdminApi'), require('./api/DataApi'), require('./api/DatasetApi'), require('./api/ElementApi'), require('./api/InvoiceApi'), require('./api/MarketplaceApi'), require('./api/ReleaseApi'), require('./api/UserApi'), require('./api/ViewApi'));
   }
-}(function(ApiClient, DataElement, DataElementCsvInfo, DataElementDisplayInfo, DataSet, DataSetRelease, DataSetView, GeneralError, GeneralText, Invoice, InvoiceEntry, PriceInfo, Subscription, User, UserProfile, UserTokens, AdminApi, DataApi, DatasetApi, DefaultApi, ElementApi, MarketplaceApi, ReleaseApi, UserApi, ViewApi) {
+}(function(ApiClient, DataElement, DataElementCsvInfo, DataElementDisplayInfo, DataSet, DataSetRelease, DataSetView, GeneralError, GeneralText, Invoice, InvoiceEntry, PriceInfo, Subscription, User, UserProfile, UserTokens, AdminApi, DataApi, DatasetApi, ElementApi, InvoiceApi, MarketplaceApi, ReleaseApi, UserApi, ViewApi) {
   'use strict';
 
   /**
@@ -161,15 +161,15 @@
      */
     DatasetApi: DatasetApi,
     /**
-     * The DefaultApi service constructor.
-     * @property {module:api/DefaultApi}
-     */
-    DefaultApi: DefaultApi,
-    /**
      * The ElementApi service constructor.
      * @property {module:api/ElementApi}
      */
     ElementApi: ElementApi,
+    /**
+     * The InvoiceApi service constructor.
+     * @property {module:api/InvoiceApi}
+     */
+    InvoiceApi: InvoiceApi,
     /**
      * The MarketplaceApi service constructor.
      * @property {module:api/MarketplaceApi}

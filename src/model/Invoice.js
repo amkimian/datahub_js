@@ -66,6 +66,7 @@
 
 
 
+
   };
 
   /**
@@ -102,6 +103,9 @@
       }
       if (data.hasOwnProperty('entries')) {
         obj['entries'] = ApiClient.convertToType(data['entries'], [InvoiceEntry]);
+      }
+      if (data.hasOwnProperty('subtotal')) {
+        obj['subtotal'] = ApiClient.convertToType(data['subtotal'], 'Integer');
       }
       if (data.hasOwnProperty('tax')) {
         obj['tax'] = ApiClient.convertToType(data['tax'], 'Integer');
@@ -152,6 +156,11 @@
    * @member {Array.<module:model/InvoiceEntry>} entries
    */
   exports.prototype['entries'] = undefined;
+  /**
+   * Subtotal before tax in cents
+   * @member {Integer} subtotal
+   */
+  exports.prototype['subtotal'] = undefined;
   /**
    * Any tax due on this invoice in cents
    * @member {Integer} tax

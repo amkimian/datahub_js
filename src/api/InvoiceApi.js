@@ -114,6 +114,51 @@
         authNames, contentTypes, accepts, returnType, callback
       );
     }
+
+    /**
+     * Callback function to receive the result of the getCart operation.
+     * @callback module:api/InvoiceApi~getCartCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Invoice} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * retrieve the current open oneoff invoice
+     * @param {String} apiKey The user api key
+     * @param {module:api/InvoiceApi~getCartCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Invoice}
+     */
+    this.getCart = function(apiKey, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getCart";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = [];
+      var returnType = Invoice;
+
+      return this.apiClient.callApi(
+        '/invoice/retrieveCurrent', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
   };
 
   return exports;

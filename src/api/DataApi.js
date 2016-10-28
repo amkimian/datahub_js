@@ -229,13 +229,11 @@
      * @param {String} dataset The name of the data set
      * @param {String} release The name of the release
      * @param {String} element The element name
-     * @param {Object} opts Optional parameters
-     * @param {module:model/KVBody} opts.fields 
+     * @param {module:model/KVBody} fields 
      * @param {module:api/DataApi~putKVDataCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.putKVData = function(apiKey, owner, dataset, release, element, opts, callback) {
-      opts = opts || {};
-      var postBody = opts['fields'];
+    this.putKVData = function(apiKey, owner, dataset, release, element, fields, callback) {
+      var postBody = fields;
 
       // verify the required parameter 'apiKey' is set
       if (apiKey == undefined || apiKey == null) {
@@ -260,6 +258,11 @@
       // verify the required parameter 'element' is set
       if (element == undefined || element == null) {
         throw "Missing the required parameter 'element' when calling putKVData";
+      }
+
+      // verify the required parameter 'fields' is set
+      if (fields == undefined || fields == null) {
+        throw "Missing the required parameter 'fields' when calling putKVData";
       }
 
 

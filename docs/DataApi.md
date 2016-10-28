@@ -138,7 +138,7 @@ No authorization required
 
 <a name="putKVData"></a>
 # **putKVData**
-> putKVData(apiKey, owner, dataset, release, element, opts)
+> putKVData(apiKey, owner, dataset, release, element, fields)
 
 
 
@@ -160,9 +160,8 @@ var release = "release_example"; // String | The name of the release
 
 var element = "element_example"; // String | The element name
 
-var opts = { 
-  'fields': new MimirDataHubApi.KVBody() // KVBody | 
-};
+var fields = new MimirDataHubApi.KVBody(); // KVBody | 
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -171,7 +170,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.putKVData(apiKey, owner, dataset, release, element, opts, callback);
+apiInstance.putKVData(apiKey, owner, dataset, release, element, fields, callback);
 ```
 
 ### Parameters
@@ -183,7 +182,7 @@ Name | Type | Description  | Notes
  **dataset** | **String**| The name of the data set | 
  **release** | **String**| The name of the release | 
  **element** | **String**| The element name | 
- **fields** | [**KVBody**](KVBody.md)|  | [optional] 
+ **fields** | [**KVBody**](KVBody.md)|  | 
 
 ### Return type
 

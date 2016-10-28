@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**getCSVData**](DataApi.md#getCSVData) | **GET** /data/{owner}/{dataset}/{release}/{element}/getCSVBlock | 
 [**putCSVData**](DataApi.md#putCSVData) | **POST** /data/{owner}/{dataset}/{release}/{element}/csv | 
+[**putKVData**](DataApi.md#putKVData) | **POST** /data/{owner}/{dataset}/{release}/{element}/kv | 
 
 
 <a name="getCSVData"></a>
@@ -121,6 +122,68 @@ Name | Type | Description  | Notes
  **release** | **String**| The name of the release | 
  **element** | **String**| The element name | 
  **data** | **String**| The CSV data to write | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: text/plain
+ - **Accept**: Not defined
+
+<a name="putKVData"></a>
+# **putKVData**
+> putKVData(apiKey, owner, dataset, release, element, opts)
+
+
+
+Writes a block of key/value style data
+
+### Example
+```javascript
+var MimirDataHubApi = require('mimir_data_hub_api');
+
+var apiInstance = new MimirDataHubApi.DataApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var owner = "owner_example"; // String | The owner of the data element
+
+var dataset = "dataset_example"; // String | The name of the data set
+
+var release = "release_example"; // String | The name of the release
+
+var element = "element_example"; // String | The element name
+
+var opts = { 
+  'fields': new MimirDataHubApi.KVBody() // KVBody | 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+apiInstance.putKVData(apiKey, owner, dataset, release, element, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **owner** | **String**| The owner of the data element | 
+ **dataset** | **String**| The name of the data set | 
+ **release** | **String**| The name of the release | 
+ **element** | **String**| The element name | 
+ **fields** | [**KVBody**](KVBody.md)|  | [optional] 
 
 ### Return type
 

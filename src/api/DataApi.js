@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+    define(['ApiClient', 'model/KVBody'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+    module.exports = factory(require('../ApiClient'), require('../model/KVBody'));
   } else {
     // Browser globals (root is window)
     if (!root.MimirDataHubApi) {
       root.MimirDataHubApi = {};
     }
-    root.MimirDataHubApi.DataApi = factory(root.MimirDataHubApi.ApiClient);
+    root.MimirDataHubApi.DataApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.KVBody);
   }
-}(this, function(ApiClient) {
+}(this, function(ApiClient, KVBody) {
   'use strict';
 
   /**
@@ -209,6 +209,81 @@
 
       return this.apiClient.callApi(
         '/data/{owner}/{dataset}/{release}/{element}/csv', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the putKVData operation.
+     * @callback module:api/DataApi~putKVDataCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Writes a block of key/value style data
+     * @param {String} apiKey The user api key
+     * @param {String} owner The owner of the data element
+     * @param {String} dataset The name of the data set
+     * @param {String} release The name of the release
+     * @param {String} element The element name
+     * @param {Object} opts Optional parameters
+     * @param {module:model/KVBody} opts.fields 
+     * @param {module:api/DataApi~putKVDataCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    this.putKVData = function(apiKey, owner, dataset, release, element, opts, callback) {
+      opts = opts || {};
+      var postBody = opts['fields'];
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling putKVData";
+      }
+
+      // verify the required parameter 'owner' is set
+      if (owner == undefined || owner == null) {
+        throw "Missing the required parameter 'owner' when calling putKVData";
+      }
+
+      // verify the required parameter 'dataset' is set
+      if (dataset == undefined || dataset == null) {
+        throw "Missing the required parameter 'dataset' when calling putKVData";
+      }
+
+      // verify the required parameter 'release' is set
+      if (release == undefined || release == null) {
+        throw "Missing the required parameter 'release' when calling putKVData";
+      }
+
+      // verify the required parameter 'element' is set
+      if (element == undefined || element == null) {
+        throw "Missing the required parameter 'element' when calling putKVData";
+      }
+
+
+      var pathParams = {
+        'owner': owner,
+        'dataset': dataset,
+        'release': release,
+        'element': element
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['text/plain'];
+      var accepts = [];
+      var returnType = null;
+
+      return this.apiClient.callApi(
+        '/data/{owner}/{dataset}/{release}/{element}/kv', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

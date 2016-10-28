@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addSubscriptionToInvoice**](InvoiceApi.md#addSubscriptionToInvoice) | **GET** /invoice/addSubscription/{owner}/{dataset} | 
 [**getCart**](InvoiceApi.md#getCart) | **GET** /invoice/retrieveCurrent | 
+[**getInvoices**](InvoiceApi.md#getInvoices) | **GET** /invoice/retrieve | 
 [**processCart**](InvoiceApi.md#processCart) | **GET** /invoice/processCurrent | 
 
 
@@ -97,6 +98,56 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Invoice**](Invoice.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+<a name="getInvoices"></a>
+# **getInvoices**
+> [Invoice] getInvoices(apiKey, opts)
+
+
+
+retrieve a page of invoices
+
+### Example
+```javascript
+var MimirDataHubApi = require('mimir_data_hub_api');
+
+var apiInstance = new MimirDataHubApi.InvoiceApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var opts = { 
+  'page': 56 // Integer | The page to show
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getInvoices(apiKey, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **page** | **Integer**| The page to show | [optional] 
+
+### Return type
+
+[**[Invoice]**](Invoice.md)
 
 ### Authorization
 

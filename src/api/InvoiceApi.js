@@ -161,6 +161,55 @@
     }
 
     /**
+     * Callback function to receive the result of the getInvoices operation.
+     * @callback module:api/InvoiceApi~getInvoicesCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Invoice>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * retrieve a page of invoices
+     * @param {String} apiKey The user api key
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.page The page to show
+     * @param {module:api/InvoiceApi~getInvoicesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Invoice>}
+     */
+    this.getInvoices = function(apiKey, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getInvoices";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'page': opts['page']
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = [];
+      var returnType = [Invoice];
+
+      return this.apiClient.callApi(
+        '/invoice/retrieve', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the processCart operation.
      * @callback module:api/InvoiceApi~processCartCallback
      * @param {String} error Error message, if any.

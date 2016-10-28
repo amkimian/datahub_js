@@ -194,6 +194,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: text/plain
+ - **Content-Type**: Not defined
  - **Accept**: Not defined
 

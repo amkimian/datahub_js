@@ -281,7 +281,7 @@
       };
 
       var authNames = [];
-      var contentTypes = ['text/plain'];
+      var contentTypes = [];
       var accepts = [];
       var returnType = null;
 

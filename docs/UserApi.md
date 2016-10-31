@@ -20,15 +20,15 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi()
+var apiInstance = new MimirDataHubApi.UserApi();
 
-var userId = "userId_example"; // {String} 
+var userId = "userId_example"; // String | 
 
 var opts = { 
-  'adminKey': "adminKey_example", // {String} The admin user api key
-  'apiKey': "apiKey_example" // {String} The user api key
+  'adminKey': "adminKey_example", // String | The admin user api key
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -38,7 +38,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.deleteUser(userId, opts, callback);
+apiInstance.deleteUser(userId, opts, callback);
 ```
 
 ### Parameters
@@ -57,7 +57,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -70,15 +70,15 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi()
+var apiInstance = new MimirDataHubApi.UserApi();
 
-var userId = "userId_example"; // {String} 
+var userId = "userId_example"; // String | 
 
 var opts = { 
-  'adminKey': "adminKey_example", // {String} The admin user api key
-  'apiKey': "apiKey_example" // {String} The user api key
+  'adminKey': "adminKey_example", // String | The admin user api key
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -88,7 +88,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getUser(userId, opts, callback);
+apiInstance.getUser(userId, opts, callback);
 ```
 
 ### Parameters
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -120,13 +120,13 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi()
+var apiInstance = new MimirDataHubApi.UserApi();
 
-var adminKey = "adminKey_example"; // {String} The admin user api key
+var adminKey = "adminKey_example"; // String | The admin user api key
 
-var email = "email_example"; // {String} The email to search for
+var email = "email_example"; // String | The email to search for
 
 
 var callback = function(error, data, response) {
@@ -136,7 +136,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getUserByEmail(adminKey, email, callback);
+apiInstance.getUserByEmail(adminKey, email, callback);
 ```
 
 ### Parameters
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -167,15 +167,15 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi()
+var apiInstance = new MimirDataHubApi.UserApi();
 
-var adminKey = "adminKey_example"; // {String} The admin user api key
+var adminKey = "adminKey_example"; // String | The admin user api key
 
-var tagName = "tagName_example"; // {String} The tag field to search (e.g. github)
+var tagName = "tagName_example"; // String | The tag field to search (e.g. github)
 
-var tagValue = "tagValue_example"; // {String} The tag value to search
+var tagValue = "tagValue_example"; // String | The tag value to search
 
 
 var callback = function(error, data, response) {
@@ -185,7 +185,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getUserByTag(adminKey, tagName, tagValue, callback);
+apiInstance.getUserByTag(adminKey, tagName, tagValue, callback);
 ```
 
 ### Parameters
@@ -204,7 +204,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -217,15 +217,15 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi()
+var apiInstance = new MimirDataHubApi.UserApi();
 
-var adminKey = "adminKey_example"; // {String} The admin user api key
+var adminKey = "adminKey_example"; // String | The admin user api key
 
-var token = "token_example"; // {String} The token passed by an email
+var token = "token_example"; // String | The token passed by an email
 
-var expiry = new MimirDataHubApi.ModelDate(); // {ModelDate} The latest date for which the token is valid
+var expiry = new Date("2013-10-20"); // Date | The latest date for which the token is valid
 
 
 var callback = function(error, data, response) {
@@ -235,7 +235,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getUserByToken(adminKey, token, expiry, callback);
+apiInstance.getUserByToken(adminKey, token, expiry, callback);
 ```
 
 ### Parameters
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **adminKey** | **String**| The admin user api key | 
  **token** | **String**| The token passed by an email | 
- **expiry** | **ModelDate**| The latest date for which the token is valid | 
+ **expiry** | **Date**| The latest date for which the token is valid | 
 
 ### Return type
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -267,16 +267,16 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi()
+var apiInstance = new MimirDataHubApi.UserApi();
 
-var userId = "userId_example"; // {String} 
+var userId = "userId_example"; // String | 
 
-var body = new MimirDataHubApi.User(); // {User} 
+var body = new MimirDataHubApi.User(); // User | 
 
 var opts = { 
-  'apiKey': "apiKey_example" // {String} The user api key
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -286,7 +286,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.putUser(userId, body, opts, callback);
+apiInstance.putUser(userId, body, opts, callback);
 ```
 
 ### Parameters
@@ -305,7 +305,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json

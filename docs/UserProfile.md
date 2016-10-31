@@ -3,10 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**website** | **String** |  | [optional] 
-**gender** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
+**gender** | **String** |  | [optional] 
 **location** | **String** |  | [optional] 
+**website** | **String** |  | [optional] 
 **picture** | **String** |  | [optional] 
 
 

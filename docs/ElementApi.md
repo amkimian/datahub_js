@@ -16,24 +16,24 @@ Method | HTTP request | Description
 
 Create a new open element
 
-This creates a new element in a release in a data set. The element defaults\nto the open (and therefore unpublished) state.\n
+This creates a new element in a release in a data set. The element defaults to the open (and therefore unpublished) state. 
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ElementApi()
+var apiInstance = new MimirDataHubApi.ElementApi();
 
-var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
+var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // {String} The id of the data set
+var dataSet = "dataSet_example"; // String | The id of the data set
 
-var release = "release_example"; // {String} The id of the release this element belongs to
+var release = "release_example"; // String | The id of the release this element belongs to
 
-var body = new MimirDataHubApi.DataElement(); // {DataElement} Element object that defines the element in a data set
+var body = new MimirDataHubApi.DataElement(); // DataElement | Element object that defines the element in a data set
 
 var opts = { 
-  'apiKey': "apiKey_example" // {String} The user api key
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -43,7 +43,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.addElement(userId, dataSet, release, body, opts, callback);
+apiInstance.addElement(userId, dataSet, release, body, opts, callback);
 ```
 
 ### Parameters
@@ -64,7 +64,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
@@ -75,24 +75,24 @@ No authorization required
 
 Delete element information
 
-This removes an element\n
+This removes an element 
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ElementApi()
+var apiInstance = new MimirDataHubApi.ElementApi();
 
-var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
+var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // {String} The id of the data set
+var dataSet = "dataSet_example"; // String | The id of the data set
 
-var release = "release_example"; // {String} The id of the release
+var release = "release_example"; // String | The id of the release
 
-var element = "element_example"; // {String} The id of the element
+var element = "element_example"; // String | The id of the element
 
 var opts = { 
-  'apiKey': "apiKey_example" // {String} The user api key
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -102,7 +102,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.deleteElement(userId, dataSet, release, element, opts, callback);
+apiInstance.deleteElement(userId, dataSet, release, element, opts, callback);
 ```
 
 ### Parameters
@@ -123,7 +123,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -134,24 +134,24 @@ No authorization required
 
 Get element information
 
-This returns information about an element\n
+This returns information about an element 
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ElementApi()
+var apiInstance = new MimirDataHubApi.ElementApi();
 
-var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
+var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // {String} The id of the data set
+var dataSet = "dataSet_example"; // String | The id of the data set
 
-var release = "release_example"; // {String} The id of the release
+var release = "release_example"; // String | The id of the release
 
-var element = "element_example"; // {String} The id of the element
+var element = "element_example"; // String | The id of the element
 
 var opts = { 
-  'apiKey': "apiKey_example" // {String} The user api key
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -161,7 +161,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getElement(userId, dataSet, release, element, opts, callback);
+apiInstance.getElement(userId, dataSet, release, element, opts, callback);
 ```
 
 ### Parameters
@@ -182,7 +182,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -197,22 +197,22 @@ Updates an element
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ElementApi()
+var apiInstance = new MimirDataHubApi.ElementApi();
 
-var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
+var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // {String} The id of the data set
+var dataSet = "dataSet_example"; // String | The id of the data set
 
-var release = "release_example"; // {String} The id of the release
+var release = "release_example"; // String | The id of the release
 
-var element = "element_example"; // {String} The id of the element
+var element = "element_example"; // String | The id of the element
 
-var body = new MimirDataHubApi.DataElement(); // {DataElement} The updated element
+var body = new MimirDataHubApi.DataElement(); // DataElement | The updated element
 
 var opts = { 
-  'apiKey': "apiKey_example" // {String} The user api key
+  'apiKey': "apiKey_example" // String | The user api key
 };
 
 var callback = function(error, data, response) {
@@ -222,7 +222,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.updateElement(userId, dataSet, release, element, body, opts, callback);
+apiInstance.updateElement(userId, dataSet, release, element, body, opts, callback);
 ```
 
 ### Parameters
@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json

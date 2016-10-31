@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **apiKey** | **String** | The api key that can be used to impersonate this user | [optional] 
 **password** | **String** |  | [optional] 
 **passwordResetToken** | **String** |  | [optional] 
-**passwordResetExpires** | [**ModelDate**](ModelDate.md) |  | [optional] 
+**passwordResetExpires** | **Date** |  | [optional] 
 **twitter** | **String** |  | [optional] 
 **google** | **String** |  | [optional] 
 **github** | **String** |  | [optional] 

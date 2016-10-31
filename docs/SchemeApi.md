@@ -21,15 +21,15 @@ Create a scheme
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi()
+var apiInstance = new MimirDataHubApi.SchemeApi();
 
-var adminKey = "adminKey_example"; // {String} The admin api key
+var adminKey = "adminKey_example"; // String | The admin api key
 
-var id = "id_example"; // {String} The id of the scheme
+var id = "id_example"; // String | The id of the scheme
 
-var body = new MimirDataHubApi.Scheme(); // {Scheme} DataSet object that defines the element
+var body = new MimirDataHubApi.Scheme(); // Scheme | DataSet object that defines the element
 
 
 var callback = function(error, data, response) {
@@ -39,7 +39,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.createScheme(adminKey, id, body, callback);
+apiInstance.createScheme(adminKey, id, body, callback);
 ```
 
 ### Parameters
@@ -58,7 +58,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
@@ -73,13 +73,13 @@ Remove a scheme
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi()
+var apiInstance = new MimirDataHubApi.SchemeApi();
 
-var adminKey = "adminKey_example"; // {String} The admin key
+var adminKey = "adminKey_example"; // String | The admin key
 
-var id = "id_example"; // {String} The id of the scheme
+var id = "id_example"; // String | The id of the scheme
 
 
 var callback = function(error, data, response) {
@@ -89,7 +89,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.deleteScheme(adminKey, id, callback);
+apiInstance.deleteScheme(adminKey, id, callback);
 ```
 
 ### Parameters
@@ -107,7 +107,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -122,13 +122,13 @@ retrieve a scheme
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi()
+var apiInstance = new MimirDataHubApi.SchemeApi();
 
-var apiKey = "apiKey_example"; // {String} user api key
+var apiKey = "apiKey_example"; // String | user api key
 
-var id = "id_example"; // {String} The id of the scheme
+var id = "id_example"; // String | The id of the scheme
 
 
 var callback = function(error, data, response) {
@@ -138,7 +138,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getScheme(apiKey, id, callback);
+apiInstance.getScheme(apiKey, id, callback);
 ```
 
 ### Parameters
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
@@ -171,15 +171,15 @@ Retrieve schemes
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi()
+var apiInstance = new MimirDataHubApi.SchemeApi();
 
-var adminKey = "adminKey_example"; // {String} The admin api key
+var adminKey = "adminKey_example"; // String | The admin api key
 
 var opts = { 
-  'page': 56, // {Integer} The page of schemes to return
-  'limit': 56 // {Integer} The limit of schemes to return (the page size)
+  'page': 56, // Integer | The page of schemes to return
+  'limit': 56 // Integer | The limit of schemes to return (the page size)
 };
 
 var callback = function(error, data, response) {
@@ -189,7 +189,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getSchemes(adminKey, opts, callback);
+apiInstance.getSchemes(adminKey, opts, callback);
 ```
 
 ### Parameters
@@ -208,7 +208,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
@@ -223,15 +223,15 @@ Update scheme
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi()
+var apiInstance = new MimirDataHubApi.SchemeApi();
 
-var apiKey = "apiKey_example"; // {String} The user api key
+var apiKey = "apiKey_example"; // String | The user api key
 
-var id = "id_example"; // {String} The id of the scheme
+var id = "id_example"; // String | The id of the scheme
 
-var body = new MimirDataHubApi.Scheme(); // {Scheme} Scheme object that defines the element
+var body = new MimirDataHubApi.Scheme(); // Scheme | Scheme object that defines the element
 
 
 var callback = function(error, data, response) {
@@ -241,7 +241,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.updateScheme(apiKey, id, body, callback);
+apiInstance.updateScheme(apiKey, id, body, callback);
 ```
 
 ### Parameters
@@ -260,7 +260,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json

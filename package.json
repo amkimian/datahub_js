@@ -1,7 +1,8 @@
 {
-  "name": "mimir-data-hub-api",
+  "name": "mimir_data_hub_api",
   "version": "0.0.10",
-  "description": "Mimir DataHub API",
+  "description": "Mimir_DataHub_API",
+  "license": "Apache-2.0",
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --recursive"

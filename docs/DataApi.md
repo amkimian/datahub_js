@@ -19,24 +19,24 @@ Returns a block of CSV data
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DataApi()
+var apiInstance = new MimirDataHubApi.DataApi();
 
-var apiKey = "apiKey_example"; // {String} The user api key
+var apiKey = "apiKey_example"; // String | The user api key
 
-var owner = "owner_example"; // {String} The owner of the data element
+var owner = "owner_example"; // String | The owner of the data element
 
-var dataset = "dataset_example"; // {String} The name of the data set
+var dataset = "dataset_example"; // String | The name of the data set
 
-var release = "release_example"; // {String} The name of the release
+var release = "release_example"; // String | The name of the release
 
-var element = "element_example"; // {String} The element name
+var element = "element_example"; // String | The element name
 
 var opts = { 
-  'withHeader': true, // {Boolean} Whether to include headers (row 0)
-  'skip': 56, // {Integer} which page to show
-  'limit': 56 // {Integer} How many records to return
+  'withHeader': true, // Boolean | Whether to include headers (row 0)
+  'skip': 56, // Integer | which page to show
+  'limit': 56 // Integer | How many records to return
 };
 
 var callback = function(error, data, response) {
@@ -46,7 +46,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.getCSVData(apiKey, owner, dataset, release, element, opts, callback);
+apiInstance.getCSVData(apiKey, owner, dataset, release, element, opts, callback);
 ```
 
 ### Parameters
@@ -70,7 +70,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: text/plain
@@ -85,21 +85,21 @@ Writes a block of CSV data
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DataApi()
+var apiInstance = new MimirDataHubApi.DataApi();
 
-var apiKey = "apiKey_example"; // {String} The user api key
+var apiKey = "apiKey_example"; // String | The user api key
 
-var owner = "owner_example"; // {String} The owner of the data element
+var owner = "owner_example"; // String | The owner of the data element
 
-var dataset = "dataset_example"; // {String} The name of the data set
+var dataset = "dataset_example"; // String | The name of the data set
 
-var release = "release_example"; // {String} The name of the release
+var release = "release_example"; // String | The name of the release
 
-var element = "element_example"; // {String} The element name
+var element = "element_example"; // String | The element name
 
-var data = "data_example"; // {String} The CSV data to write
+var data = "data_example"; // String | The CSV data to write
 
 
 var callback = function(error, data, response) {
@@ -109,7 +109,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.putCSVData(apiKey, owner, dataset, release, element, data, callback);
+apiInstance.putCSVData(apiKey, owner, dataset, release, element, data, callback);
 ```
 
 ### Parameters
@@ -131,7 +131,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: text/plain
  - **Accept**: Not defined
@@ -146,21 +146,21 @@ Writes a block of key/value style data
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir-data-hub-api');
+var MimirDataHubApi = require('mimir_data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DataApi()
+var apiInstance = new MimirDataHubApi.DataApi();
 
-var apiKey = "apiKey_example"; // {String} The user api key
+var apiKey = "apiKey_example"; // String | The user api key
 
-var owner = "owner_example"; // {String} The owner of the data element
+var owner = "owner_example"; // String | The owner of the data element
 
-var dataset = "dataset_example"; // {String} The name of the data set
+var dataset = "dataset_example"; // String | The name of the data set
 
-var release = "release_example"; // {String} The name of the release
+var release = "release_example"; // String | The name of the release
 
-var element = "element_example"; // {String} The element name
+var element = "element_example"; // String | The element name
 
-var fields = new MimirDataHubApi.KVBody(); // {KVBody} 
+var fields = new MimirDataHubApi.KVBody(); // KVBody | 
 
 
 var callback = function(error, data, response) {
@@ -170,7 +170,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-api.putKVData(apiKey, owner, dataset, release, element, fields, callback);
+apiInstance.putKVData(apiKey, owner, dataset, release, element, fields, callback);
 ```
 
 ### Parameters
@@ -192,7 +192,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined

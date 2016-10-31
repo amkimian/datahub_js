@@ -16,22 +16,22 @@ Method | HTTP request | Description
 
 Create a new open release
 
-This creates a new release in a data set. The release defaults to the open (and therefore unpublished) state. 
+This creates a new release in a data set. The release defaults\nto the open (and therefore unpublished) state.\n
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.ReleaseApi();
+var apiInstance = new MimirDataHubApi.ReleaseApi()
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var dataSet = "dataSet_example"; // {String} The id of the data set
 
-var body = new MimirDataHubApi.DataSetRelease(); // DataSetRelease | Release object that defines the element in a data set
+var body = new MimirDataHubApi.DataSetRelease(); // {DataSetRelease} Release object that defines the element in a data set
 
 var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
+  'apiKey': "apiKey_example" // {String} The user api key
 };
 
 var callback = function(error, data, response) {
@@ -41,7 +41,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.addRelease(userId, dataSet, body, opts, callback);
+api.addRelease(userId, dataSet, body, opts, callback);
 ```
 
 ### Parameters
@@ -61,7 +61,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
@@ -72,22 +72,22 @@ No authorization required
 
 Get release information
 
-This returns information about a release 
+This returns information about a release\n
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.ReleaseApi();
+var apiInstance = new MimirDataHubApi.ReleaseApi()
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var dataSet = "dataSet_example"; // {String} The id of the data set
 
-var release = "release_example"; // String | The id of the release
+var release = "release_example"; // {String} The id of the release
 
 var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
+  'apiKey': "apiKey_example" // {String} The user api key
 };
 
 var callback = function(error, data, response) {
@@ -97,7 +97,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.deleteRelease(userId, dataSet, release, opts, callback);
+api.deleteRelease(userId, dataSet, release, opts, callback);
 ```
 
 ### Parameters
@@ -117,7 +117,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -128,22 +128,22 @@ No authorization required
 
 Get release information
 
-This returns information about a release 
+This returns information about a release\n
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.ReleaseApi();
+var apiInstance = new MimirDataHubApi.ReleaseApi()
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var dataSet = "dataSet_example"; // {String} The id of the data set
 
-var release = "release_example"; // String | The id of the release
+var release = "release_example"; // {String} The id of the release
 
 var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
+  'apiKey': "apiKey_example" // {String} The user api key
 };
 
 var callback = function(error, data, response) {
@@ -153,7 +153,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getRelease(userId, dataSet, release, opts, callback);
+api.getRelease(userId, dataSet, release, opts, callback);
 ```
 
 ### Parameters
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -184,21 +184,21 @@ No authorization required
 
 Publish a release
 
-This marks a release as published 
+This marks a release as published\n
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.ReleaseApi();
+var apiInstance = new MimirDataHubApi.ReleaseApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var dataSet = "dataSet_example"; // {String} The id of the data set
 
-var release = "release_example"; // String | The id of the release
+var release = "release_example"; // {String} The id of the release
 
 
 var callback = function(error, data, response) {
@@ -208,7 +208,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.publishRelease(apiKey, userId, dataSet, release, callback);
+api.publishRelease(apiKey, userId, dataSet, release, callback);
 ```
 
 ### Parameters
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json

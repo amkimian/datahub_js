@@ -20,20 +20,20 @@ Method | HTTP request | Description
 
 Create a new data set, associated with the given user id
 
-This creates a new data set that can then be added to 
+This creates a new data set that can then be added to\n
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new MimirDataHubApi.DatasetApi()
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var userId = "userId_example"; // {String} The id of the user that this dataset is associated with
 
-var body = new MimirDataHubApi.DataSet(); // DataSet | DataSet object that defines the element
+var body = new MimirDataHubApi.DataSet(); // {DataSet} DataSet object that defines the element
 
 var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
+  'apiKey': "apiKey_example" // {String} The user api key
 };
 
 var callback = function(error, data, response) {
@@ -43,7 +43,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.addDataSet(userId, body, opts, callback);
+api.addDataSet(userId, body, opts, callback);
 ```
 
 ### Parameters
@@ -62,7 +62,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
@@ -77,16 +77,16 @@ Remove a data set and all releases and elements
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new MimirDataHubApi.DatasetApi()
 
-var userId = "userId_example"; // String | The id of the user owning this dataset
+var userId = "userId_example"; // {String} The id of the user owning this dataset
 
-var dataSet = "dataSet_example"; // String | The id of the dataset
+var dataSet = "dataSet_example"; // {String} The id of the dataset
 
 var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
+  'apiKey': "apiKey_example" // {String} The user api key
 };
 
 var callback = function(error, data, response) {
@@ -96,7 +96,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.deleteDataSet(userId, dataSet, opts, callback);
+api.deleteDataSet(userId, dataSet, opts, callback);
 ```
 
 ### Parameters
@@ -115,7 +115,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
@@ -128,14 +128,14 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new MimirDataHubApi.DatasetApi()
 
 var opts = { 
-  'apiKey': "apiKey_example", // String | The user api key
-  'tags': ["tags_example"], // [String] | Tags to filter by
-  'page': 56 // Integer | Page to return (defaults to zero)
+  'apiKey': "apiKey_example", // {String} The user api key
+  'tags': ["tags_example"], // {[String]} Tags to filter by
+  'page': 56 // {Integer} Page to return (defaults to zero)
 };
 
 var callback = function(error, data, response) {
@@ -145,7 +145,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.findDataSetsByTags(opts, callback);
+api.findDataSetsByTags(opts, callback);
 ```
 
 ### Parameters
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -177,16 +177,16 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new MimirDataHubApi.DatasetApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
 var opts = { 
-  'tags': ["tags_example"], // [String] | Tags to filter by
-  'page': 56, // Integer | Page to return (defaults to zero)
-  'subscribed': true // Boolean | If true, also return subscribed data sets
+  'tags': ["tags_example"], // {[String]} Tags to filter by
+  'page': 56, // {Integer} Page to return (defaults to zero)
+  'subscribed': true // {Boolean} If true, also return subscribed data sets
 };
 
 var callback = function(error, data, response) {
@@ -196,7 +196,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.findUserDataSets(apiKey, opts, callback);
+api.findUserDataSets(apiKey, opts, callback);
 ```
 
 ### Parameters
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -231,16 +231,16 @@ Returns a data set
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new MimirDataHubApi.DatasetApi()
 
-var userId = "userId_example"; // String | The id of the user owning this dataset
+var userId = "userId_example"; // {String} The id of the user owning this dataset
 
-var dataSet = "dataSet_example"; // String | The id of the dataset
+var dataSet = "dataSet_example"; // {String} The id of the dataset
 
 var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
+  'apiKey': "apiKey_example" // {String} The user api key
 };
 
 var callback = function(error, data, response) {
@@ -250,7 +250,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getDataSetById(userId, dataSet, opts, callback);
+api.getDataSetById(userId, dataSet, opts, callback);
 ```
 
 ### Parameters
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -282,13 +282,13 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new MimirDataHubApi.DatasetApi()
 
 var opts = { 
-  'page': 56, // Integer | Page to return (defaults to zero)
-  'limit': 56 // Integer | The maximum amount of records to be returned (the size of the page)
+  'page': 56, // {Integer} Page to return (defaults to zero)
+  'limit': 56 // {Integer} The maximum amount of records to be returned (the size of the page)
 };
 
 var callback = function(error, data, response) {
@@ -298,7 +298,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getFront(opts, callback);
+api.getFront(opts, callback);
 ```
 
 ### Parameters
@@ -316,7 +316,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -329,14 +329,14 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new MimirDataHubApi.DatasetApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
 var opts = { 
-  'page': 56 // Integer | Page to return (defaults to zero)
+  'page': 56 // {Integer} Page to return (defaults to zero)
 };
 
 var callback = function(error, data, response) {
@@ -346,7 +346,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getMyDataSets(apiKey, opts, callback);
+api.getMyDataSets(apiKey, opts, callback);
 ```
 
 ### Parameters
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -379,17 +379,17 @@ Update an existing data set.
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new MimirDataHubApi.DatasetApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
-var owner = "owner_example"; // String | The id of the user that this dataset is associated with
+var owner = "owner_example"; // {String} The id of the user that this dataset is associated with
 
-var dataset = "dataset_example"; // String | The data set id to update
+var dataset = "dataset_example"; // {String} The data set id to update
 
-var body = new MimirDataHubApi.DataSet(); // DataSet | DataSet object that defines the element
+var body = new MimirDataHubApi.DataSet(); // {DataSet} DataSet object that defines the element
 
 
 var callback = function(error, data, response) {
@@ -399,7 +399,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully.');
   }
 };
-apiInstance.updateDataSet(apiKey, owner, dataset, body, callback);
+api.updateDataSet(apiKey, owner, dataset, body, callback);
 ```
 
 ### Parameters
@@ -419,7 +419,7 @@ null (empty response body)
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json

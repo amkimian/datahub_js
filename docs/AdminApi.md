@@ -15,13 +15,13 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.AdminApi();
+var apiInstance = new MimirDataHubApi.AdminApi()
 
-var adminKey = "adminKey_example"; // String | The admin user api key
+var adminKey = "adminKey_example"; // {String} The admin user api key
 
-var body = new MimirDataHubApi.User(); // User | A new user
+var body = new MimirDataHubApi.User(); // {User} A new user
 
 
 var callback = function(error, data, response) {
@@ -31,7 +31,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.createUser(adminKey, body, callback);
+api.createUser(adminKey, body, callback);
 ```
 
 ### Parameters
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json

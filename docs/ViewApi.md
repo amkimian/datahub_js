@@ -20,15 +20,15 @@ Returns releases for a given data set
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.ViewApi();
+var apiInstance = new MimirDataHubApi.ViewApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
-var userId = "userId_example"; // String | The user id that owns the data set
+var userId = "userId_example"; // {String} The user id that owns the data set
 
-var dataset = "dataset_example"; // String | The id of the data set
+var dataset = "dataset_example"; // {String} The id of the data set
 
 
 var callback = function(error, data, response) {
@@ -38,7 +38,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getDataSetReleases(apiKey, userId, dataset, callback);
+api.getDataSetReleases(apiKey, userId, dataset, callback);
 ```
 
 ### Parameters
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -72,17 +72,17 @@ Returns the element information for a given release
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.ViewApi();
+var apiInstance = new MimirDataHubApi.ViewApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
-var userId = "userId_example"; // String | 
+var userId = "userId_example"; // {String} 
 
-var dataset = "dataset_example"; // String | 
+var dataset = "dataset_example"; // {String} 
 
-var release = "release_example"; // String | 
+var release = "release_example"; // {String} 
 
 
 var callback = function(error, data, response) {
@@ -92,7 +92,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getReleaseElements(apiKey, userId, dataset, release, callback);
+api.getReleaseElements(apiKey, userId, dataset, release, callback);
 ```
 
 ### Parameters
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -125,14 +125,14 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.ViewApi();
+var apiInstance = new MimirDataHubApi.ViewApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
 var opts = { 
-  'page': 56 // Integer | The page of results to return
+  'page': 56 // {Integer} The page of results to return
 };
 
 var callback = function(error, data, response) {
@@ -142,7 +142,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getUserSubscriptions(apiKey, opts, callback);
+api.getUserSubscriptions(apiKey, opts, callback);
 ```
 
 ### Parameters
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
@@ -175,14 +175,14 @@ Returns view information for datasets of a user
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.ViewApi();
+var apiInstance = new MimirDataHubApi.ViewApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
 var opts = { 
-  'page': 56 // Integer | The page of results to return
+  'page': 56 // {Integer} The page of results to return
 };
 
 var callback = function(error, data, response) {
@@ -192,7 +192,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getUserViews(apiKey, opts, callback);
+api.getUserViews(apiKey, opts, callback);
 ```
 
 ### Parameters
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json

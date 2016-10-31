@@ -20,15 +20,15 @@ Adds the subscription to the current users current invoice
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.InvoiceApi();
+var apiInstance = new MimirDataHubApi.InvoiceApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
-var owner = "owner_example"; // String | The owner of the data element
+var owner = "owner_example"; // {String} The owner of the data element
 
-var dataset = "dataset_example"; // String | The name of the data set
+var dataset = "dataset_example"; // {String} The name of the data set
 
 
 var callback = function(error, data, response) {
@@ -38,7 +38,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.addSubscriptionToInvoice(apiKey, owner, dataset, callback);
+api.addSubscriptionToInvoice(apiKey, owner, dataset, callback);
 ```
 
 ### Parameters
@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
@@ -72,11 +72,11 @@ retrieve the current open oneoff invoice
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.InvoiceApi();
+var apiInstance = new MimirDataHubApi.InvoiceApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
 
 var callback = function(error, data, response) {
@@ -86,7 +86,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getCart(apiKey, callback);
+api.getCart(apiKey, callback);
 ```
 
 ### Parameters
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
@@ -118,14 +118,14 @@ retrieve a page of invoices
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.InvoiceApi();
+var apiInstance = new MimirDataHubApi.InvoiceApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
 var opts = { 
-  'page': 56 // Integer | The page to show
+  'page': 56 // {Integer} The page to show
 };
 
 var callback = function(error, data, response) {
@@ -135,7 +135,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getInvoices(apiKey, opts, callback);
+api.getInvoices(apiKey, opts, callback);
 ```
 
 ### Parameters
@@ -153,7 +153,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined
@@ -168,11 +168,11 @@ Process a successful payment
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.InvoiceApi();
+var apiInstance = new MimirDataHubApi.InvoiceApi()
 
-var apiKey = "apiKey_example"; // String | The user api key
+var apiKey = "apiKey_example"; // {String} The user api key
 
 
 var callback = function(error, data, response) {
@@ -182,7 +182,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.processCart(apiKey, callback);
+api.processCart(apiKey, callback);
 ```
 
 ### Parameters
@@ -199,7 +199,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: Not defined

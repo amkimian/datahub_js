@@ -15,13 +15,13 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var MimirDataHubApi = require('mimir-data-hub-api');
 
-var apiInstance = new MimirDataHubApi.MarketplaceApi();
+var apiInstance = new MimirDataHubApi.MarketplaceApi()
 
 var opts = { 
-  'page': 56, // Integer | Page to return (defaults to zero)
-  'limit': 56 // Integer | The maximum amount of records to be returned (the size of the page)
+  'page': 56, // {Integer} Page to return (defaults to zero)
+  'limit': 56 // {Integer} The maximum amount of records to be returned (the size of the page)
 };
 
 var callback = function(error, data, response) {
@@ -31,7 +31,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getFront(opts, callback);
+api.getFront(opts, callback);
 ```
 
 ### Parameters
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 No authorization required
 
-### HTTP request headers
+### HTTP reuqest headers
 
  - **Content-Type**: Not defined
  - **Accept**: application/json

@@ -106,8 +106,8 @@
       if (data.hasOwnProperty('type')) {
         obj['type'] = ApiClient.convertToType(data['type'], 'String');
       }
-      if (data.hasOwnProperty('schema')) {
-        obj['schema'] = ApiClient.convertToType(data['schema'], 'String');
+      if (data.hasOwnProperty('schemes')) {
+        obj['schemes'] = ApiClient.convertToType(data['schemes'], ['String']);
       }
       if (data.hasOwnProperty('state')) {
         obj['state'] = ApiClient.convertToType(data['state'], 'String');
@@ -174,9 +174,9 @@
   exports.prototype['type'] = undefined;
   /**
    * The underlying format of the data
-   * @member {String} schema
+   * @member {Array.<String>} schemes
    */
-  exports.prototype['schema'] = undefined;
+  exports.prototype['schemes'] = undefined;
   /**
    * The state of this element (is it published?)
    * @member {String} state

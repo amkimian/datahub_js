@@ -1,4 +1,4 @@
-# MimirDataHubApi.DataElementCsvInfo
+# DataHubApi.DataElementCsvInfo
 
 ## Properties
 Name | Type | Description | Notes

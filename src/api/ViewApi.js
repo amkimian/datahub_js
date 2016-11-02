@@ -1,6 +1,6 @@
 /**
- * Mimir DataHub API
- * Mimir DataHub API
+ * DataHub API
+ * DataHub API
  *
  * OpenAPI spec version: 0.0.10
  * 
@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/DataSetRelease'), require('../model/DataElement'), require('../model/Subscription'), require('../model/DataSetView'));
   } else {
     // Browser globals (root is window)
-    if (!root.MimirDataHubApi) {
-      root.MimirDataHubApi = {};
+    if (!root.DataHubApi) {
+      root.DataHubApi = {};
     }
-    root.MimirDataHubApi.ViewApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.DataSetRelease, root.MimirDataHubApi.DataElement, root.MimirDataHubApi.Subscription, root.MimirDataHubApi.DataSetView);
+    root.DataHubApi.ViewApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.DataSetRelease, root.DataHubApi.DataElement, root.DataHubApi.Subscription, root.DataHubApi.DataSetView);
   }
 }(this, function(ApiClient, DataSetRelease, DataElement, Subscription, DataSetView) {
   'use strict';

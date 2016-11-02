@@ -1,4 +1,4 @@
-# MimirDataHubApi.UserApi
+# DataHubApi.UserApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -20,9 +20,9 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi();
+var apiInstance = new DataHubApi.UserApi();
 
 var userId = "userId_example"; // String | 
 
@@ -70,9 +70,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi();
+var apiInstance = new DataHubApi.UserApi();
 
 var userId = "userId_example"; // String | 
 
@@ -120,9 +120,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi();
+var apiInstance = new DataHubApi.UserApi();
 
 var adminKey = "adminKey_example"; // String | The admin user api key
 
@@ -167,9 +167,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi();
+var apiInstance = new DataHubApi.UserApi();
 
 var adminKey = "adminKey_example"; // String | The admin user api key
 
@@ -217,9 +217,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi();
+var apiInstance = new DataHubApi.UserApi();
 
 var adminKey = "adminKey_example"; // String | The admin user api key
 
@@ -267,13 +267,13 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.UserApi();
+var apiInstance = new DataHubApi.UserApi();
 
 var userId = "userId_example"; // String | 
 
-var body = new MimirDataHubApi.User(); // User | 
+var body = new DataHubApi.User(); // User | 
 
 var opts = { 
   'apiKey': "apiKey_example" // String | The user api key

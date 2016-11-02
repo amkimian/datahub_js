@@ -1,4 +1,4 @@
-# MimirDataHubApi.DataApi
+# DataHubApi.DataApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -19,9 +19,9 @@ Returns a block of CSV data
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DataApi();
+var apiInstance = new DataHubApi.DataApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -85,9 +85,9 @@ Writes a block of CSV data
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DataApi();
+var apiInstance = new DataHubApi.DataApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -146,9 +146,9 @@ Writes a block of key/value style data
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DataApi();
+var apiInstance = new DataHubApi.DataApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -160,7 +160,7 @@ var release = "release_example"; // String | The name of the release
 
 var element = "element_example"; // String | The element name
 
-var fields = new MimirDataHubApi.KVBody(); // KVBody | 
+var fields = new DataHubApi.KVBody(); // KVBody | 
 
 
 var callback = function(error, data, response) {

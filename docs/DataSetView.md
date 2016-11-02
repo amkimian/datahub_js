@@ -1,4 +1,4 @@
-# MimirDataHubApi.DataSetView
+# DataHubApi.DataSetView
 
 ## Properties
 Name | Type | Description | Notes

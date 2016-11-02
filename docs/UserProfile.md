@@ -1,4 +1,4 @@
-# MimirDataHubApi.UserProfile
+# DataHubApi.UserProfile
 
 ## Properties
 Name | Type | Description | Notes

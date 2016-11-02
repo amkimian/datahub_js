@@ -1,4 +1,4 @@
-# MimirDataHubApi.DataElementDisplayInfo
+# DataHubApi.DataElementDisplayInfo
 
 ## Properties
 Name | Type | Description | Notes

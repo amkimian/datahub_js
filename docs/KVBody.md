@@ -1,4 +1,4 @@
-# MimirDataHubApi.KVBody
+# DataHubApi.KVBody
 
 ## Properties
 Name | Type | Description | Notes

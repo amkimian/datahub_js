@@ -1,4 +1,4 @@
-# MimirDataHubApi.ReleaseApi
+# DataHubApi.ReleaseApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -20,15 +20,15 @@ This creates a new release in a data set. The release defaults to the open (and 
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ReleaseApi();
+var apiInstance = new DataHubApi.ReleaseApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
 var dataSet = "dataSet_example"; // String | The id of the data set
 
-var body = new MimirDataHubApi.DataSetRelease(); // DataSetRelease | Release object that defines the element in a data set
+var body = new DataHubApi.DataSetRelease(); // DataSetRelease | Release object that defines the element in a data set
 
 var opts = { 
   'apiKey': "apiKey_example" // String | The user api key
@@ -76,9 +76,9 @@ This returns information about a release
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ReleaseApi();
+var apiInstance = new DataHubApi.ReleaseApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
@@ -132,9 +132,9 @@ This returns information about a release
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ReleaseApi();
+var apiInstance = new DataHubApi.ReleaseApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
@@ -188,9 +188,9 @@ This marks a release as published
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ReleaseApi();
+var apiInstance = new DataHubApi.ReleaseApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 

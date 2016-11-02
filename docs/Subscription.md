@@ -1,4 +1,4 @@
-# MimirDataHubApi.Subscription
+# DataHubApi.Subscription
 
 ## Properties
 Name | Type | Description | Notes

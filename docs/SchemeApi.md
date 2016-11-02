@@ -1,4 +1,4 @@
-# MimirDataHubApi.SchemeApi
+# DataHubApi.SchemeApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -21,15 +21,15 @@ Create a scheme
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi();
+var apiInstance = new DataHubApi.SchemeApi();
 
 var adminKey = "adminKey_example"; // String | The admin api key
 
 var id = "id_example"; // String | The id of the scheme
 
-var body = new MimirDataHubApi.Scheme(); // Scheme | DataSet object that defines the element
+var body = new DataHubApi.Scheme(); // Scheme | DataSet object that defines the element
 
 
 var callback = function(error, data, response) {
@@ -73,9 +73,9 @@ Remove a scheme
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi();
+var apiInstance = new DataHubApi.SchemeApi();
 
 var adminKey = "adminKey_example"; // String | The admin key
 
@@ -122,9 +122,9 @@ retrieve a scheme
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi();
+var apiInstance = new DataHubApi.SchemeApi();
 
 var apiKey = "apiKey_example"; // String | user api key
 
@@ -171,9 +171,9 @@ Retrieve schemes
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi();
+var apiInstance = new DataHubApi.SchemeApi();
 
 var adminKey = "adminKey_example"; // String | The admin api key
 
@@ -223,15 +223,15 @@ Update scheme
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.SchemeApi();
+var apiInstance = new DataHubApi.SchemeApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
 var id = "id_example"; // String | The id of the scheme
 
-var body = new MimirDataHubApi.Scheme(); // Scheme | Scheme object that defines the element
+var body = new DataHubApi.Scheme(); // Scheme | Scheme object that defines the element
 
 
 var callback = function(error, data, response) {

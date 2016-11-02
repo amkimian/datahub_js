@@ -1,4 +1,4 @@
-# MimirDataHubApi.ElementApi
+# DataHubApi.ElementApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -20,9 +20,9 @@ This creates a new element in a release in a data set. The element defaults to t
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ElementApi();
+var apiInstance = new DataHubApi.ElementApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
@@ -30,7 +30,7 @@ var dataSet = "dataSet_example"; // String | The id of the data set
 
 var release = "release_example"; // String | The id of the release this element belongs to
 
-var body = new MimirDataHubApi.DataElement(); // DataElement | Element object that defines the element in a data set
+var body = new DataHubApi.DataElement(); // DataElement | Element object that defines the element in a data set
 
 var opts = { 
   'apiKey': "apiKey_example" // String | The user api key
@@ -79,9 +79,9 @@ This removes an element
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ElementApi();
+var apiInstance = new DataHubApi.ElementApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
@@ -138,9 +138,9 @@ This returns information about an element
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ElementApi();
+var apiInstance = new DataHubApi.ElementApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
@@ -197,9 +197,9 @@ Updates an element
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ElementApi();
+var apiInstance = new DataHubApi.ElementApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
@@ -209,7 +209,7 @@ var release = "release_example"; // String | The id of the release
 
 var element = "element_example"; // String | The id of the element
 
-var body = new MimirDataHubApi.DataElement(); // DataElement | The updated element
+var body = new DataHubApi.DataElement(); // DataElement | The updated element
 
 var opts = { 
   'apiKey': "apiKey_example" // String | The user api key

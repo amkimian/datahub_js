@@ -1,4 +1,4 @@
-# MimirDataHubApi.UserTokens
+# DataHubApi.UserTokens
 
 ## Properties
 Name | Type | Description | Notes

@@ -1,4 +1,4 @@
-# MimirDataHubApi.PriceInfo
+# DataHubApi.PriceInfo
 
 ## Properties
 Name | Type | Description | Notes

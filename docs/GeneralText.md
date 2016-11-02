@@ -1,4 +1,4 @@
-# MimirDataHubApi.GeneralText
+# DataHubApi.GeneralText
 
 ## Properties
 Name | Type | Description | Notes

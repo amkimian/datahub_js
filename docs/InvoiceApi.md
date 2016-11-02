@@ -1,4 +1,4 @@
-# MimirDataHubApi.InvoiceApi
+# DataHubApi.InvoiceApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -20,9 +20,9 @@ Adds the subscription to the current users current invoice
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.InvoiceApi();
+var apiInstance = new DataHubApi.InvoiceApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -72,9 +72,9 @@ retrieve the current open oneoff invoice
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.InvoiceApi();
+var apiInstance = new DataHubApi.InvoiceApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -118,9 +118,9 @@ retrieve a page of invoices
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.InvoiceApi();
+var apiInstance = new DataHubApi.InvoiceApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -168,9 +168,9 @@ Process a successful payment
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.InvoiceApi();
+var apiInstance = new DataHubApi.InvoiceApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 

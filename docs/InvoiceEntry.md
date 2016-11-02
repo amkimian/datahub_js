@@ -1,4 +1,4 @@
-# MimirDataHubApi.InvoiceEntry
+# DataHubApi.InvoiceEntry
 
 ## Properties
 Name | Type | Description | Notes

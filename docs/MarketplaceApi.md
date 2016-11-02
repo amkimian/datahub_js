@@ -1,4 +1,4 @@
-# MimirDataHubApi.MarketplaceApi
+# DataHubApi.MarketplaceApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -15,9 +15,9 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.MarketplaceApi();
+var apiInstance = new DataHubApi.MarketplaceApi();
 
 var opts = { 
   'page': 56, // Integer | Page to return (defaults to zero)

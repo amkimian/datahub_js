@@ -1,4 +1,4 @@
-# MimirDataHubApi.AdminApi
+# DataHubApi.AdminApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -15,13 +15,13 @@ Method | HTTP request | Description
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.AdminApi();
+var apiInstance = new DataHubApi.AdminApi();
 
 var adminKey = "adminKey_example"; // String | The admin user api key
 
-var body = new MimirDataHubApi.User(); // User | A new user
+var body = new DataHubApi.User(); // User | A new user
 
 
 var callback = function(error, data, response) {

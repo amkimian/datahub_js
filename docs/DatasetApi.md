@@ -1,4 +1,4 @@
-# MimirDataHubApi.DatasetApi
+# DataHubApi.DatasetApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -24,13 +24,13 @@ This creates a new data set that can then be added to
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new DataHubApi.DatasetApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var body = new MimirDataHubApi.DataSet(); // DataSet | DataSet object that defines the element
+var body = new DataHubApi.DataSet(); // DataSet | DataSet object that defines the element
 
 var opts = { 
   'apiKey': "apiKey_example" // String | The user api key
@@ -77,9 +77,9 @@ Remove a data set and all releases and elements
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new DataHubApi.DatasetApi();
 
 var userId = "userId_example"; // String | The id of the user owning this dataset
 
@@ -128,9 +128,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new DataHubApi.DatasetApi();
 
 var opts = { 
   'apiKey': "apiKey_example", // String | The user api key
@@ -177,9 +177,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new DataHubApi.DatasetApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -231,9 +231,9 @@ Returns a data set
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new DataHubApi.DatasetApi();
 
 var userId = "userId_example"; // String | The id of the user owning this dataset
 
@@ -282,9 +282,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new DataHubApi.DatasetApi();
 
 var opts = { 
   'page': 56, // Integer | Page to return (defaults to zero)
@@ -329,9 +329,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new DataHubApi.DatasetApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -379,9 +379,9 @@ Update an existing data set.
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.DatasetApi();
+var apiInstance = new DataHubApi.DatasetApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -389,7 +389,7 @@ var owner = "owner_example"; // String | The id of the user that this dataset is
 
 var dataset = "dataset_example"; // String | The data set id to update
 
-var body = new MimirDataHubApi.DataSet(); // DataSet | DataSet object that defines the element
+var body = new DataHubApi.DataSet(); // DataSet | DataSet object that defines the element
 
 
 var callback = function(error, data, response) {

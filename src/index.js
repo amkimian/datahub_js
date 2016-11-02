@@ -1,6 +1,6 @@
 /**
- * Mimir DataHub API
- * Mimir DataHub API
+ * DataHub API
+ * DataHub API
  *
  * OpenAPI spec version: 0.0.10
  * 
@@ -34,14 +34,14 @@
   'use strict';
 
   /**
-   * Mimir_DataHub_API.<br>
+   * DataHub_API.<br>
    * The <code>index</code> module provides access to constructors for all the classes which comprise the public API.
    * <p>
    * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
    * <pre>
-   * var MimirDataHubApi = require('index'); // See note below*.
-   * var xxxSvc = new MimirDataHubApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyyModel = new MimirDataHubApi.Yyy(); // Construct a model instance.
+   * var DataHubApi = require('index'); // See note below*.
+   * var xxxSvc = new DataHubApi.XxxApi(); // Allocate the API class we're going to use.
+   * var yyyModel = new DataHubApi.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -53,8 +53,8 @@
    * <p>
    * A non-AMD browser application (discouraged) might do something like this:
    * <pre>
-   * var xxxSvc = new MimirDataHubApi.XxxApi(); // Allocate the API class we're going to use.
-   * var yyy = new MimirDataHubApi.Yyy(); // Construct a model instance.
+   * var xxxSvc = new DataHubApi.XxxApi(); // Allocate the API class we're going to use.
+   * var yyy = new DataHubApi.Yyy(); // Construct a model instance.
    * yyyModel.someProperty = 'someValue';
    * ...
    * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.

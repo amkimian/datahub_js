@@ -1,4 +1,4 @@
-# MimirDataHubApi.SchemeField
+# DataHubApi.SchemeField
 
 ## Properties
 Name | Type | Description | Notes

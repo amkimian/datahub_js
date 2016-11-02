@@ -1,4 +1,4 @@
-# MimirDataHubApi.QueryApi
+# DataHubApi.QueryApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -17,9 +17,9 @@ Querys data in a KV element
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.QueryApi();
+var apiInstance = new DataHubApi.QueryApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 

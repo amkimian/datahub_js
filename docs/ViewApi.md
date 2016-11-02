@@ -1,4 +1,4 @@
-# MimirDataHubApi.ViewApi
+# DataHubApi.ViewApi
 
 All URIs are relative to *http://localhost:8081/*
 
@@ -20,9 +20,9 @@ Returns releases for a given data set
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ViewApi();
+var apiInstance = new DataHubApi.ViewApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -72,9 +72,9 @@ Returns the element information for a given release
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ViewApi();
+var apiInstance = new DataHubApi.ViewApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -125,9 +125,9 @@ No authorization required
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ViewApi();
+var apiInstance = new DataHubApi.ViewApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
@@ -175,9 +175,9 @@ Returns view information for datasets of a user
 
 ### Example
 ```javascript
-var MimirDataHubApi = require('mimir_data_hub_api');
+var DataHubApi = require('data_hub_api');
 
-var apiInstance = new MimirDataHubApi.ViewApi();
+var apiInstance = new DataHubApi.ViewApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 

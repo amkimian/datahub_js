@@ -1,4 +1,4 @@
-# MimirDataHubApi.GeneralError
+# DataHubApi.GeneralError
 
 ## Properties
 Name | Type | Description | Notes

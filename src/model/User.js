@@ -1,6 +1,6 @@
 /**
- * Mimir DataHub API
- * Mimir DataHub API
+ * DataHub API
+ * DataHub API
  *
  * OpenAPI spec version: 0.0.10
  * 
@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('./UserProfile'), require('./UserTokens'));
   } else {
     // Browser globals (root is window)
-    if (!root.MimirDataHubApi) {
-      root.MimirDataHubApi = {};
+    if (!root.DataHubApi) {
+      root.DataHubApi = {};
     }
-    root.MimirDataHubApi.User = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.UserProfile, root.MimirDataHubApi.UserTokens);
+    root.DataHubApi.User = factory(root.DataHubApi.ApiClient, root.DataHubApi.UserProfile, root.DataHubApi.UserTokens);
   }
 }(this, function(ApiClient, UserProfile, UserTokens) {
   'use strict';

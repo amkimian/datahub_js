@@ -1,6 +1,6 @@
 /**
- * Mimir DataHub API
- * Mimir DataHub API
+ * DataHub API
+ * DataHub API
  *
  * OpenAPI spec version: 0.0.10
  * 
@@ -31,10 +31,10 @@
     module.exports = factory(require('../ApiClient'), require('../model/Invoice'));
   } else {
     // Browser globals (root is window)
-    if (!root.MimirDataHubApi) {
-      root.MimirDataHubApi = {};
+    if (!root.DataHubApi) {
+      root.DataHubApi = {};
     }
-    root.MimirDataHubApi.InvoiceApi = factory(root.MimirDataHubApi.ApiClient, root.MimirDataHubApi.Invoice);
+    root.DataHubApi.InvoiceApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.Invoice);
   }
 }(this, function(ApiClient, Invoice) {
   'use strict';

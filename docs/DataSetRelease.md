@@ -1,4 +1,4 @@
-# MimirDataHubApi.DataSetRelease
+# DataHubApi.DataSetRelease
 
 ## Properties
 Name | Type | Description | Notes

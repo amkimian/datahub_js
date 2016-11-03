@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="addDataSet"></a>
 # **addDataSet**
-> addDataSet(userId, body, opts)
+> GeneralStatus addDataSet(userId, body, opts)
 
 Create a new data set, associated with the given user id
 
@@ -40,7 +40,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.addDataSet(userId, body, opts, callback);
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ No authorization required
 
 <a name="deleteDataSet"></a>
 # **deleteDataSet**
-> deleteDataSet(userId, dataSet, opts)
+> GeneralStatus deleteDataSet(userId, dataSet, opts)
 
 Remove a data set and all releases and elements
 
@@ -93,7 +93,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.deleteDataSet(userId, dataSet, opts, callback);
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 
@@ -371,7 +371,7 @@ No authorization required
 
 <a name="updateDataSet"></a>
 # **updateDataSet**
-> updateDataSet(apiKey, owner, dataset, body)
+> GeneralStatus updateDataSet(apiKey, owner, dataset, body)
 
 Update an existing data set.
 
@@ -396,7 +396,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.updateDataSet(apiKey, owner, dataset, body, callback);
@@ -413,7 +413,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 

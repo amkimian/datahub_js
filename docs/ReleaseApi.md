@@ -5,14 +5,14 @@ All URIs are relative to *http://localhost:8081/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addRelease**](ReleaseApi.md#addRelease) | **POST** /releases/{userId}/{dataSet} | Create a new open release
-[**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /releases/{userId}/{dataSet}/{release} | Get release information
+[**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /releases/{userId}/{dataSet}/{release} | Delete release information
 [**getRelease**](ReleaseApi.md#getRelease) | **GET** /releases/{userId}/{dataSet}/{release} | Get release information
 [**publishRelease**](ReleaseApi.md#publishRelease) | **GET** /release/publish/{userId}/{dataSet}/{release} | Publish a release
 
 
 <a name="addRelease"></a>
 # **addRelease**
-> addRelease(userId, dataSet, body, opts)
+> GeneralStatus addRelease(userId, dataSet, body, opts)
 
 Create a new open release
 
@@ -38,7 +38,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.addRelease(userId, dataSet, body, opts, callback);
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 
@@ -68,11 +68,11 @@ No authorization required
 
 <a name="deleteRelease"></a>
 # **deleteRelease**
-> deleteRelease(userId, dataSet, release, opts)
+> GeneralStatus deleteRelease(userId, dataSet, release, opts)
 
-Get release information
+Delete release information
 
-This returns information about a release 
+This deletes a release 
 
 ### Example
 ```javascript
@@ -94,7 +94,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.deleteRelease(userId, dataSet, release, opts, callback);
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 

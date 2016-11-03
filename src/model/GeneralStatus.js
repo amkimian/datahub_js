@@ -34,7 +34,7 @@
     if (!root.DataHubApi) {
       root.DataHubApi = {};
     }
-    root.DataHubApi.InvoiceEntry = factory(root.DataHubApi.ApiClient);
+    root.DataHubApi.GeneralStatus = factory(root.DataHubApi.ApiClient);
   }
 }(this, function(ApiClient) {
   'use strict';
@@ -43,15 +43,14 @@
 
 
   /**
-   * The InvoiceEntry model module.
-   * @module model/InvoiceEntry
+   * The GeneralStatus model module.
+   * @module model/GeneralStatus
    * @version 0.0.11
    */
 
   /**
-   * Constructs a new <code>InvoiceEntry</code>.
-   * A line entry in an invoice
-   * @alias module:model/InvoiceEntry
+   * Constructs a new <code>GeneralStatus</code>.
+   * @alias module:model/GeneralStatus
    * @class
    */
   var exports = function() {
@@ -59,61 +58,39 @@
 
 
 
-
-
-
   };
 
   /**
-   * Constructs a <code>InvoiceEntry</code> from a plain JavaScript object, optionally creating a new instance.
+   * Constructs a <code>GeneralStatus</code> from a plain JavaScript object, optionally creating a new instance.
    * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
    * @param {Object} data The plain JavaScript object bearing properties of interest.
-   * @param {module:model/InvoiceEntry} obj Optional instance to populate.
-   * @return {module:model/InvoiceEntry} The populated <code>InvoiceEntry</code> instance.
+   * @param {module:model/GeneralStatus} obj Optional instance to populate.
+   * @return {module:model/GeneralStatus} The populated <code>GeneralStatus</code> instance.
    */
   exports.constructFromObject = function(data, obj) {
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+      if (data.hasOwnProperty('message')) {
+        obj['message'] = ApiClient.convertToType(data['message'], 'String');
       }
-      if (data.hasOwnProperty('dataset')) {
-        obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
-      }
-      if (data.hasOwnProperty('name')) {
-        obj['name'] = ApiClient.convertToType(data['name'], 'String');
-      }
-      if (data.hasOwnProperty('description')) {
-        obj['description'] = ApiClient.convertToType(data['description'], 'String');
-      }
-      if (data.hasOwnProperty('amount')) {
-        obj['amount'] = ApiClient.convertToType(data['amount'], 'Integer');
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'Integer');
       }
     }
     return obj;
   }
 
   /**
-   * @member {String} owner
+   * Any message from an API call that would normally return void
+   * @member {String} message
    */
-  exports.prototype['owner'] = undefined;
+  exports.prototype['message'] = undefined;
   /**
-   * @member {String} dataset
+   * A status (zero means everything good)
+   * @member {Integer} status
    */
-  exports.prototype['dataset'] = undefined;
-  /**
-   * @member {String} name
-   */
-  exports.prototype['name'] = undefined;
-  /**
-   * @member {String} description
-   */
-  exports.prototype['description'] = undefined;
-  /**
-   * @member {Integer} amount
-   */
-  exports.prototype['amount'] = undefined;
+  exports.prototype['status'] = undefined;
 
 
 

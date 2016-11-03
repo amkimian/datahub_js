@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="deleteUser"></a>
 # **deleteUser**
-> deleteUser(userId, opts)
+> GeneralStatus deleteUser(userId, opts)
 
 
 
@@ -35,7 +35,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.deleteUser(userId, opts, callback);
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 
@@ -261,7 +261,7 @@ No authorization required
 
 <a name="putUser"></a>
 # **putUser**
-> putUser(userId, body, opts)
+> GeneralStatus putUser(userId, body, opts)
 
 
 
@@ -283,7 +283,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.putUser(userId, body, opts, callback);
@@ -299,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="addElement"></a>
 # **addElement**
-> addElement(userId, dataSet, release, body, opts)
+> GeneralStatus addElement(userId, dataSet, release, body, opts)
 
 Create a new open element
 
@@ -40,7 +40,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.addElement(userId, dataSet, release, body, opts, callback);
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ No authorization required
 
 <a name="deleteElement"></a>
 # **deleteElement**
-> deleteElement(userId, dataSet, release, element, opts)
+> GeneralStatus deleteElement(userId, dataSet, release, element, opts)
 
 Delete element information
 
@@ -99,7 +99,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.deleteElement(userId, dataSet, release, element, opts, callback);
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 

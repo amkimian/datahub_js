@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createScheme"></a>
 # **createScheme**
-> createScheme(adminKey, id, body)
+> GeneralStatus createScheme(adminKey, id, body)
 
 
 
@@ -36,7 +36,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.createScheme(adminKey, id, body, callback);
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ No authorization required
 
 <a name="deleteScheme"></a>
 # **deleteScheme**
-> deleteScheme(adminKey, id)
+> GeneralStatus deleteScheme(adminKey, id)
 
 Remove a scheme
 
@@ -86,7 +86,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.deleteScheme(adminKey, id, callback);
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 
@@ -215,7 +215,7 @@ No authorization required
 
 <a name="updateScheme"></a>
 # **updateScheme**
-> updateScheme(apiKey, id, body)
+> GeneralStatus updateScheme(apiKey, id, body)
 
 Update an existing scheme.
 
@@ -238,7 +238,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.updateScheme(apiKey, id, body, callback);
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 

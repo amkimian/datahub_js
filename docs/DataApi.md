@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="getCSVData"></a>
 # **getCSVData**
-> getCSVData(apiKey, owner, dataset, release, element, opts)
+> &#39;String&#39; getCSVData(apiKey, owner, dataset, release, element, opts)
 
 
 
@@ -43,7 +43,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.getCSVData(apiKey, owner, dataset, release, element, opts, callback);
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**&#39;String&#39;**
 
 ### Authorization
 
@@ -77,7 +77,7 @@ No authorization required
 
 <a name="putCSVData"></a>
 # **putCSVData**
-> putCSVData(apiKey, owner, dataset, release, element, data)
+> GeneralStatus putCSVData(apiKey, owner, dataset, release, element, data)
 
 
 
@@ -106,7 +106,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.putCSVData(apiKey, owner, dataset, release, element, data, callback);
@@ -125,7 +125,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 
@@ -138,7 +138,7 @@ No authorization required
 
 <a name="putKVData"></a>
 # **putKVData**
-> putKVData(apiKey, owner, dataset, release, element, fields)
+> GeneralStatus putKVData(apiKey, owner, dataset, release, element, fields)
 
 
 
@@ -167,7 +167,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.putKVData(apiKey, owner, dataset, release, element, fields, callback);
@@ -186,7 +186,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GeneralStatus**](GeneralStatus.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="queryData"></a>
 # **queryData**
-> queryData(apiKey, owner, dataset, release, element, query, opts)
+> &#39;String&#39; queryData(apiKey, owner, dataset, release, element, query, opts)
 
 
 
@@ -42,7 +42,7 @@ var callback = function(error, data, response) {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 };
 apiInstance.queryData(apiKey, owner, dataset, release, element, query, opts, callback);
@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**&#39;String&#39;**
 
 ### Authorization
 
@@ -71,6 +71,6 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: text/plain
+ - **Content-Type**: application/json
+ - **Accept**: application/json, text/plain
 

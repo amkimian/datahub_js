@@ -25,12 +25,12 @@
 (function(factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataElement', 'model/DataElementCsvInfo', 'model/DataElementDisplayInfo', 'model/DataSet', 'model/DataSetRelease', 'model/DataSetView', 'model/GeneralError', 'model/GeneralStatus', 'model/GeneralText', 'model/Invoice', 'model/InvoiceEntry', 'model/KVBody', 'model/PriceInfo', 'model/Scheme', 'model/SchemeField', 'model/SchemeValueType', 'model/Subscription', 'model/User', 'model/UserProfile', 'model/UserTokens', 'api/AdminApi', 'api/DataApi', 'api/DatasetApi', 'api/ElementApi', 'api/InvoiceApi', 'api/MarketplaceApi', 'api/QueryApi', 'api/ReleaseApi', 'api/SchemeApi', 'api/UserApi', 'api/ViewApi'], factory);
+    define(['ApiClient', 'model/DataElement', 'model/DataElementCsvInfo', 'model/DataElementDisplayInfo', 'model/DataSet', 'model/DataSetRelease', 'model/DataSetView', 'model/GeneralError', 'model/GeneralStatus', 'model/GeneralText', 'model/Invoice', 'model/InvoiceEntry', 'model/KVBody', 'model/PriceInfo', 'model/Program', 'model/ProgramParameters', 'model/Scheme', 'model/SchemeField', 'model/SchemeValueType', 'model/Subscription', 'model/User', 'model/UserProfile', 'model/UserTokens', 'api/AdminApi', 'api/DataApi', 'api/DatasetApi', 'api/ElementApi', 'api/InvoiceApi', 'api/MarketplaceApi', 'api/ProgramApi', 'api/QueryApi', 'api/ReleaseApi', 'api/SchemeApi', 'api/UserApi', 'api/ViewApi'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('./ApiClient'), require('./model/DataElement'), require('./model/DataElementCsvInfo'), require('./model/DataElementDisplayInfo'), require('./model/DataSet'), require('./model/DataSetRelease'), require('./model/DataSetView'), require('./model/GeneralError'), require('./model/GeneralStatus'), require('./model/GeneralText'), require('./model/Invoice'), require('./model/InvoiceEntry'), require('./model/KVBody'), require('./model/PriceInfo'), require('./model/Scheme'), require('./model/SchemeField'), require('./model/SchemeValueType'), require('./model/Subscription'), require('./model/User'), require('./model/UserProfile'), require('./model/UserTokens'), require('./api/AdminApi'), require('./api/DataApi'), require('./api/DatasetApi'), require('./api/ElementApi'), require('./api/InvoiceApi'), require('./api/MarketplaceApi'), require('./api/QueryApi'), require('./api/ReleaseApi'), require('./api/SchemeApi'), require('./api/UserApi'), require('./api/ViewApi'));
+    module.exports = factory(require('./ApiClient'), require('./model/DataElement'), require('./model/DataElementCsvInfo'), require('./model/DataElementDisplayInfo'), require('./model/DataSet'), require('./model/DataSetRelease'), require('./model/DataSetView'), require('./model/GeneralError'), require('./model/GeneralStatus'), require('./model/GeneralText'), require('./model/Invoice'), require('./model/InvoiceEntry'), require('./model/KVBody'), require('./model/PriceInfo'), require('./model/Program'), require('./model/ProgramParameters'), require('./model/Scheme'), require('./model/SchemeField'), require('./model/SchemeValueType'), require('./model/Subscription'), require('./model/User'), require('./model/UserProfile'), require('./model/UserTokens'), require('./api/AdminApi'), require('./api/DataApi'), require('./api/DatasetApi'), require('./api/ElementApi'), require('./api/InvoiceApi'), require('./api/MarketplaceApi'), require('./api/ProgramApi'), require('./api/QueryApi'), require('./api/ReleaseApi'), require('./api/SchemeApi'), require('./api/UserApi'), require('./api/ViewApi'));
   }
-}(function(ApiClient, DataElement, DataElementCsvInfo, DataElementDisplayInfo, DataSet, DataSetRelease, DataSetView, GeneralError, GeneralStatus, GeneralText, Invoice, InvoiceEntry, KVBody, PriceInfo, Scheme, SchemeField, SchemeValueType, Subscription, User, UserProfile, UserTokens, AdminApi, DataApi, DatasetApi, ElementApi, InvoiceApi, MarketplaceApi, QueryApi, ReleaseApi, SchemeApi, UserApi, ViewApi) {
+}(function(ApiClient, DataElement, DataElementCsvInfo, DataElementDisplayInfo, DataSet, DataSetRelease, DataSetView, GeneralError, GeneralStatus, GeneralText, Invoice, InvoiceEntry, KVBody, PriceInfo, Program, ProgramParameters, Scheme, SchemeField, SchemeValueType, Subscription, User, UserProfile, UserTokens, AdminApi, DataApi, DatasetApi, ElementApi, InvoiceApi, MarketplaceApi, ProgramApi, QueryApi, ReleaseApi, SchemeApi, UserApi, ViewApi) {
   'use strict';
 
   /**
@@ -136,6 +136,16 @@
      */
     PriceInfo: PriceInfo,
     /**
+     * The Program model constructor.
+     * @property {module:model/Program}
+     */
+    Program: Program,
+    /**
+     * The ProgramParameters model constructor.
+     * @property {module:model/ProgramParameters}
+     */
+    ProgramParameters: ProgramParameters,
+    /**
      * The Scheme model constructor.
      * @property {module:model/Scheme}
      */
@@ -200,6 +210,11 @@
      * @property {module:api/MarketplaceApi}
      */
     MarketplaceApi: MarketplaceApi,
+    /**
+     * The ProgramApi service constructor.
+     * @property {module:api/ProgramApi}
+     */
+    ProgramApi: ProgramApi,
     /**
      * The QueryApi service constructor.
      * @property {module:api/QueryApi}

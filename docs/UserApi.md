@@ -4,13 +4,64 @@ All URIs are relative to *http://localhost:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**checkCodeFree**](UserApi.md#checkCodeFree) | **GET** /admin/checkCode | 
 [**deleteUser**](UserApi.md#deleteUser) | **DELETE** /admin/user/{userId} | 
 [**getUser**](UserApi.md#getUser) | **GET** /admin/user/{userId} | 
+[**getUserByCode**](UserApi.md#getUserByCode) | **GET** /admin/getUserByCode | 
 [**getUserByEmail**](UserApi.md#getUserByEmail) | **GET** /admin/getUserByEmail | 
 [**getUserByTag**](UserApi.md#getUserByTag) | **GET** /admin/getUserByTag | 
 [**getUserByToken**](UserApi.md#getUserByToken) | **GET** /admin/getUserByToken | 
 [**putUser**](UserApi.md#putUser) | **PUT** /admin/user/{userId} | 
 
+
+<a name="checkCodeFree"></a>
+# **checkCodeFree**
+> GeneralStatus checkCodeFree(adminKey, code)
+
+
+
+Check that a user code is free for assigning to a user
+
+### Example
+```javascript
+var DataHubApi = require('data_hub_api');
+
+var apiInstance = new DataHubApi.UserApi();
+
+var adminKey = "adminKey_example"; // String | The admin user api key
+
+var code = "code_example"; // String | The code to check
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.checkCodeFree(adminKey, code, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **adminKey** | **String**| The admin user api key | 
+ **code** | **String**| The code to check | 
+
+### Return type
+
+[**GeneralStatus**](GeneralStatus.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="deleteUser"></a>
 # **deleteUser**
@@ -98,6 +149,55 @@ Name | Type | Description  | Notes
  **userId** | **String**|  | 
  **adminKey** | **String**| The admin user api key | [optional] 
  **apiKey** | **String**| The user api key | [optional] 
+
+### Return type
+
+[**User**](User.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getUserByCode"></a>
+# **getUserByCode**
+> User getUserByCode(adminKey, code)
+
+
+
+Retrieves a user given its code
+
+### Example
+```javascript
+var DataHubApi = require('data_hub_api');
+
+var apiInstance = new DataHubApi.UserApi();
+
+var adminKey = "adminKey_example"; // String | The admin user api key
+
+var code = "code_example"; // String | The code to search for
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getUserByCode(adminKey, code, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **adminKey** | **String**| The admin user api key | 
+ **code** | **String**| The code to search for | 
 
 ### Return type
 

@@ -70,6 +70,9 @@
 
 
 
+
+
+
   };
 
   /**
@@ -85,6 +88,15 @@
 
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
+      }
+      if (data.hasOwnProperty('code')) {
+        obj['code'] = ApiClient.convertToType(data['code'], 'String');
+      }
+      if (data.hasOwnProperty('accountType')) {
+        obj['accountType'] = ApiClient.convertToType(data['accountType'], 'String');
+      }
+      if (data.hasOwnProperty('group')) {
+        obj['group'] = ApiClient.convertToType(data['group'], 'Boolean');
       }
       if (data.hasOwnProperty('name')) {
         obj['name'] = ApiClient.convertToType(data['name'], 'String');
@@ -130,9 +142,25 @@
   }
 
   /**
+   * The id is the unique key for a user and is normally set to be the email of the user
    * @member {String} id
    */
   exports.prototype['id'] = undefined;
+  /**
+   * The code is the unique (upper case) string used for referencing datasets. Short codes (three chars or less are premium)
+   * @member {String} code
+   */
+  exports.prototype['code'] = undefined;
+  /**
+   * The type of account this is. Basic = free, Bronze, Silver, Gold, Platinum.
+   * @member {String} accountType
+   */
+  exports.prototype['accountType'] = undefined;
+  /**
+   * Whether this entry is for a group or not.
+   * @member {Boolean} group
+   */
+  exports.prototype['group'] = undefined;
   /**
    * @member {String} name
    */

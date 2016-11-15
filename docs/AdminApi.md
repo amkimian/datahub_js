@@ -13,6 +13,8 @@ Method | HTTP request | Description
 
 
 
+Create a new user in the system, usually initiated by the web app
+
 ### Example
 ```javascript
 var DataHubApi = require('data_hub_api');

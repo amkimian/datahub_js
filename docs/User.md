@@ -3,7 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
+**id** | **String** | The id is the unique key for a user and is normally set to be the email of the user | [optional] 
+**code** | **String** | The code is the unique (upper case) string used for referencing datasets. Short codes (three chars or less are premium) | [optional] 
+**accountType** | **String** | The type of account this is. Basic &#x3D; free, Bronze, Silver, Gold, Platinum. | [optional] 
+**group** | **Boolean** | Whether this entry is for a group or not. | [optional] 
 **name** | **String** |  | [optional] 
 **email** | **String** |  | [optional] 
 **gravatar** | **String** |  | [optional] 

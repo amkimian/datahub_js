@@ -64,8 +64,8 @@
      * @type {Array.<String>}
      */
     this.authentications = {
-      'api_key': {type: 'apiKey', 'in': 'header', name: 'api_key'},
-      'admin_key': {type: 'apiKey', 'in': 'header', name: 'admin_key'}
+      'userApiKey': {type: 'apiKey', 'in': 'header', name: 'api_key'},
+      'adminApiKey': {type: 'apiKey', 'in': 'header', name: 'admin_key'}
     };
     /**
      * The default HTTP headers to be included for all API calls.

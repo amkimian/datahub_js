@@ -57,6 +57,58 @@
 
 
     /**
+     * Callback function to receive the result of the checkCodeFree operation.
+     * @callback module:api/UserApi~checkCodeFreeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GeneralStatus} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Check that a user code is free for assigning to a user
+     * @param {String} adminKey The admin user api key
+     * @param {String} code The code to check
+     * @param {module:api/UserApi~checkCodeFreeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GeneralStatus}
+     */
+    this.checkCodeFree = function(adminKey, code, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'adminKey' is set
+      if (adminKey == undefined || adminKey == null) {
+        throw "Missing the required parameter 'adminKey' when calling checkCodeFree";
+      }
+
+      // verify the required parameter 'code' is set
+      if (code == undefined || code == null) {
+        throw "Missing the required parameter 'code' when calling checkCodeFree";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'code': code
+      };
+      var headerParams = {
+        'admin_key': adminKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = GeneralStatus;
+
+      return this.apiClient.callApi(
+        '/admin/checkCode', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the deleteUser operation.
      * @callback module:api/UserApi~deleteUserCallback
      * @param {String} error Error message, if any.
@@ -151,6 +203,58 @@
 
       return this.apiClient.callApi(
         '/admin/user/{userId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUserByCode operation.
+     * @callback module:api/UserApi~getUserByCodeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/User} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieves a user given its code
+     * @param {String} adminKey The admin user api key
+     * @param {String} code The code to search for
+     * @param {module:api/UserApi~getUserByCodeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/User}
+     */
+    this.getUserByCode = function(adminKey, code, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'adminKey' is set
+      if (adminKey == undefined || adminKey == null) {
+        throw "Missing the required parameter 'adminKey' when calling getUserByCode";
+      }
+
+      // verify the required parameter 'code' is set
+      if (code == undefined || code == null) {
+        throw "Missing the required parameter 'code' when calling getUserByCode";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'code': code
+      };
+      var headerParams = {
+        'admin_key': adminKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = User;
+
+      return this.apiClient.callApi(
+        '/admin/getUserByCode', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

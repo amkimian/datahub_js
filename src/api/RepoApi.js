@@ -25,29 +25,29 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/User', 'model/GeneralError'], factory);
+    define(['ApiClient', 'model/GeneralStatus', 'model/DataSet'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/User'), require('../model/GeneralError'));
+    module.exports = factory(require('../ApiClient'), require('../model/GeneralStatus'), require('../model/DataSet'));
   } else {
     // Browser globals (root is window)
     if (!root.DataHubApi) {
       root.DataHubApi = {};
     }
-    root.DataHubApi.AdminApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.User, root.DataHubApi.GeneralError);
+    root.DataHubApi.RepoApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.GeneralStatus, root.DataHubApi.DataSet);
   }
-}(this, function(ApiClient, User, GeneralError) {
+}(this, function(ApiClient, GeneralStatus, DataSet) {
   'use strict';
 
   /**
-   * Admin service.
-   * @module api/AdminApi
+   * Repo service.
+   * @module api/RepoApi
    * @version 0.0.11
    */
 
   /**
-   * Constructs a new AdminApi. 
-   * @alias module:api/AdminApi
+   * Constructs a new RepoApi. 
+   * @alias module:api/RepoApi
    * @class
    * @param {module:ApiClient} apiClient Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
@@ -57,51 +57,59 @@
 
 
     /**
-     * Callback function to receive the result of the createUser operation.
-     * @callback module:api/AdminApi~createUserCallback
+     * Callback function to receive the result of the addRepository operation.
+     * @callback module:api/RepoApi~addRepositoryCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/User} data The data returned by the service call.
+     * @param {module:model/GeneralStatus} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * Create a new user in the system, usually initiated by the web app
-     * @param {String} adminKey The admin user api key
-     * @param {module:model/User} body A new user
-     * @param {module:api/AdminApi~createUserCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/User}
+     * Create a new repository, associated with the given user id
+     * This creates a new repository that can then be added to through releases and datasets 
+     * @param {String} userApiKey The user API key for this operation
+     * @param {String} userId The id of the user that this dataset is associated with
+     * @param {module:model/DataSet} body DataSet object that defines the element
+     * @param {module:api/RepoApi~addRepositoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GeneralStatus}
      */
-    this.createUser = function(adminKey, body, callback) {
+    this.addRepository = function(userApiKey, userId, body, callback) {
       var postBody = body;
 
-      // verify the required parameter 'adminKey' is set
-      if (adminKey == undefined || adminKey == null) {
-        throw "Missing the required parameter 'adminKey' when calling createUser";
+      // verify the required parameter 'userApiKey' is set
+      if (userApiKey == undefined || userApiKey == null) {
+        throw "Missing the required parameter 'userApiKey' when calling addRepository";
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling addRepository";
       }
 
       // verify the required parameter 'body' is set
       if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling createUser";
+        throw "Missing the required parameter 'body' when calling addRepository";
       }
 
 
       var pathParams = {
+        'userId': userId
       };
       var queryParams = {
       };
       var headerParams = {
-        'admin_key': adminKey
+        'userApiKey': userApiKey
       };
       var formParams = {
       };
 
-      var authNames = [];
+      var authNames = ['userApiKey'];
       var contentTypes = ['application/json'];
       var accepts = ['application/json'];
-      var returnType = User;
+      var returnType = GeneralStatus;
 
       return this.apiClient.callApi(
-        '/admin/user', 'POST',
+        '/repos/{userId}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

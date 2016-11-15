@@ -4,7 +4,6 @@ All URIs are relative to *http://localhost:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addDataSet**](DatasetApi.md#addDataSet) | **POST** /datasets/{userId} | Create a new data set, associated with the given user id
 [**deleteDataSet**](DatasetApi.md#deleteDataSet) | **DELETE** /datasets/{userId}/{dataSet} | Remove a data set and all releases and elements
 [**findDataSetsByTags**](DatasetApi.md#findDataSetsByTags) | **GET** /marketplace/getByTag | 
 [**findUserDataSets**](DatasetApi.md#findUserDataSets) | **GET** /user/getDataSets | 
@@ -13,59 +12,6 @@ Method | HTTP request | Description
 [**getMyDataSets**](DatasetApi.md#getMyDataSets) | **GET** /marketplace/getMyDataSets | 
 [**updateDataSet**](DatasetApi.md#updateDataSet) | **PUT** /datasets/{userId}/{dataSet} | Update an existing data set.
 
-
-<a name="addDataSet"></a>
-# **addDataSet**
-> GeneralStatus addDataSet(userId, body, opts)
-
-Create a new data set, associated with the given user id
-
-This creates a new data set that can then be added to 
-
-### Example
-```javascript
-var DataHubApi = require('data_hub_api');
-
-var apiInstance = new DataHubApi.DatasetApi();
-
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
-
-var body = new DataHubApi.DataSet(); // DataSet | DataSet object that defines the element
-
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-apiInstance.addDataSet(userId, body, opts, callback);
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **body** | [**DataSet**](DataSet.md)| DataSet object that defines the element | 
- **apiKey** | **String**| The user api key | [optional] 
-
-### Return type
-
-[**GeneralStatus**](GeneralStatus.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
 
 <a name="deleteDataSet"></a>
 # **deleteDataSet**

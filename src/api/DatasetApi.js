@@ -57,62 +57,6 @@
 
 
     /**
-     * Callback function to receive the result of the addDataSet operation.
-     * @callback module:api/DatasetApi~addDataSetCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/GeneralStatus} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Create a new data set, associated with the given user id
-     * This creates a new data set that can then be added to 
-     * @param {String} userId The id of the user that this dataset is associated with
-     * @param {module:model/DataSet} body DataSet object that defines the element
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.apiKey The user api key
-     * @param {module:api/DatasetApi~addDataSetCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/GeneralStatus}
-     */
-    this.addDataSet = function(userId, body, opts, callback) {
-      opts = opts || {};
-      var postBody = body;
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling addDataSet";
-      }
-
-      // verify the required parameter 'body' is set
-      if (body == undefined || body == null) {
-        throw "Missing the required parameter 'body' when calling addDataSet";
-      }
-
-
-      var pathParams = {
-        'userId': userId
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'api_key': opts['apiKey']
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['application/json'];
-      var returnType = GeneralStatus;
-
-      return this.apiClient.callApi(
-        '/datasets/{userId}', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
      * Callback function to receive the result of the deleteDataSet operation.
      * @callback module:api/DatasetApi~deleteDataSetCallback
      * @param {String} error Error message, if any.

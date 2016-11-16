@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/UserProfile', 'model/UserTokens'], factory);
+    define(['ApiClient', 'model/UserProfile', 'model/UserStripe', 'model/UserTokens'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./UserProfile'), require('./UserTokens'));
+    module.exports = factory(require('../ApiClient'), require('./UserProfile'), require('./UserStripe'), require('./UserTokens'));
   } else {
     // Browser globals (root is window)
     if (!root.DataHubApi) {
       root.DataHubApi = {};
     }
-    root.DataHubApi.User = factory(root.DataHubApi.ApiClient, root.DataHubApi.UserProfile, root.DataHubApi.UserTokens);
+    root.DataHubApi.User = factory(root.DataHubApi.ApiClient, root.DataHubApi.UserProfile, root.DataHubApi.UserStripe, root.DataHubApi.UserTokens);
   }
-}(this, function(ApiClient, UserProfile, UserTokens) {
+}(this, function(ApiClient, UserProfile, UserStripe, UserTokens) {
   'use strict';
 
 
@@ -55,6 +55,8 @@
    */
   var exports = function() {
     var _this = this;
+
+
 
 
 
@@ -95,6 +97,9 @@
       if (data.hasOwnProperty('accountType')) {
         obj['accountType'] = ApiClient.convertToType(data['accountType'], 'String');
       }
+      if (data.hasOwnProperty('accountStatus')) {
+        obj['accountStatus'] = ApiClient.convertToType(data['accountStatus'], 'String');
+      }
       if (data.hasOwnProperty('group')) {
         obj['group'] = ApiClient.convertToType(data['group'], 'Boolean');
       }
@@ -134,6 +139,9 @@
       if (data.hasOwnProperty('tokens')) {
         obj['tokens'] = ApiClient.convertToType(data['tokens'], [UserTokens]);
       }
+      if (data.hasOwnProperty('stripe')) {
+        obj['stripe'] = UserStripe.constructFromObject(data['stripe']);
+      }
       if (data.hasOwnProperty('profile')) {
         obj['profile'] = UserProfile.constructFromObject(data['profile']);
       }
@@ -156,6 +164,11 @@
    * @member {String} accountType
    */
   exports.prototype['accountType'] = undefined;
+  /**
+   * Is the account in good standing? If this is non blank then the account will act as basic and no subscribed datasets will work
+   * @member {String} accountStatus
+   */
+  exports.prototype['accountStatus'] = undefined;
   /**
    * Whether this entry is for a group or not.
    * @member {Boolean} group
@@ -210,6 +223,10 @@
    * @member {Array.<module:model/UserTokens>} tokens
    */
   exports.prototype['tokens'] = undefined;
+  /**
+   * @member {module:model/UserStripe} stripe
+   */
+  exports.prototype['stripe'] = undefined;
   /**
    * @member {module:model/UserProfile} profile
    */

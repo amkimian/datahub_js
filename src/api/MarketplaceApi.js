@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataSet'], factory);
+    define(['ApiClient', 'model/Repository'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/DataSet'));
+    module.exports = factory(require('../ApiClient'), require('../model/Repository'));
   } else {
     // Browser globals (root is window)
     if (!root.DataHubApi) {
       root.DataHubApi = {};
     }
-    root.DataHubApi.MarketplaceApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.DataSet);
+    root.DataHubApi.MarketplaceApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.Repository);
   }
-}(this, function(ApiClient, DataSet) {
+}(this, function(ApiClient, Repository) {
   'use strict';
 
   /**
@@ -60,7 +60,7 @@
      * Callback function to receive the result of the getFront operation.
      * @callback module:api/MarketplaceApi~getFrontCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/DataSet>} data The data returned by the service call.
+     * @param {Array.<module:model/Repository>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -69,7 +69,7 @@
      * @param {Integer} opts.page Page to return (defaults to zero)
      * @param {Integer} opts.limit The maximum amount of records to be returned (the size of the page)
      * @param {module:api/MarketplaceApi~getFrontCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/DataSet>}
+     * data is of type: {@link Array.<module:model/Repository>}
      */
     this.getFront = function(opts, callback) {
       opts = opts || {};
@@ -90,7 +90,7 @@
       var authNames = [];
       var contentTypes = [];
       var accepts = ['application/json'];
-      var returnType = [DataSet];
+      var returnType = [Repository];
 
       return this.apiClient.callApi(
         '/marketplace/getFront', 'GET',

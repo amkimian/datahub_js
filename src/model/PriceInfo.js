@@ -58,6 +58,7 @@
 
 
 
+
   };
 
   /**
@@ -74,8 +75,11 @@
       if (data.hasOwnProperty('amount')) {
         obj['amount'] = ApiClient.convertToType(data['amount'], 'Integer');
       }
-      if (data.hasOwnProperty('oneoff')) {
-        obj['oneoff'] = ApiClient.convertToType(data['oneoff'], 'Boolean');
+      if (data.hasOwnProperty('frequency')) {
+        obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
+      }
+      if (data.hasOwnProperty('currentPlan')) {
+        obj['currentPlan'] = ApiClient.convertToType(data['currentPlan'], 'String');
       }
     }
     return obj;
@@ -87,10 +91,15 @@
    */
   exports.prototype['amount'] = undefined;
   /**
-   * Whether the price is charged every month or one off
-   * @member {Boolean} oneoff
+   * How often to charge the above
+   * @member {String} frequency
    */
-  exports.prototype['oneoff'] = undefined;
+  exports.prototype['frequency'] = undefined;
+  /**
+   * The plan id on Stripe for this repository
+   * @member {String} currentPlan
+   */
+  exports.prototype['currentPlan'] = undefined;
 
 
 

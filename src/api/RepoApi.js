@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/GeneralStatus', 'model/DataSet'], factory);
+    define(['ApiClient', 'model/GeneralStatus', 'model/Repository'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/GeneralStatus'), require('../model/DataSet'));
+    module.exports = factory(require('../ApiClient'), require('../model/GeneralStatus'), require('../model/Repository'));
   } else {
     // Browser globals (root is window)
     if (!root.DataHubApi) {
       root.DataHubApi = {};
     }
-    root.DataHubApi.RepoApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.GeneralStatus, root.DataHubApi.DataSet);
+    root.DataHubApi.RepoApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.GeneralStatus, root.DataHubApi.Repository);
   }
-}(this, function(ApiClient, GeneralStatus, DataSet) {
+}(this, function(ApiClient, GeneralStatus, Repository) {
   'use strict';
 
   /**
@@ -69,7 +69,7 @@
      * This creates a new repository that can then be added to through releases and datasets 
      * @param {String} userApiKey The user API key for this operation
      * @param {String} userId The id of the user that this dataset is associated with
-     * @param {module:model/DataSet} body DataSet object that defines the element
+     * @param {module:model/Repository} body Repository object that defines the element
      * @param {module:api/RepoApi~addRepositoryCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GeneralStatus}
      */
@@ -110,6 +110,308 @@
 
       return this.apiClient.callApi(
         '/repos/{userId}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the deleteRepository operation.
+     * @callback module:api/RepoApi~deleteRepositoryCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GeneralStatus} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Remove a repository and all releases and data sets
+     * 
+     * @param {String} repocode The code of the repository
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.apiKey The user api key
+     * @param {module:api/RepoApi~deleteRepositoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GeneralStatus}
+     */
+    this.deleteRepository = function(repocode, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'repocode' is set
+      if (repocode == undefined || repocode == null) {
+        throw "Missing the required parameter 'repocode' when calling deleteRepository";
+      }
+
+
+      var pathParams = {
+        'repocode': repocode
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': opts['apiKey']
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json', 'application/xml'];
+      var returnType = GeneralStatus;
+
+      return this.apiClient.callApi(
+        '/repos/{repocode}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the findRepositories operation.
+     * @callback module:api/RepoApi~findRepositoriesCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Repository>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {String} apiKey The user api key
+     * @param {Object} opts Optional parameters
+     * @param {Array.<String>} opts.tags Tags to filter by
+     * @param {Integer} opts.page Page to return (defaults to zero)
+     * @param {Boolean} opts.subscribed If true, also return subscribed data sets
+     * @param {module:api/RepoApi~findRepositoriesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Repository>}
+     */
+    this.findRepositories = function(apiKey, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling findRepositories";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'tags': this.apiClient.buildCollectionParam(opts['tags'], 'multi'),
+        'page': opts['page'],
+        'subscribed': opts['subscribed']
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [Repository];
+
+      return this.apiClient.callApi(
+        '/user/getRepositories', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getFront operation.
+     * @callback module:api/RepoApi~getFrontCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Repository>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.page Page to return (defaults to zero)
+     * @param {Integer} opts.limit The maximum amount of records to be returned (the size of the page)
+     * @param {module:api/RepoApi~getFrontCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Repository>}
+     */
+    this.getFront = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'page': opts['page'],
+        'limit': opts['limit']
+      };
+      var headerParams = {
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [Repository];
+
+      return this.apiClient.callApi(
+        '/marketplace/getFront', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getMyRepositories operation.
+     * @callback module:api/RepoApi~getMyRepositoriesCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Repository>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {String} apiKey The user api key
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.page Page to return (defaults to zero)
+     * @param {module:api/RepoApi~getMyRepositoriesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Repository>}
+     */
+    this.getMyRepositories = function(apiKey, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getMyRepositories";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'page': opts['page']
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [Repository];
+
+      return this.apiClient.callApi(
+        '/marketplace/getMyRepositories', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getRepositoryByCode operation.
+     * @callback module:api/RepoApi~getRepositoryByCodeCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/Repository} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Find a repository given its code (code is owner + repo short code)
+     * Returns a repository
+     * @param {String} repocode The code of the repo
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.apiKey The user api key
+     * @param {module:api/RepoApi~getRepositoryByCodeCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/Repository}
+     */
+    this.getRepositoryByCode = function(repocode, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'repocode' is set
+      if (repocode == undefined || repocode == null) {
+        throw "Missing the required parameter 'repocode' when calling getRepositoryByCode";
+      }
+
+
+      var pathParams = {
+        'repocode': repocode
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': opts['apiKey']
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = Repository;
+
+      return this.apiClient.callApi(
+        '/repos/{repocode}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateRepository operation.
+     * @callback module:api/RepoApi~updateRepositoryCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GeneralStatus} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update an existing repository.
+     * 
+     * @param {String} apiKey The user api key
+     * @param {String} repocode The code of the repository
+     * @param {module:model/Repository} body Repository object that defines the element
+     * @param {module:api/RepoApi~updateRepositoryCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GeneralStatus}
+     */
+    this.updateRepository = function(apiKey, repocode, body, callback) {
+      var postBody = body;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling updateRepository";
+      }
+
+      // verify the required parameter 'repocode' is set
+      if (repocode == undefined || repocode == null) {
+        throw "Missing the required parameter 'repocode' when calling updateRepository";
+      }
+
+      // verify the required parameter 'body' is set
+      if (body == undefined || body == null) {
+        throw "Missing the required parameter 'body' when calling updateRepository";
+      }
+
+
+      var pathParams = {
+        'repocode': repocode
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = GeneralStatus;
+
+      return this.apiClient.callApi(
+        '/repos/{repocode}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

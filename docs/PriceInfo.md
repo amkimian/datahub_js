@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | **Integer** | The amount (in cents) of the subscription | [optional] 
-**oneoff** | **Boolean** | Whether the price is charged every month or one off | [optional] 
+**frequency** | **String** | How often to charge the above | [optional] 
+**currentPlan** | **String** | The plan id on Stripe for this repository | [optional] 
 
 

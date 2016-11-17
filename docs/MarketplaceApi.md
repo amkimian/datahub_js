@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="getFront"></a>
 # **getFront**
-> [DataSet] getFront(opts)
+> [Repository] getFront(opts)
 
 
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[DataSet]**](DataSet.md)
+[**[Repository]**](Repository.md)
 
 ### Authorization
 

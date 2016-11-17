@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addRepository**](RepoApi.md#addRepository) | **POST** /repos/{userId} | Create a new repository, associated with the given user id
 [**deleteRepository**](RepoApi.md#deleteRepository) | **DELETE** /repos/{repocode} | Remove a repository and all releases and data sets
+[**findReposByTags**](RepoApi.md#findReposByTags) | **GET** /marketplace/getByTag | 
 [**findRepositories**](RepoApi.md#findRepositories) | **GET** /user/getRepositories | 
 [**getFront**](RepoApi.md#getFront) | **GET** /marketplace/getFront | 
 [**getMyRepositories**](RepoApi.md#getMyRepositories) | **GET** /marketplace/getMyRepositories | 
@@ -121,6 +122,55 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/xml
+
+<a name="findReposByTags"></a>
+# **findReposByTags**
+> [Repository] findReposByTags(opts)
+
+
+
+### Example
+```javascript
+var DataHubApi = require('data_hub_api');
+
+var apiInstance = new DataHubApi.RepoApi();
+
+var opts = { 
+  'apiKey': "apiKey_example", // String | The user api key
+  'tags': ["tags_example"], // [String] | Tags to filter by
+  'page': 56 // Integer | Page to return (defaults to zero)
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.findReposByTags(opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | [optional] 
+ **tags** | [**[String]**](String.md)| Tags to filter by | [optional] 
+ **page** | **Integer**| Page to return (defaults to zero) | [optional] 
+
+### Return type
+
+[**[Repository]**](Repository.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 <a name="findRepositories"></a>
 # **findRepositories**

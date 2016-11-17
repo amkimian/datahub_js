@@ -166,6 +166,51 @@
     }
 
     /**
+     * Callback function to receive the result of the findReposByTags operation.
+     * @callback module:api/RepoApi~findReposByTagsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Repository>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.apiKey The user api key
+     * @param {Array.<String>} opts.tags Tags to filter by
+     * @param {Integer} opts.page Page to return (defaults to zero)
+     * @param {module:api/RepoApi~findReposByTagsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Repository>}
+     */
+    this.findReposByTags = function(opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'tags': this.apiClient.buildCollectionParam(opts['tags'], 'multi'),
+        'page': opts['page']
+      };
+      var headerParams = {
+        'api_key': opts['apiKey']
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [Repository];
+
+      return this.apiClient.callApi(
+        '/marketplace/getByTag', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the findRepositories operation.
      * @callback module:api/RepoApi~findRepositoriesCallback
      * @param {String} error Error message, if any.

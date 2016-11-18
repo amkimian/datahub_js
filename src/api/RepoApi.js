@@ -354,6 +354,56 @@
     }
 
     /**
+     * Callback function to receive the result of the getRepositories operation.
+     * @callback module:api/RepoApi~getRepositoriesCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/Repository>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Retrieve current users Repositories
+     * Retrieve the repositories for a given user (owned by)
+     * @param {String} userApiKey The user API key for this operation
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.page The page of results to return
+     * @param {module:api/RepoApi~getRepositoriesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/Repository>}
+     */
+    this.getRepositories = function(userApiKey, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'userApiKey' is set
+      if (userApiKey == undefined || userApiKey == null) {
+        throw "Missing the required parameter 'userApiKey' when calling getRepositories";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'userApiKey': userApiKey,
+        'page': opts['page']
+      };
+      var formParams = {
+      };
+
+      var authNames = ['userApiKey'];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [Repository];
+
+      return this.apiClient.callApi(
+        '/repos', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the getRepositoryByCode operation.
      * @callback module:api/RepoApi~getRepositoryByCodeCallback
      * @param {String} error Error message, if any.

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**findRepositories**](RepoApi.md#findRepositories) | **GET** /user/getRepositories | 
 [**getFront**](RepoApi.md#getFront) | **GET** /marketplace/getFront | 
 [**getMyRepositories**](RepoApi.md#getMyRepositories) | **GET** /marketplace/getMyRepositories | 
+[**getRepositories**](RepoApi.md#getRepositories) | **GET** /repos | Retrieve current users Repositories
 [**getRepositoryByCode**](RepoApi.md#getRepositoryByCode) | **GET** /repos/{repocode} | Find a repository given its code (code is owner + repo short code)
 [**updateRepository**](RepoApi.md#updateRepository) | **PUT** /repos/{repocode} | Update an existing repository.
 
@@ -317,6 +318,63 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getRepositories"></a>
+# **getRepositories**
+> [Repository] getRepositories(userApiKey, opts)
+
+Retrieve current users Repositories
+
+Retrieve the repositories for a given user (owned by)
+
+### Example
+```javascript
+var DataHubApi = require('data_hub_api');
+var defaultClient = DataHubApi.ApiClient.default;
+
+// Configure API key authorization: userApiKey
+var userApiKey = defaultClient.authentications['userApiKey'];
+userApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//userApiKey.apiKeyPrefix = 'Token';
+
+var apiInstance = new DataHubApi.RepoApi();
+
+var userApiKey = "userApiKey_example"; // String | The user API key for this operation
+
+var opts = { 
+  'page': 56 // Integer | The page of results to return
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getRepositories(userApiKey, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userApiKey** | **String**| The user API key for this operation | 
+ **page** | **Integer**| The page of results to return | [optional] 
+
+### Return type
+
+[**[Repository]**](Repository.md)
+
+### Authorization
+
+[userApiKey](../README.md#userApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="getRepositoryByCode"></a>

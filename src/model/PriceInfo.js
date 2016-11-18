@@ -59,6 +59,8 @@
 
 
 
+
+
   };
 
   /**
@@ -81,6 +83,12 @@
       if (data.hasOwnProperty('currentPlan')) {
         obj['currentPlan'] = ApiClient.convertToType(data['currentPlan'], 'String');
       }
+      if (data.hasOwnProperty('published')) {
+        obj['published'] = ApiClient.convertToType(data['published'], 'Boolean');
+      }
+      if (data.hasOwnProperty('trial')) {
+        obj['trial'] = ApiClient.convertToType(data['trial'], 'Integer');
+      }
     }
     return obj;
   }
@@ -100,6 +108,16 @@
    * @member {String} currentPlan
    */
   exports.prototype['currentPlan'] = undefined;
+  /**
+   * Whether this plan is on stripe or not
+   * @member {Boolean} published
+   */
+  exports.prototype['published'] = undefined;
+  /**
+   * The amount of days of trial period allowed
+   * @member {Integer} trial
+   */
+  exports.prototype['trial'] = undefined;
 
 
 

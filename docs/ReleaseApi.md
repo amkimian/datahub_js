@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addRelease**](ReleaseApi.md#addRelease) | **POST** /releases/{userId}/{dataSet} | Create a new open release
-[**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /releases/{userId}/{dataSet}/{release} | Delete release information
-[**getRelease**](ReleaseApi.md#getRelease) | **GET** /releases/{userId}/{dataSet}/{release} | Get release information
-[**publishRelease**](ReleaseApi.md#publishRelease) | **GET** /release/publish/{userId}/{dataSet}/{release} | Publish a release
+[**addRelease**](ReleaseApi.md#addRelease) | **POST** /releases/{userId}/{repocode} | Create a new open release
+[**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /releases/{userId}/{repocode}/{release} | Delete release information
+[**getRelease**](ReleaseApi.md#getRelease) | **GET** /releases/{userId}/{repocode}/{release} | Get release information
+[**publishRelease**](ReleaseApi.md#publishRelease) | **GET** /release/publish/{userId}/{repocode}/{release} | Publish a release
 
 
 <a name="addRelease"></a>
 # **addRelease**
-> GeneralStatus addRelease(userId, dataSet, body, opts)
+> GeneralStatus addRelease(userId, repocode, body, opts)
 
 Create a new open release
 
@@ -26,7 +26,7 @@ var apiInstance = new DataHubApi.ReleaseApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var repocode = "repocode_example"; // String | The id of the repository
 
 var body = new DataHubApi.DataSetRelease(); // DataSetRelease | Release object that defines the element in a data set
 
@@ -41,7 +41,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.addRelease(userId, dataSet, body, opts, callback);
+apiInstance.addRelease(userId, repocode, body, opts, callback);
 ```
 
 ### Parameters
@@ -49,7 +49,7 @@ apiInstance.addRelease(userId, dataSet, body, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The id of the user that this dataset is associated with | 
- **dataSet** | **String**| The id of the data set | 
+ **repocode** | **String**| The id of the repository | 
  **body** | [**DataSetRelease**](DataSetRelease.md)| Release object that defines the element in a data set | 
  **apiKey** | **String**| The user api key | [optional] 
 
@@ -68,7 +68,7 @@ No authorization required
 
 <a name="deleteRelease"></a>
 # **deleteRelease**
-> GeneralStatus deleteRelease(userId, dataSet, release, opts)
+> GeneralStatus deleteRelease(userId, repocode, release, opts)
 
 Delete release information
 
@@ -82,7 +82,7 @@ var apiInstance = new DataHubApi.ReleaseApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var repocode = "repocode_example"; // String | The id of the repository
 
 var release = "release_example"; // String | The id of the release
 
@@ -97,7 +97,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.deleteRelease(userId, dataSet, release, opts, callback);
+apiInstance.deleteRelease(userId, repocode, release, opts, callback);
 ```
 
 ### Parameters
@@ -105,7 +105,7 @@ apiInstance.deleteRelease(userId, dataSet, release, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The id of the user that this dataset is associated with | 
- **dataSet** | **String**| The id of the data set | 
+ **repocode** | **String**| The id of the repository | 
  **release** | **String**| The id of the release | 
  **apiKey** | **String**| The user api key | [optional] 
 
@@ -124,7 +124,7 @@ No authorization required
 
 <a name="getRelease"></a>
 # **getRelease**
-> DataSetRelease getRelease(userId, dataSet, release, opts)
+> DataSetRelease getRelease(userId, repocode, release, opts)
 
 Get release information
 
@@ -138,7 +138,7 @@ var apiInstance = new DataHubApi.ReleaseApi();
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var repocode = "repocode_example"; // String | The id of the repository
 
 var release = "release_example"; // String | The id of the release
 
@@ -153,7 +153,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getRelease(userId, dataSet, release, opts, callback);
+apiInstance.getRelease(userId, repocode, release, opts, callback);
 ```
 
 ### Parameters
@@ -161,7 +161,7 @@ apiInstance.getRelease(userId, dataSet, release, opts, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userId** | **String**| The id of the user that this dataset is associated with | 
- **dataSet** | **String**| The id of the data set | 
+ **repocode** | **String**| The id of the repository | 
  **release** | **String**| The id of the release | 
  **apiKey** | **String**| The user api key | [optional] 
 
@@ -180,7 +180,7 @@ No authorization required
 
 <a name="publishRelease"></a>
 # **publishRelease**
-> DataSetRelease publishRelease(apiKey, userId, dataSet, release)
+> DataSetRelease publishRelease(apiKey, userId, repocode, release)
 
 Publish a release
 
@@ -196,7 +196,7 @@ var apiKey = "apiKey_example"; // String | The user api key
 
 var userId = "userId_example"; // String | The id of the user that this dataset is associated with
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var repocode = "repocode_example"; // String | The id of the repository
 
 var release = "release_example"; // String | The id of the release
 
@@ -208,7 +208,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.publishRelease(apiKey, userId, dataSet, release, callback);
+apiInstance.publishRelease(apiKey, userId, repocode, release, callback);
 ```
 
 ### Parameters
@@ -217,7 +217,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiKey** | **String**| The user api key | 
  **userId** | **String**| The id of the user that this dataset is associated with | 
- **dataSet** | **String**| The id of the data set | 
+ **repocode** | **String**| The id of the repository | 
  **release** | **String**| The id of the release | 
 
 ### Return type

@@ -67,10 +67,7 @@
     /**
      * Returns a block of CSV data
      * @param {String} apiKey The user api key
-     * @param {String} owner The owner of the data element
-     * @param {String} dataset The name of the data set
-     * @param {String} release The name of the release
-     * @param {String} element The element name
+     * @param {String} elementcode The code of the element
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.withHeader Whether to include headers (row 0)
      * @param {Integer} opts.skip which page to show
@@ -78,7 +75,7 @@
      * @param {module:api/DataApi~getCSVDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'String'}
      */
-    this.getCSVData = function(apiKey, owner, dataset, release, element, opts, callback) {
+    this.getCSVData = function(apiKey, elementcode, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -87,32 +84,14 @@
         throw "Missing the required parameter 'apiKey' when calling getCSVData";
       }
 
-      // verify the required parameter 'owner' is set
-      if (owner == undefined || owner == null) {
-        throw "Missing the required parameter 'owner' when calling getCSVData";
-      }
-
-      // verify the required parameter 'dataset' is set
-      if (dataset == undefined || dataset == null) {
-        throw "Missing the required parameter 'dataset' when calling getCSVData";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling getCSVData";
-      }
-
-      // verify the required parameter 'element' is set
-      if (element == undefined || element == null) {
-        throw "Missing the required parameter 'element' when calling getCSVData";
+      // verify the required parameter 'elementcode' is set
+      if (elementcode == undefined || elementcode == null) {
+        throw "Missing the required parameter 'elementcode' when calling getCSVData";
       }
 
 
       var pathParams = {
-        'owner': owner,
-        'dataset': dataset,
-        'release': release,
-        'element': element
+        'elementcode': elementcode
       };
       var queryParams = {
         'withHeader': opts['withHeader'],
@@ -131,7 +110,7 @@
       var returnType = 'String';
 
       return this.apiClient.callApi(
-        '/data/{owner}/{dataset}/{release}/{element}/getCSVBlock', 'GET',
+        '/data/{elementcode}/getCSVBlock', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -148,15 +127,12 @@
     /**
      * Writes a block of CSV data
      * @param {String} apiKey The user api key
-     * @param {String} owner The owner of the data element
-     * @param {String} dataset The name of the data set
-     * @param {String} release The name of the release
-     * @param {String} element The element name
+     * @param {String} elementcode The code of the data element
      * @param {String} data The CSV data to write
      * @param {module:api/DataApi~putCSVDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GeneralStatus}
      */
-    this.putCSVData = function(apiKey, owner, dataset, release, element, data, callback) {
+    this.putCSVData = function(apiKey, elementcode, data, callback) {
       var postBody = data;
 
       // verify the required parameter 'apiKey' is set
@@ -164,24 +140,9 @@
         throw "Missing the required parameter 'apiKey' when calling putCSVData";
       }
 
-      // verify the required parameter 'owner' is set
-      if (owner == undefined || owner == null) {
-        throw "Missing the required parameter 'owner' when calling putCSVData";
-      }
-
-      // verify the required parameter 'dataset' is set
-      if (dataset == undefined || dataset == null) {
-        throw "Missing the required parameter 'dataset' when calling putCSVData";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling putCSVData";
-      }
-
-      // verify the required parameter 'element' is set
-      if (element == undefined || element == null) {
-        throw "Missing the required parameter 'element' when calling putCSVData";
+      // verify the required parameter 'elementcode' is set
+      if (elementcode == undefined || elementcode == null) {
+        throw "Missing the required parameter 'elementcode' when calling putCSVData";
       }
 
       // verify the required parameter 'data' is set
@@ -191,10 +152,7 @@
 
 
       var pathParams = {
-        'owner': owner,
-        'dataset': dataset,
-        'release': release,
-        'element': element
+        'elementcode': elementcode
       };
       var queryParams = {
       };
@@ -210,7 +168,7 @@
       var returnType = GeneralStatus;
 
       return this.apiClient.callApi(
-        '/data/{owner}/{dataset}/{release}/{element}/csv', 'POST',
+        '/data/{elementcode}/csv', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -227,15 +185,12 @@
     /**
      * Writes a block of key/value style data
      * @param {String} apiKey The user api key
-     * @param {String} owner The owner of the data element
-     * @param {String} dataset The name of the data set
-     * @param {String} release The name of the release
-     * @param {String} element The element name
+     * @param {String} elementcode The code of the data element
      * @param {module:model/KVBody} fields 
      * @param {module:api/DataApi~putKVDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GeneralStatus}
      */
-    this.putKVData = function(apiKey, owner, dataset, release, element, fields, callback) {
+    this.putKVData = function(apiKey, elementcode, fields, callback) {
       var postBody = fields;
 
       // verify the required parameter 'apiKey' is set
@@ -243,24 +198,9 @@
         throw "Missing the required parameter 'apiKey' when calling putKVData";
       }
 
-      // verify the required parameter 'owner' is set
-      if (owner == undefined || owner == null) {
-        throw "Missing the required parameter 'owner' when calling putKVData";
-      }
-
-      // verify the required parameter 'dataset' is set
-      if (dataset == undefined || dataset == null) {
-        throw "Missing the required parameter 'dataset' when calling putKVData";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling putKVData";
-      }
-
-      // verify the required parameter 'element' is set
-      if (element == undefined || element == null) {
-        throw "Missing the required parameter 'element' when calling putKVData";
+      // verify the required parameter 'elementcode' is set
+      if (elementcode == undefined || elementcode == null) {
+        throw "Missing the required parameter 'elementcode' when calling putKVData";
       }
 
       // verify the required parameter 'fields' is set
@@ -270,10 +210,7 @@
 
 
       var pathParams = {
-        'owner': owner,
-        'dataset': dataset,
-        'release': release,
-        'element': element
+        'elementcode': elementcode
       };
       var queryParams = {
       };
@@ -289,7 +226,7 @@
       var returnType = GeneralStatus;
 
       return this.apiClient.callApi(
-        '/data/{owner}/{dataset}/{release}/{element}/kv', 'POST',
+        '/data/{elementcode}/kv', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

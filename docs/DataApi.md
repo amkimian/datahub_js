@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCSVData**](DataApi.md#getCSVData) | **GET** /data/{owner}/{dataset}/{release}/{element}/getCSVBlock | 
-[**putCSVData**](DataApi.md#putCSVData) | **POST** /data/{owner}/{dataset}/{release}/{element}/csv | 
-[**putKVData**](DataApi.md#putKVData) | **POST** /data/{owner}/{dataset}/{release}/{element}/kv | 
+[**getCSVData**](DataApi.md#getCSVData) | **GET** /data/{elementcode}/getCSVBlock | 
+[**putCSVData**](DataApi.md#putCSVData) | **POST** /data/{elementcode}/csv | 
+[**putKVData**](DataApi.md#putKVData) | **POST** /data/{elementcode}/kv | 
 
 
 <a name="getCSVData"></a>
 # **getCSVData**
-> &#39;String&#39; getCSVData(apiKey, owner, dataset, release, element, opts)
+> &#39;String&#39; getCSVData(apiKey, elementcode, opts)
 
 
 
@@ -25,13 +25,7 @@ var apiInstance = new DataHubApi.DataApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
-var owner = "owner_example"; // String | The owner of the data element
-
-var dataset = "dataset_example"; // String | The name of the data set
-
-var release = "release_example"; // String | The name of the release
-
-var element = "element_example"; // String | The element name
+var elementcode = "elementcode_example"; // String | The code of the element
 
 var opts = { 
   'withHeader': true, // Boolean | Whether to include headers (row 0)
@@ -46,7 +40,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getCSVData(apiKey, owner, dataset, release, element, opts, callback);
+apiInstance.getCSVData(apiKey, elementcode, opts, callback);
 ```
 
 ### Parameters
@@ -54,10 +48,7 @@ apiInstance.getCSVData(apiKey, owner, dataset, release, element, opts, callback)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiKey** | **String**| The user api key | 
- **owner** | **String**| The owner of the data element | 
- **dataset** | **String**| The name of the data set | 
- **release** | **String**| The name of the release | 
- **element** | **String**| The element name | 
+ **elementcode** | **String**| The code of the element | 
  **withHeader** | **Boolean**| Whether to include headers (row 0) | [optional] 
  **skip** | **Integer**| which page to show | [optional] 
  **limit** | **Integer**| How many records to return | [optional] 
@@ -77,7 +68,7 @@ No authorization required
 
 <a name="putCSVData"></a>
 # **putCSVData**
-> GeneralStatus putCSVData(apiKey, owner, dataset, release, element, data)
+> GeneralStatus putCSVData(apiKey, elementcode, data)
 
 
 
@@ -91,13 +82,7 @@ var apiInstance = new DataHubApi.DataApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
-var owner = "owner_example"; // String | The owner of the data element
-
-var dataset = "dataset_example"; // String | The name of the data set
-
-var release = "release_example"; // String | The name of the release
-
-var element = "element_example"; // String | The element name
+var elementcode = "elementcode_example"; // String | The code of the data element
 
 var data = "data_example"; // String | The CSV data to write
 
@@ -109,7 +94,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.putCSVData(apiKey, owner, dataset, release, element, data, callback);
+apiInstance.putCSVData(apiKey, elementcode, data, callback);
 ```
 
 ### Parameters
@@ -117,10 +102,7 @@ apiInstance.putCSVData(apiKey, owner, dataset, release, element, data, callback)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiKey** | **String**| The user api key | 
- **owner** | **String**| The owner of the data element | 
- **dataset** | **String**| The name of the data set | 
- **release** | **String**| The name of the release | 
- **element** | **String**| The element name | 
+ **elementcode** | **String**| The code of the data element | 
  **data** | **String**| The CSV data to write | 
 
 ### Return type
@@ -138,7 +120,7 @@ No authorization required
 
 <a name="putKVData"></a>
 # **putKVData**
-> GeneralStatus putKVData(apiKey, owner, dataset, release, element, fields)
+> GeneralStatus putKVData(apiKey, elementcode, fields)
 
 
 
@@ -152,13 +134,7 @@ var apiInstance = new DataHubApi.DataApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
-var owner = "owner_example"; // String | The owner of the data element
-
-var dataset = "dataset_example"; // String | The name of the data set
-
-var release = "release_example"; // String | The name of the release
-
-var element = "element_example"; // String | The element name
+var elementcode = "elementcode_example"; // String | The code of the data element
 
 var fields = new DataHubApi.KVBody(); // KVBody | 
 
@@ -170,7 +146,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.putKVData(apiKey, owner, dataset, release, element, fields, callback);
+apiInstance.putKVData(apiKey, elementcode, fields, callback);
 ```
 
 ### Parameters
@@ -178,10 +154,7 @@ apiInstance.putKVData(apiKey, owner, dataset, release, element, fields, callback
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiKey** | **String**| The user api key | 
- **owner** | **String**| The owner of the data element | 
- **dataset** | **String**| The name of the data set | 
- **release** | **String**| The name of the release | 
- **element** | **String**| The element name | 
+ **elementcode** | **String**| The code of the data element | 
  **fields** | [**KVBody**](KVBody.md)|  | 
 
 ### Return type

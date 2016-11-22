@@ -67,10 +67,7 @@
     /**
      * Querys data in a KV element
      * @param {String} apiKey The user api key
-     * @param {String} owner 
-     * @param {String} dataset 
-     * @param {String} release 
-     * @param {String} element 
+     * @param {String} elementcode 
      * @param {String} query The query, currently a string rep of a JSON mongo query
      * @param {Object} opts Optional parameters
      * @param {Integer} opts.page The page of data to return
@@ -78,7 +75,7 @@
      * @param {module:api/QueryApi~queryDataCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'String'}
      */
-    this.queryData = function(apiKey, owner, dataset, release, element, query, opts, callback) {
+    this.queryData = function(apiKey, elementcode, query, opts, callback) {
       opts = opts || {};
       var postBody = null;
 
@@ -87,24 +84,9 @@
         throw "Missing the required parameter 'apiKey' when calling queryData";
       }
 
-      // verify the required parameter 'owner' is set
-      if (owner == undefined || owner == null) {
-        throw "Missing the required parameter 'owner' when calling queryData";
-      }
-
-      // verify the required parameter 'dataset' is set
-      if (dataset == undefined || dataset == null) {
-        throw "Missing the required parameter 'dataset' when calling queryData";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling queryData";
-      }
-
-      // verify the required parameter 'element' is set
-      if (element == undefined || element == null) {
-        throw "Missing the required parameter 'element' when calling queryData";
+      // verify the required parameter 'elementcode' is set
+      if (elementcode == undefined || elementcode == null) {
+        throw "Missing the required parameter 'elementcode' when calling queryData";
       }
 
       // verify the required parameter 'query' is set
@@ -114,10 +96,7 @@
 
 
       var pathParams = {
-        'owner': owner,
-        'dataset': dataset,
-        'release': release,
-        'element': element
+        'elementcode': elementcode
       };
       var queryParams = {
         'query': query,
@@ -136,7 +115,7 @@
       var returnType = 'String';
 
       return this.apiClient.callApi(
-        '/query/{owner}/{dataset}/{release}/{element}', 'GET',
+        '/query/{elementcode}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**queryData**](QueryApi.md#queryData) | **GET** /query/{owner}/{dataset}/{release}/{element} | 
+[**queryData**](QueryApi.md#queryData) | **GET** /query/{elementcode} | 
 
 
 <a name="queryData"></a>
 # **queryData**
-> &#39;String&#39; queryData(apiKey, owner, dataset, release, element, query, opts)
+> &#39;String&#39; queryData(apiKey, elementcode, query, opts)
 
 
 
@@ -23,13 +23,7 @@ var apiInstance = new DataHubApi.QueryApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
-var owner = "owner_example"; // String | 
-
-var dataset = "dataset_example"; // String | 
-
-var release = "release_example"; // String | 
-
-var element = "element_example"; // String | 
+var elementcode = "elementcode_example"; // String | 
 
 var query = "query_example"; // String | The query, currently a string rep of a JSON mongo query
 
@@ -45,7 +39,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.queryData(apiKey, owner, dataset, release, element, query, opts, callback);
+apiInstance.queryData(apiKey, elementcode, query, opts, callback);
 ```
 
 ### Parameters
@@ -53,10 +47,7 @@ apiInstance.queryData(apiKey, owner, dataset, release, element, query, opts, cal
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiKey** | **String**| The user api key | 
- **owner** | **String**|  | 
- **dataset** | **String**|  | 
- **release** | **String**|  | 
- **element** | **String**|  | 
+ **elementcode** | **String**|  | 
  **query** | **String**| The query, currently a string rep of a JSON mongo query | 
  **page** | **Integer**| The page of data to return | [optional] 
  **limit** | **Integer**| The maximum rows to return | [optional] 

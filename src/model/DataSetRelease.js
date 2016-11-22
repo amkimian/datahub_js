@@ -77,8 +77,8 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('dataset')) {
-        obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
+      if (data.hasOwnProperty('repocode')) {
+        obj['repocode'] = ApiClient.convertToType(data['repocode'], 'String');
       }
       if (data.hasOwnProperty('owner')) {
         obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
@@ -99,10 +99,10 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * The id of the data set this release relates to
-   * @member {String} dataset
+   * The id of the repository this release relates to
+   * @member {String} repocode
    */
-  exports.prototype['dataset'] = undefined;
+  exports.prototype['repocode'] = undefined;
   /**
    * The id of the user this data set/release relates to
    * @member {String} owner

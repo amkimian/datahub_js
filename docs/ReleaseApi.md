@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addRelease**](ReleaseApi.md#addRelease) | **POST** /releases/{userId}/{repocode} | Create a new open release
 [**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /releases/{userId}/{repocode}/{release} | Delete release information
 [**getRelease**](ReleaseApi.md#getRelease) | **GET** /releases/{userId}/{repocode}/{release} | Get release information
+[**getReleases**](ReleaseApi.md#getReleases) | **GET** /releases/{userId}/{repocode} | Get releases for a repository
 [**publishRelease**](ReleaseApi.md#publishRelease) | **GET** /release/publish/{userId}/{repocode}/{release} | Publish a release
 
 
@@ -168,6 +169,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**DataSetRelease**](DataSetRelease.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getReleases"></a>
+# **getReleases**
+> [DataSetRelease] getReleases(apiKey, userId, repocode)
+
+Get releases for a repository
+
+Get all releases for a repository (with maybe paging later)
+
+### Example
+```javascript
+var DataHubApi = require('data_hub_api');
+
+var apiInstance = new DataHubApi.ReleaseApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+
+var repocode = "repocode_example"; // String | The id of the repository
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getReleases(apiKey, userId, repocode, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **userId** | **String**| The id of the user that this dataset is associated with | 
+ **repocode** | **String**| The id of the repository | 
+
+### Return type
+
+[**[DataSetRelease]**](DataSetRelease.md)
 
 ### Authorization
 

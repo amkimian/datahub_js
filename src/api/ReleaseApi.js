@@ -248,6 +248,66 @@
     }
 
     /**
+     * Callback function to receive the result of the getReleases operation.
+     * @callback module:api/ReleaseApi~getReleasesCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/DataSetRelease>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get releases for a repository
+     * Get all releases for a repository (with maybe paging later)
+     * @param {String} apiKey The user api key
+     * @param {String} userId The id of the user that this dataset is associated with
+     * @param {String} repocode The id of the repository
+     * @param {module:api/ReleaseApi~getReleasesCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/DataSetRelease>}
+     */
+    this.getReleases = function(apiKey, userId, repocode, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getReleases";
+      }
+
+      // verify the required parameter 'userId' is set
+      if (userId == undefined || userId == null) {
+        throw "Missing the required parameter 'userId' when calling getReleases";
+      }
+
+      // verify the required parameter 'repocode' is set
+      if (repocode == undefined || repocode == null) {
+        throw "Missing the required parameter 'repocode' when calling getReleases";
+      }
+
+
+      var pathParams = {
+        'userId': userId,
+        'repocode': repocode
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = [];
+      var accepts = ['application/json'];
+      var returnType = [DataSetRelease];
+
+      return this.apiClient.callApi(
+        '/releases/{userId}/{repocode}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the publishRelease operation.
      * @callback module:api/ReleaseApi~publishReleaseCallback
      * @param {String} error Error message, if any.

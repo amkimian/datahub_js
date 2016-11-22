@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/DataSetRelease', 'model/DataElement', 'model/Subscription', 'model/DataSetView'], factory);
+    define(['ApiClient', 'model/DataElement', 'model/Subscription', 'model/DataSetView'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/DataSetRelease'), require('../model/DataElement'), require('../model/Subscription'), require('../model/DataSetView'));
+    module.exports = factory(require('../ApiClient'), require('../model/DataElement'), require('../model/Subscription'), require('../model/DataSetView'));
   } else {
     // Browser globals (root is window)
     if (!root.DataHubApi) {
       root.DataHubApi = {};
     }
-    root.DataHubApi.ViewApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.DataSetRelease, root.DataHubApi.DataElement, root.DataHubApi.Subscription, root.DataHubApi.DataSetView);
+    root.DataHubApi.ViewApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.DataElement, root.DataHubApi.Subscription, root.DataHubApi.DataSetView);
   }
-}(this, function(ApiClient, DataSetRelease, DataElement, Subscription, DataSetView) {
+}(this, function(ApiClient, DataElement, Subscription, DataSetView) {
   'use strict';
 
   /**
@@ -55,65 +55,6 @@
   var exports = function(apiClient) {
     this.apiClient = apiClient || ApiClient.instance;
 
-
-    /**
-     * Callback function to receive the result of the getDataSetReleases operation.
-     * @callback module:api/ViewApi~getDataSetReleasesCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/DataSetRelease>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * Returns releases for a given data set
-     * @param {String} apiKey The user api key
-     * @param {String} userId The user id that owns the data set
-     * @param {String} dataset The id of the data set
-     * @param {module:api/ViewApi~getDataSetReleasesCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/DataSetRelease>}
-     */
-    this.getDataSetReleases = function(apiKey, userId, dataset, callback) {
-      var postBody = null;
-
-      // verify the required parameter 'apiKey' is set
-      if (apiKey == undefined || apiKey == null) {
-        throw "Missing the required parameter 'apiKey' when calling getDataSetReleases";
-      }
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getDataSetReleases";
-      }
-
-      // verify the required parameter 'dataset' is set
-      if (dataset == undefined || dataset == null) {
-        throw "Missing the required parameter 'dataset' when calling getDataSetReleases";
-      }
-
-
-      var pathParams = {
-        'userId': userId,
-        'dataset': dataset
-      };
-      var queryParams = {
-      };
-      var headerParams = {
-        'api_key': apiKey
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['application/json'];
-      var returnType = [DataSetRelease];
-
-      return this.apiClient.callApi(
-        '/view/releases/{userId}/{dataset}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
 
     /**
      * Callback function to receive the result of the getReleaseElements operation.

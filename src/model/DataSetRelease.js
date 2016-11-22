@@ -61,6 +61,7 @@
 
 
 
+
   };
 
   /**
@@ -82,6 +83,9 @@
       }
       if (data.hasOwnProperty('owner')) {
         obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+      }
+      if (data.hasOwnProperty('releasecode')) {
+        obj['releasecode'] = ApiClient.convertToType(data['releasecode'], 'String');
       }
       if (data.hasOwnProperty('published')) {
         obj['published'] = ApiClient.convertToType(data['published'], 'Boolean');
@@ -108,6 +112,11 @@
    * @member {String} owner
    */
   exports.prototype['owner'] = undefined;
+  /**
+   * The full (and unique) code for this release
+   * @member {String} releasecode
+   */
+  exports.prototype['releasecode'] = undefined;
   /**
    * Whether this release is locked down and published (you cannot unpublish ideally)
    * @member {Boolean} published

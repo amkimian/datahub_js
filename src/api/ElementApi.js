@@ -67,32 +67,23 @@
     /**
      * Create a new open element
      * This creates a new element in a release in a data set. The element defaults to the open (and therefore unpublished) state. 
-     * @param {String} userId The id of the user that this dataset is associated with
-     * @param {String} dataSet The id of the data set
-     * @param {String} release The id of the release this element belongs to
+     * @param {String} apiKey The user api key
+     * @param {String} releasecode The code of the release this element is associated with
      * @param {module:model/DataElement} body Element object that defines the element in a data set
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.apiKey The user api key
      * @param {module:api/ElementApi~addElementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GeneralStatus}
      */
-    this.addElement = function(userId, dataSet, release, body, opts, callback) {
-      opts = opts || {};
+    this.addElement = function(apiKey, releasecode, body, callback) {
       var postBody = body;
 
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling addElement";
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling addElement";
       }
 
-      // verify the required parameter 'dataSet' is set
-      if (dataSet == undefined || dataSet == null) {
-        throw "Missing the required parameter 'dataSet' when calling addElement";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling addElement";
+      // verify the required parameter 'releasecode' is set
+      if (releasecode == undefined || releasecode == null) {
+        throw "Missing the required parameter 'releasecode' when calling addElement";
       }
 
       // verify the required parameter 'body' is set
@@ -102,14 +93,12 @@
 
 
       var pathParams = {
-        'userId': userId,
-        'dataSet': dataSet,
-        'release': release
+        'releasecode': releasecode
       };
       var queryParams = {
       };
       var headerParams = {
-        'api_key': opts['apiKey']
+        'api_key': apiKey
       };
       var formParams = {
       };
@@ -120,7 +109,7 @@
       var returnType = GeneralStatus;
 
       return this.apiClient.callApi(
-        '/elements/{userId}/{dataSet}/{release}', 'POST',
+        '/elements/{releasecode}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -137,50 +126,32 @@
     /**
      * Delete element information
      * This removes an element 
-     * @param {String} userId The id of the user that this dataset is associated with
-     * @param {String} dataSet The id of the data set
-     * @param {String} release The id of the release
-     * @param {String} element The id of the element
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.apiKey The user api key
+     * @param {String} apiKey The user api key
+     * @param {String} elementcode The code of the element
      * @param {module:api/ElementApi~deleteElementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GeneralStatus}
      */
-    this.deleteElement = function(userId, dataSet, release, element, opts, callback) {
-      opts = opts || {};
+    this.deleteElement = function(apiKey, elementcode, callback) {
       var postBody = null;
 
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling deleteElement";
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling deleteElement";
       }
 
-      // verify the required parameter 'dataSet' is set
-      if (dataSet == undefined || dataSet == null) {
-        throw "Missing the required parameter 'dataSet' when calling deleteElement";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling deleteElement";
-      }
-
-      // verify the required parameter 'element' is set
-      if (element == undefined || element == null) {
-        throw "Missing the required parameter 'element' when calling deleteElement";
+      // verify the required parameter 'elementcode' is set
+      if (elementcode == undefined || elementcode == null) {
+        throw "Missing the required parameter 'elementcode' when calling deleteElement";
       }
 
 
       var pathParams = {
-        'userId': userId,
-        'dataSet': dataSet,
-        'release': release,
-        'element': element
+        'elementcode': elementcode
       };
       var queryParams = {
       };
       var headerParams = {
-        'api_key': opts['apiKey']
+        'api_key': apiKey
       };
       var formParams = {
       };
@@ -191,7 +162,7 @@
       var returnType = GeneralStatus;
 
       return this.apiClient.callApi(
-        '/elements/{userId}/{dataSet}/{release}/{element}', 'DELETE',
+        '/element/{elementcode}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -208,50 +179,32 @@
     /**
      * Get element information
      * This returns information about an element 
-     * @param {String} userId The id of the user that this dataset is associated with
-     * @param {String} dataSet The id of the data set
-     * @param {String} release The id of the release
-     * @param {String} element The id of the element
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.apiKey The user api key
+     * @param {String} apiKey The user api key
+     * @param {String} elementcode The code of the element
      * @param {module:api/ElementApi~getElementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DataElement}
      */
-    this.getElement = function(userId, dataSet, release, element, opts, callback) {
-      opts = opts || {};
+    this.getElement = function(apiKey, elementcode, callback) {
       var postBody = null;
 
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getElement";
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getElement";
       }
 
-      // verify the required parameter 'dataSet' is set
-      if (dataSet == undefined || dataSet == null) {
-        throw "Missing the required parameter 'dataSet' when calling getElement";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling getElement";
-      }
-
-      // verify the required parameter 'element' is set
-      if (element == undefined || element == null) {
-        throw "Missing the required parameter 'element' when calling getElement";
+      // verify the required parameter 'elementcode' is set
+      if (elementcode == undefined || elementcode == null) {
+        throw "Missing the required parameter 'elementcode' when calling getElement";
       }
 
 
       var pathParams = {
-        'userId': userId,
-        'dataSet': dataSet,
-        'release': release,
-        'element': element
+        'elementcode': elementcode
       };
       var queryParams = {
       };
       var headerParams = {
-        'api_key': opts['apiKey']
+        'api_key': apiKey
       };
       var formParams = {
       };
@@ -262,7 +215,60 @@
       var returnType = DataElement;
 
       return this.apiClient.callApi(
-        '/elements/{userId}/{dataSet}/{release}/{element}', 'GET',
+        '/element/{elementcode}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getElements operation.
+     * @callback module:api/ElementApi~getElementsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/DataElement>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get elements for this release
+     * Get elements for this release
+     * @param {String} apiKey The user api key
+     * @param {String} releasecode The code of the release this element is associated with
+     * @param {module:api/ElementApi~getElementsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/DataElement>}
+     */
+    this.getElements = function(apiKey, releasecode, callback) {
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getElements";
+      }
+
+      // verify the required parameter 'releasecode' is set
+      if (releasecode == undefined || releasecode == null) {
+        throw "Missing the required parameter 'releasecode' when calling getElements";
+      }
+
+
+      var pathParams = {
+        'releasecode': releasecode
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [DataElement];
+
+      return this.apiClient.callApi(
+        '/elements/{releasecode}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -279,38 +285,23 @@
     /**
      * Updates an element
      * Updates an element
-     * @param {String} userId The id of the user that this dataset is associated with
-     * @param {String} dataSet The id of the data set
-     * @param {String} release The id of the release
-     * @param {String} element The id of the element
+     * @param {String} apiKey The user api key
+     * @param {String} elementcode The code of the element
      * @param {module:model/DataElement} body The updated element
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.apiKey The user api key
      * @param {module:api/ElementApi~updateElementCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/DataElement}
      */
-    this.updateElement = function(userId, dataSet, release, element, body, opts, callback) {
-      opts = opts || {};
+    this.updateElement = function(apiKey, elementcode, body, callback) {
       var postBody = body;
 
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling updateElement";
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling updateElement";
       }
 
-      // verify the required parameter 'dataSet' is set
-      if (dataSet == undefined || dataSet == null) {
-        throw "Missing the required parameter 'dataSet' when calling updateElement";
-      }
-
-      // verify the required parameter 'release' is set
-      if (release == undefined || release == null) {
-        throw "Missing the required parameter 'release' when calling updateElement";
-      }
-
-      // verify the required parameter 'element' is set
-      if (element == undefined || element == null) {
-        throw "Missing the required parameter 'element' when calling updateElement";
+      // verify the required parameter 'elementcode' is set
+      if (elementcode == undefined || elementcode == null) {
+        throw "Missing the required parameter 'elementcode' when calling updateElement";
       }
 
       // verify the required parameter 'body' is set
@@ -320,15 +311,12 @@
 
 
       var pathParams = {
-        'userId': userId,
-        'dataSet': dataSet,
-        'release': release,
-        'element': element
+        'elementcode': elementcode
       };
       var queryParams = {
       };
       var headerParams = {
-        'api_key': opts['apiKey']
+        'api_key': apiKey
       };
       var formParams = {
       };
@@ -339,7 +327,7 @@
       var returnType = DataElement;
 
       return this.apiClient.callApi(
-        '/elements/{userId}/{dataSet}/{release}/{element}', 'PUT',
+        '/element/{elementcode}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

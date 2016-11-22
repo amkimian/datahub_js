@@ -4,15 +4,16 @@ All URIs are relative to *http://localhost:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addElement**](ElementApi.md#addElement) | **POST** /elements/{userId}/{dataSet}/{release} | Create a new open element
-[**deleteElement**](ElementApi.md#deleteElement) | **DELETE** /elements/{userId}/{dataSet}/{release}/{element} | Delete element information
-[**getElement**](ElementApi.md#getElement) | **GET** /elements/{userId}/{dataSet}/{release}/{element} | Get element information
-[**updateElement**](ElementApi.md#updateElement) | **PUT** /elements/{userId}/{dataSet}/{release}/{element} | Updates an element
+[**addElement**](ElementApi.md#addElement) | **POST** /elements/{releasecode} | Create a new open element
+[**deleteElement**](ElementApi.md#deleteElement) | **DELETE** /element/{elementcode} | Delete element information
+[**getElement**](ElementApi.md#getElement) | **GET** /element/{elementcode} | Get element information
+[**getElements**](ElementApi.md#getElements) | **GET** /elements/{releasecode} | Get elements for this release
+[**updateElement**](ElementApi.md#updateElement) | **PUT** /element/{elementcode} | Updates an element
 
 
 <a name="addElement"></a>
 # **addElement**
-> GeneralStatus addElement(userId, dataSet, release, body, opts)
+> GeneralStatus addElement(apiKey, releasecode, body)
 
 Create a new open element
 
@@ -24,17 +25,12 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.ElementApi();
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var apiKey = "apiKey_example"; // String | The user api key
 
-var dataSet = "dataSet_example"; // String | The id of the data set
-
-var release = "release_example"; // String | The id of the release this element belongs to
+var releasecode = "releasecode_example"; // String | The code of the release this element is associated with
 
 var body = new DataHubApi.DataElement(); // DataElement | Element object that defines the element in a data set
 
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -43,18 +39,16 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.addElement(userId, dataSet, release, body, opts, callback);
+apiInstance.addElement(apiKey, releasecode, body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **dataSet** | **String**| The id of the data set | 
- **release** | **String**| The id of the release this element belongs to | 
+ **apiKey** | **String**| The user api key | 
+ **releasecode** | **String**| The code of the release this element is associated with | 
  **body** | [**DataElement**](DataElement.md)| Element object that defines the element in a data set | 
- **apiKey** | **String**| The user api key | [optional] 
 
 ### Return type
 
@@ -71,7 +65,7 @@ No authorization required
 
 <a name="deleteElement"></a>
 # **deleteElement**
-> GeneralStatus deleteElement(userId, dataSet, release, element, opts)
+> GeneralStatus deleteElement(apiKey, elementcode)
 
 Delete element information
 
@@ -83,17 +77,10 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.ElementApi();
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var apiKey = "apiKey_example"; // String | The user api key
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var elementcode = "elementcode_example"; // String | The code of the element
 
-var release = "release_example"; // String | The id of the release
-
-var element = "element_example"; // String | The id of the element
-
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -102,18 +89,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.deleteElement(userId, dataSet, release, element, opts, callback);
+apiInstance.deleteElement(apiKey, elementcode, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **dataSet** | **String**| The id of the data set | 
- **release** | **String**| The id of the release | 
- **element** | **String**| The id of the element | 
- **apiKey** | **String**| The user api key | [optional] 
+ **apiKey** | **String**| The user api key | 
+ **elementcode** | **String**| The code of the element | 
 
 ### Return type
 
@@ -130,7 +114,7 @@ No authorization required
 
 <a name="getElement"></a>
 # **getElement**
-> DataElement getElement(userId, dataSet, release, element, opts)
+> DataElement getElement(apiKey, elementcode)
 
 Get element information
 
@@ -142,17 +126,10 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.ElementApi();
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var apiKey = "apiKey_example"; // String | The user api key
 
-var dataSet = "dataSet_example"; // String | The id of the data set
+var elementcode = "elementcode_example"; // String | The code of the element
 
-var release = "release_example"; // String | The id of the release
-
-var element = "element_example"; // String | The id of the element
-
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -161,18 +138,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getElement(userId, dataSet, release, element, opts, callback);
+apiInstance.getElement(apiKey, elementcode, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **dataSet** | **String**| The id of the data set | 
- **release** | **String**| The id of the release | 
- **element** | **String**| The id of the element | 
- **apiKey** | **String**| The user api key | [optional] 
+ **apiKey** | **String**| The user api key | 
+ **elementcode** | **String**| The code of the element | 
 
 ### Return type
 
@@ -187,9 +161,58 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getElements"></a>
+# **getElements**
+> [DataElement] getElements(apiKey, releasecode)
+
+Get elements for this release
+
+Get elements for this release
+
+### Example
+```javascript
+var DataHubApi = require('data_hub_api');
+
+var apiInstance = new DataHubApi.ElementApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var releasecode = "releasecode_example"; // String | The code of the release this element is associated with
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getElements(apiKey, releasecode, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **releasecode** | **String**| The code of the release this element is associated with | 
+
+### Return type
+
+[**[DataElement]**](DataElement.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="updateElement"></a>
 # **updateElement**
-> DataElement updateElement(userId, dataSet, release, element, body, opts)
+> DataElement updateElement(apiKey, elementcode, body)
 
 Updates an element
 
@@ -201,19 +224,12 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.ElementApi();
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var apiKey = "apiKey_example"; // String | The user api key
 
-var dataSet = "dataSet_example"; // String | The id of the data set
-
-var release = "release_example"; // String | The id of the release
-
-var element = "element_example"; // String | The id of the element
+var elementcode = "elementcode_example"; // String | The code of the element
 
 var body = new DataHubApi.DataElement(); // DataElement | The updated element
 
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -222,19 +238,16 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.updateElement(userId, dataSet, release, element, body, opts, callback);
+apiInstance.updateElement(apiKey, elementcode, body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **dataSet** | **String**| The id of the data set | 
- **release** | **String**| The id of the release | 
- **element** | **String**| The id of the element | 
+ **apiKey** | **String**| The user api key | 
+ **elementcode** | **String**| The code of the element | 
  **body** | [**DataElement**](DataElement.md)| The updated element | 
- **apiKey** | **String**| The user api key | [optional] 
 
 ### Return type
 

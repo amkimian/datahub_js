@@ -5,10 +5,10 @@ All URIs are relative to *http://localhost:8081/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addRelease**](ReleaseApi.md#addRelease) | **POST** /releases/{userId}/{repocode} | Create a new open release
-[**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /releases/{userId}/{repocode}/{release} | Delete release information
-[**getRelease**](ReleaseApi.md#getRelease) | **GET** /releases/{userId}/{repocode}/{release} | Get release information
+[**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /release/{releasecode} | Delete release information
+[**getRelease**](ReleaseApi.md#getRelease) | **GET** /release/{releasecode} | Get release information
 [**getReleases**](ReleaseApi.md#getReleases) | **GET** /releases/{userId}/{repocode} | Get releases for a repository
-[**publishRelease**](ReleaseApi.md#publishRelease) | **GET** /release/publish/{userId}/{repocode}/{release} | Publish a release
+[**publishRelease**](ReleaseApi.md#publishRelease) | **GET** /release/publish/{releasecode} | Publish a release
 
 
 <a name="addRelease"></a>
@@ -69,7 +69,7 @@ No authorization required
 
 <a name="deleteRelease"></a>
 # **deleteRelease**
-> GeneralStatus deleteRelease(userId, repocode, release, opts)
+> GeneralStatus deleteRelease(apiKey, releasecode)
 
 Delete release information
 
@@ -81,15 +81,10 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.ReleaseApi();
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var apiKey = "apiKey_example"; // String | The user api key
 
-var repocode = "repocode_example"; // String | The id of the repository
+var releasecode = "releasecode_example"; // String | The id of the release
 
-var release = "release_example"; // String | The id of the release
-
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -98,17 +93,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.deleteRelease(userId, repocode, release, opts, callback);
+apiInstance.deleteRelease(apiKey, releasecode, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **repocode** | **String**| The id of the repository | 
- **release** | **String**| The id of the release | 
- **apiKey** | **String**| The user api key | [optional] 
+ **apiKey** | **String**| The user api key | 
+ **releasecode** | **String**| The id of the release | 
 
 ### Return type
 
@@ -125,7 +118,7 @@ No authorization required
 
 <a name="getRelease"></a>
 # **getRelease**
-> DataSetRelease getRelease(userId, repocode, release, opts)
+> DataSetRelease getRelease(apiKey, releasecode)
 
 Get release information
 
@@ -137,15 +130,10 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.ReleaseApi();
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var apiKey = "apiKey_example"; // String | The user api key
 
-var repocode = "repocode_example"; // String | The id of the repository
+var releasecode = "releasecode_example"; // String | The id of the release
 
-var release = "release_example"; // String | The id of the release
-
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -154,17 +142,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getRelease(userId, repocode, release, opts, callback);
+apiInstance.getRelease(apiKey, releasecode, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **repocode** | **String**| The id of the repository | 
- **release** | **String**| The id of the release | 
- **apiKey** | **String**| The user api key | [optional] 
+ **apiKey** | **String**| The user api key | 
+ **releasecode** | **String**| The id of the release | 
 
 ### Return type
 
@@ -233,7 +219,7 @@ No authorization required
 
 <a name="publishRelease"></a>
 # **publishRelease**
-> DataSetRelease publishRelease(apiKey, userId, repocode, release)
+> DataSetRelease publishRelease(apiKey, releasecode)
 
 Publish a release
 
@@ -247,11 +233,7 @@ var apiInstance = new DataHubApi.ReleaseApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
-
-var repocode = "repocode_example"; // String | The id of the repository
-
-var release = "release_example"; // String | The id of the release
+var releasecode = "releasecode_example"; // String | The id of the release
 
 
 var callback = function(error, data, response) {
@@ -261,7 +243,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.publishRelease(apiKey, userId, repocode, release, callback);
+apiInstance.publishRelease(apiKey, releasecode, callback);
 ```
 
 ### Parameters
@@ -269,9 +251,7 @@ apiInstance.publishRelease(apiKey, userId, repocode, release, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiKey** | **String**| The user api key | 
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **repocode** | **String**| The id of the repository | 
- **release** | **String**| The id of the release | 
+ **releasecode** | **String**| The id of the release | 
 
 ### Return type
 

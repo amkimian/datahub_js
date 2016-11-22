@@ -4,9 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** | The id of this data element | [optional] 
-**dataset** | **String** | The data set this element relates to | [optional] 
-**owner** | **String** | The user this element relates to | [optional] 
-**release** | **String** | The release this element relates to | [optional] 
+**releasecode** | **String** | The release this element relates to | [optional] 
+**elementcode** | **String** | The full element code | [optional] 
 **mimeType** | **String** | The mime type of the data element | [optional] 
 **description** | **String** | Some information about this element | [optional] 
 **type** | **String** | The underlying data type of this element | [optional] 

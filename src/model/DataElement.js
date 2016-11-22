@@ -71,7 +71,6 @@
 
 
 
-
   };
 
   /**
@@ -88,14 +87,11 @@
       if (data.hasOwnProperty('id')) {
         obj['id'] = ApiClient.convertToType(data['id'], 'String');
       }
-      if (data.hasOwnProperty('dataset')) {
-        obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
+      if (data.hasOwnProperty('releasecode')) {
+        obj['releasecode'] = ApiClient.convertToType(data['releasecode'], 'String');
       }
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
-      }
-      if (data.hasOwnProperty('release')) {
-        obj['release'] = ApiClient.convertToType(data['release'], 'String');
+      if (data.hasOwnProperty('elementcode')) {
+        obj['elementcode'] = ApiClient.convertToType(data['elementcode'], 'String');
       }
       if (data.hasOwnProperty('mimeType')) {
         obj['mimeType'] = ApiClient.convertToType(data['mimeType'], 'String');
@@ -143,20 +139,15 @@
    */
   exports.prototype['id'] = undefined;
   /**
-   * The data set this element relates to
-   * @member {String} dataset
-   */
-  exports.prototype['dataset'] = undefined;
-  /**
-   * The user this element relates to
-   * @member {String} owner
-   */
-  exports.prototype['owner'] = undefined;
-  /**
    * The release this element relates to
-   * @member {String} release
+   * @member {String} releasecode
    */
-  exports.prototype['release'] = undefined;
+  exports.prototype['releasecode'] = undefined;
+  /**
+   * The full element code
+   * @member {String} elementcode
+   */
+  exports.prototype['elementcode'] = undefined;
   /**
    * The mime type of the data element
    * @member {String} mimeType

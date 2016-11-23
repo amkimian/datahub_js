@@ -1,6 +1,6 @@
 # DataHubApi.RepoApi
 
-All URIs are relative to *http://localhost:8081/*
+All URIs are relative to *http://datahub.incapture.net:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

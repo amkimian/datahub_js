@@ -55,9 +55,9 @@
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
-     * @default http://localhost:8081/
+     * @default http://datahub.incapture.net:8081/
      */
-    this.basePath = 'http://localhost:8081/'.replace(/\/+$/, '');
+    this.basePath = 'http://datahub.incapture.net:8081/'.replace(/\/+$/, '');
 
     /**
      * The authentication methods to be included for all API calls.

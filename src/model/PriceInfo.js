@@ -61,6 +61,7 @@
 
 
 
+
   };
 
   /**
@@ -79,6 +80,9 @@
       }
       if (data.hasOwnProperty('frequency')) {
         obj['frequency'] = ApiClient.convertToType(data['frequency'], 'String');
+      }
+      if (data.hasOwnProperty('currency')) {
+        obj['currency'] = ApiClient.convertToType(data['currency'], 'String');
       }
       if (data.hasOwnProperty('currentPlan')) {
         obj['currentPlan'] = ApiClient.convertToType(data['currentPlan'], 'String');
@@ -103,6 +107,11 @@
    * @member {String} frequency
    */
   exports.prototype['frequency'] = undefined;
+  /**
+   * The currency of the subscription amount
+   * @member {String} currency
+   */
+  exports.prototype['currency'] = undefined;
   /**
    * The plan id on Stripe for this repository
    * @member {String} currentPlan

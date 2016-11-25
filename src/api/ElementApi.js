@@ -109,7 +109,7 @@
       var returnType = GeneralStatus;
 
       return this.apiClient.callApi(
-        '/elements/{releasecode}', 'POST',
+        '/element/{elementcode}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

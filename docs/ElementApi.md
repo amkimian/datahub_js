@@ -4,7 +4,7 @@ All URIs are relative to *http://datahub.incapture.net:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addElement**](ElementApi.md#addElement) | **POST** /elements/{releasecode} | Create a new open element
+[**addElement**](ElementApi.md#addElement) | **POST** /element/{elementcode} | Create a new open element
 [**deleteElement**](ElementApi.md#deleteElement) | **DELETE** /element/{elementcode} | Delete element information
 [**getElement**](ElementApi.md#getElement) | **GET** /element/{elementcode} | Get element information
 [**getElements**](ElementApi.md#getElements) | **GET** /elements/{releasecode} | Get elements for this release

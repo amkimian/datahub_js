@@ -4,7 +4,7 @@ All URIs are relative to *http://datahub.incapture.net:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getCSVData**](DataApi.md#getCSVData) | **GET** /data/{elementcode}/getCSVBlock | 
+[**getCSVData**](DataApi.md#getCSVData) | **GET** /data/{elementcode}/csv | 
 [**putCSVData**](DataApi.md#putCSVData) | **POST** /data/{elementcode}/csv | 
 [**putKVData**](DataApi.md#putKVData) | **POST** /data/{elementcode}/kv | 
 

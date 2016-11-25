@@ -110,7 +110,7 @@
       var returnType = 'String';
 
       return this.apiClient.callApi(
-        '/data/{elementcode}/getCSVBlock', 'GET',
+        '/data/{elementcode}/csv', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

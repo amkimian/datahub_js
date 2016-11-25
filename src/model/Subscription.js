@@ -86,10 +86,10 @@
         obj['plan'] = ApiClient.convertToType(data['plan'], 'String');
       }
       if (data.hasOwnProperty('startDate')) {
-        obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
+        obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Integer');
       }
       if (data.hasOwnProperty('endDate')) {
-        obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
+        obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Integer');
       }
       if (data.hasOwnProperty('status')) {
         obj['status'] = ApiClient.convertToType(data['status'], 'String');
@@ -114,17 +114,17 @@
    */
   exports.prototype['plan'] = undefined;
   /**
-   * When this subscription started
-   * @member {Date} startDate
+   * When this subscription started (a timestamp)
+   * @member {Integer} startDate
    */
   exports.prototype['startDate'] = undefined;
   /**
    * When this subscription ends
-   * @member {Date} endDate
+   * @member {Integer} endDate
    */
   exports.prototype['endDate'] = undefined;
   /**
-   * The status of this subscription. \"active\" or \"trial\" mean that the user has access to the repository through this subscription
+   * The status of this subscription. \"active\" or \"trialing\" mean that the user has access to the repository through this subscription
    * @member {String} status
    */
   exports.prototype['status'] = undefined;

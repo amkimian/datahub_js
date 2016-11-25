@@ -4,20 +4,20 @@ All URIs are relative to *http://datahub.incapture.net:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addRepository**](RepoApi.md#addRepository) | **POST** /repos/{userId} | Create a new repository, associated with the given user id
-[**deleteRepository**](RepoApi.md#deleteRepository) | **DELETE** /repos/{repocode} | Remove a repository and all releases and data sets
+[**addRepository**](RepoApi.md#addRepository) | **POST** /repo/{repocode} | Create a new repository, associated with the given user id
+[**deleteRepository**](RepoApi.md#deleteRepository) | **DELETE** /repo/{repocode} | Remove a repository and all releases and data sets
 [**findReposByTags**](RepoApi.md#findReposByTags) | **GET** /marketplace/getByTag | 
 [**findRepositories**](RepoApi.md#findRepositories) | **GET** /user/getRepositories | 
 [**getFront**](RepoApi.md#getFront) | **GET** /marketplace/getFront | 
 [**getMyRepositories**](RepoApi.md#getMyRepositories) | **GET** /marketplace/getMyRepositories | 
 [**getRepositories**](RepoApi.md#getRepositories) | **GET** /repos | Retrieve current users Repositories
-[**getRepositoryByCode**](RepoApi.md#getRepositoryByCode) | **GET** /repos/{repocode} | Find a repository given its code (code is owner + repo short code)
-[**updateRepository**](RepoApi.md#updateRepository) | **PUT** /repos/{repocode} | Update an existing repository.
+[**getRepositoryByCode**](RepoApi.md#getRepositoryByCode) | **GET** /repo/{repocode} | Find a repository given its code (code is owner + repo short code)
+[**updateRepository**](RepoApi.md#updateRepository) | **PUT** /repo/{repocode} | Update an existing repository.
 
 
 <a name="addRepository"></a>
 # **addRepository**
-> GeneralStatus addRepository(userApiKey, userId, body)
+> GeneralStatus addRepository(apiKey, repocode, body)
 
 Create a new repository, associated with the given user id
 
@@ -36,9 +36,9 @@ userApiKey.apiKey = 'YOUR API KEY';
 
 var apiInstance = new DataHubApi.RepoApi();
 
-var userApiKey = "userApiKey_example"; // String | The user API key for this operation
+var apiKey = "apiKey_example"; // String | The user API key for this operation
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var repocode = "repocode_example"; // String | The code of the repo to add (must be part of the user's code)
 
 var body = new DataHubApi.Repository(); // Repository | Repository object that defines the element
 
@@ -50,15 +50,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.addRepository(userApiKey, userId, body, callback);
+apiInstance.addRepository(apiKey, repocode, body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userApiKey** | **String**| The user API key for this operation | 
- **userId** | **String**| The id of the user that this dataset is associated with | 
+ **apiKey** | **String**| The user API key for this operation | 
+ **repocode** | **String**| The code of the repo to add (must be part of the user&#39;s code) | 
  **body** | [**Repository**](Repository.md)| Repository object that defines the element | 
 
 ### Return type
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteRepository"></a>
 # **deleteRepository**
-> GeneralStatus deleteRepository(repocode, opts)
+> GeneralStatus deleteRepository(apiKey, repocode)
 
 Remove a repository and all releases and data sets
 
@@ -88,11 +88,10 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.RepoApi();
 
+var apiKey = "apiKey_example"; // String | The user api key
+
 var repocode = "repocode_example"; // String | The code of the repository
 
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -101,15 +100,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.deleteRepository(repocode, opts, callback);
+apiInstance.deleteRepository(apiKey, repocode, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
  **repocode** | **String**| The code of the repository | 
- **apiKey** | **String**| The user api key | [optional] 
 
 ### Return type
 
@@ -379,7 +378,7 @@ Name | Type | Description  | Notes
 
 <a name="getRepositoryByCode"></a>
 # **getRepositoryByCode**
-> Repository getRepositoryByCode(repocode, opts)
+> Repository getRepositoryByCode(apiKey, repocode)
 
 Find a repository given its code (code is owner + repo short code)
 
@@ -391,11 +390,10 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.RepoApi();
 
+var apiKey = "apiKey_example"; // String | The user api key
+
 var repocode = "repocode_example"; // String | The code of the repo
 
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -404,15 +402,15 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getRepositoryByCode(repocode, opts, callback);
+apiInstance.getRepositoryByCode(apiKey, repocode, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
  **repocode** | **String**| The code of the repo | 
- **apiKey** | **String**| The user api key | [optional] 
 
 ### Return type
 

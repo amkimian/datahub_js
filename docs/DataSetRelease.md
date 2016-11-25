@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **releasecode** | **String** | The full (and unique) code for this release | [optional] 
 **published** | **Boolean** | Whether this release is locked down and published (you cannot unpublish ideally) | [optional] 
 **description** | **String** | Some commentary on this release | [optional] 
+**_public** | **Boolean** | Whether this release is visible to non subscribers | [optional] 
 
 

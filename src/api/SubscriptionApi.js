@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/Subscription'], factory);
+    define(['ApiClient', 'model/Subscription', 'model/RepositoryView'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/Subscription'));
+    module.exports = factory(require('../ApiClient'), require('../model/Subscription'), require('../model/RepositoryView'));
   } else {
     // Browser globals (root is window)
     if (!root.DataHubApi) {
       root.DataHubApi = {};
     }
-    root.DataHubApi.SubscriptionApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.Subscription);
+    root.DataHubApi.SubscriptionApi = factory(root.DataHubApi.ApiClient, root.DataHubApi.Subscription, root.DataHubApi.RepositoryView);
   }
-}(this, function(ApiClient, Subscription) {
+}(this, function(ApiClient, Subscription, RepositoryView) {
   'use strict';
 
   /**
@@ -116,6 +116,58 @@
 
       return this.apiClient.callApi(
         '/subscription/{repocode}/{usercode}', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getUserSubscriptions operation.
+     * @callback module:api/SubscriptionApi~getUserSubscriptionsCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/RepositoryView>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get the repositories that the current user is subscribed to
+     * Retrieves the repositories a user is subscribed to
+     * @param {String} apiKey The user api key
+     * @param {Object} opts Optional parameters
+     * @param {Integer} opts.skip The amount of records to skip
+     * @param {Integer} opts.limit The maximum amount of records to be returned (the size of the page)
+     * @param {module:api/SubscriptionApi~getUserSubscriptionsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/RepositoryView>}
+     */
+    this.getUserSubscriptions = function(apiKey, opts, callback) {
+      opts = opts || {};
+      var postBody = null;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling getUserSubscriptions";
+      }
+
+
+      var pathParams = {
+      };
+      var queryParams = {
+        'skip': opts['skip'],
+        'limit': opts['limit']
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = [RepositoryView];
+
+      return this.apiClient.callApi(
+        '/subs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

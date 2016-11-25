@@ -5,6 +5,7 @@ All URIs are relative to *http://datahub.incapture.net:8081/*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**createSubscription**](SubscriptionApi.md#createSubscription) | **POST** /subscription/{repocode}/{usercode} | Create a new subscription
+[**getUserSubscriptions**](SubscriptionApi.md#getUserSubscriptions) | **GET** /subs | Get the repositories that the current user is subscribed to
 
 
 <a name="createSubscription"></a>
@@ -52,6 +53,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="getUserSubscriptions"></a>
+# **getUserSubscriptions**
+> [RepositoryView] getUserSubscriptions(apiKey, opts)
+
+Get the repositories that the current user is subscribed to
+
+Retrieves the repositories a user is subscribed to
+
+### Example
+```javascript
+var DataHubApi = require('data_hub_api');
+
+var apiInstance = new DataHubApi.SubscriptionApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var opts = { 
+  'skip': 56, // Integer | The amount of records to skip
+  'limit': 56 // Integer | The maximum amount of records to be returned (the size of the page)
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.getUserSubscriptions(apiKey, opts, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **skip** | **Integer**| The amount of records to skip | [optional] 
+ **limit** | **Integer**| The maximum amount of records to be returned (the size of the page) | [optional] 
+
+### Return type
+
+[**[RepositoryView]**](RepositoryView.md)
 
 ### Authorization
 

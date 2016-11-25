@@ -25,18 +25,18 @@
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/PriceInfo'], factory);
+    define(['ApiClient'], factory);
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./PriceInfo'));
+    module.exports = factory(require('../ApiClient'));
   } else {
     // Browser globals (root is window)
     if (!root.DataHubApi) {
       root.DataHubApi = {};
     }
-    root.DataHubApi.Subscription = factory(root.DataHubApi.ApiClient, root.DataHubApi.PriceInfo);
+    root.DataHubApi.Subscription = factory(root.DataHubApi.ApiClient);
   }
-}(this, function(ApiClient, PriceInfo) {
+}(this, function(ApiClient) {
   'use strict';
 
 
@@ -50,12 +50,12 @@
 
   /**
    * Constructs a new <code>Subscription</code>.
+   * A subscription is an agreement between a vendor of data and a subscriber of data.
    * @alias module:model/Subscription
    * @class
    */
   var exports = function() {
     var _this = this;
-
 
 
 
@@ -76,14 +76,14 @@
     if (data) {
       obj = obj || new exports();
 
-      if (data.hasOwnProperty('user')) {
-        obj['user'] = ApiClient.convertToType(data['user'], 'String');
+      if (data.hasOwnProperty('usercode')) {
+        obj['usercode'] = ApiClient.convertToType(data['usercode'], 'String');
       }
-      if (data.hasOwnProperty('owner')) {
-        obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+      if (data.hasOwnProperty('repocode')) {
+        obj['repocode'] = ApiClient.convertToType(data['repocode'], 'String');
       }
-      if (data.hasOwnProperty('dataset')) {
-        obj['dataset'] = ApiClient.convertToType(data['dataset'], 'String');
+      if (data.hasOwnProperty('plan')) {
+        obj['plan'] = ApiClient.convertToType(data['plan'], 'String');
       }
       if (data.hasOwnProperty('startDate')) {
         obj['startDate'] = ApiClient.convertToType(data['startDate'], 'Date');
@@ -91,11 +91,8 @@
       if (data.hasOwnProperty('endDate')) {
         obj['endDate'] = ApiClient.convertToType(data['endDate'], 'Date');
       }
-      if (data.hasOwnProperty('active')) {
-        obj['active'] = ApiClient.convertToType(data['active'], 'Boolean');
-      }
-      if (data.hasOwnProperty('price')) {
-        obj['price'] = PriceInfo.constructFromObject(data['price']);
+      if (data.hasOwnProperty('status')) {
+        obj['status'] = ApiClient.convertToType(data['status'], 'String');
       }
     }
     return obj;
@@ -103,19 +100,19 @@
 
   /**
    * The user id who is subscribed
-   * @member {String} user
+   * @member {String} usercode
    */
-  exports.prototype['user'] = undefined;
+  exports.prototype['usercode'] = undefined;
   /**
-   * The owner of the dataset that is subscribed
-   * @member {String} owner
+   * The code of the repo that is to be subscribed to
+   * @member {String} repocode
    */
-  exports.prototype['owner'] = undefined;
+  exports.prototype['repocode'] = undefined;
   /**
-   * The data set id that is subscribed
-   * @member {String} dataset
+   * The payment plan agreement that binds this subscription
+   * @member {String} plan
    */
-  exports.prototype['dataset'] = undefined;
+  exports.prototype['plan'] = undefined;
   /**
    * When this subscription started
    * @member {Date} startDate
@@ -127,14 +124,10 @@
    */
   exports.prototype['endDate'] = undefined;
   /**
-   * Whether this subscription is active or not
-   * @member {Boolean} active
+   * The status of this subscription. \"active\" or \"trial\" mean that the user has access to the repository through this subscription
+   * @member {String} status
    */
-  exports.prototype['active'] = undefined;
-  /**
-   * @member {module:model/PriceInfo} price
-   */
-  exports.prototype['price'] = undefined;
+  exports.prototype['status'] = undefined;
 
 
 

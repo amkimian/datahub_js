@@ -3,12 +3,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user** | **String** | The user id who is subscribed | [optional] 
-**owner** | **String** | The owner of the dataset that is subscribed | [optional] 
-**dataset** | **String** | The data set id that is subscribed | [optional] 
+**usercode** | **String** | The user id who is subscribed | [optional] 
+**repocode** | **String** | The code of the repo that is to be subscribed to | [optional] 
+**plan** | **String** | The payment plan agreement that binds this subscription | [optional] 
 **startDate** | **Date** | When this subscription started | [optional] 
 **endDate** | **Date** | When this subscription ends | [optional] 
-**active** | **Boolean** | Whether this subscription is active or not | [optional] 
-**price** | [**PriceInfo**](PriceInfo.md) |  | [optional] 
+**status** | **String** | The status of this subscription. \&quot;active\&quot; or \&quot;trial\&quot; mean that the user has access to the repository through this subscription | [optional] 
 
 

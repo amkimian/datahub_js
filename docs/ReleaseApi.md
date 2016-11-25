@@ -4,16 +4,17 @@ All URIs are relative to *http://datahub.incapture.net:8081/*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addRelease**](ReleaseApi.md#addRelease) | **POST** /releases/{userId}/{repocode} | Create a new open release
+[**addRelease**](ReleaseApi.md#addRelease) | **POST** /release/{releasecode} | Create a new open release
 [**deleteRelease**](ReleaseApi.md#deleteRelease) | **DELETE** /release/{releasecode} | Delete release information
 [**getRelease**](ReleaseApi.md#getRelease) | **GET** /release/{releasecode} | Get release information
-[**getReleases**](ReleaseApi.md#getReleases) | **GET** /releases/{userId}/{repocode} | Get releases for a repository
+[**getReleases**](ReleaseApi.md#getReleases) | **GET** /releases/{repocode} | Get releases for a repository
 [**publishRelease**](ReleaseApi.md#publishRelease) | **GET** /release/publish/{releasecode} | Publish a release
+[**updateRelease**](ReleaseApi.md#updateRelease) | **PUT** /release/{releasecode} | Update a release
 
 
 <a name="addRelease"></a>
 # **addRelease**
-> GeneralStatus addRelease(userId, repocode, body, opts)
+> GeneralStatus addRelease(apiKey, releasecode, body)
 
 Create a new open release
 
@@ -25,15 +26,12 @@ var DataHubApi = require('data_hub_api');
 
 var apiInstance = new DataHubApi.ReleaseApi();
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
+var apiKey = "apiKey_example"; // String | The user api key
 
-var repocode = "repocode_example"; // String | The id of the repository
+var releasecode = "releasecode_example"; // String | The id of the new release
 
 var body = new DataHubApi.DataSetRelease(); // DataSetRelease | Release object that defines the element in a data set
 
-var opts = { 
-  'apiKey': "apiKey_example" // String | The user api key
-};
 
 var callback = function(error, data, response) {
   if (error) {
@@ -42,17 +40,16 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.addRelease(userId, repocode, body, opts, callback);
+apiInstance.addRelease(apiKey, releasecode, body, callback);
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userId** | **String**| The id of the user that this dataset is associated with | 
- **repocode** | **String**| The id of the repository | 
+ **apiKey** | **String**| The user api key | 
+ **releasecode** | **String**| The id of the new release | 
  **body** | [**DataSetRelease**](DataSetRelease.md)| Release object that defines the element in a data set | 
- **apiKey** | **String**| The user api key | [optional] 
 
 ### Return type
 
@@ -167,7 +164,7 @@ No authorization required
 
 <a name="getReleases"></a>
 # **getReleases**
-> [DataSetRelease] getReleases(apiKey, userId, repocode)
+> [DataSetRelease] getReleases(apiKey, repocode)
 
 Get releases for a repository
 
@@ -181,8 +178,6 @@ var apiInstance = new DataHubApi.ReleaseApi();
 
 var apiKey = "apiKey_example"; // String | The user api key
 
-var userId = "userId_example"; // String | The id of the user that this dataset is associated with
-
 var repocode = "repocode_example"; // String | The id of the repository
 
 
@@ -193,7 +188,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-apiInstance.getReleases(apiKey, userId, repocode, callback);
+apiInstance.getReleases(apiKey, repocode, callback);
 ```
 
 ### Parameters
@@ -201,7 +196,6 @@ apiInstance.getReleases(apiKey, userId, repocode, callback);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **apiKey** | **String**| The user api key | 
- **userId** | **String**| The id of the user that this dataset is associated with | 
  **repocode** | **String**| The id of the repository | 
 
 ### Return type
@@ -264,5 +258,57 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="updateRelease"></a>
+# **updateRelease**
+> GeneralStatus updateRelease(apiKey, releasecode, body)
+
+Update a release
+
+This updates a release in a repository. 
+
+### Example
+```javascript
+var DataHubApi = require('data_hub_api');
+
+var apiInstance = new DataHubApi.ReleaseApi();
+
+var apiKey = "apiKey_example"; // String | The user api key
+
+var releasecode = "releasecode_example"; // String | The id of the new release
+
+var body = new DataHubApi.DataSetRelease(); // DataSetRelease | Release object that defines the element in a data set
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+apiInstance.updateRelease(apiKey, releasecode, body, callback);
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **apiKey** | **String**| The user api key | 
+ **releasecode** | **String**| The id of the new release | 
+ **body** | [**DataSetRelease**](DataSetRelease.md)| Release object that defines the element in a data set | 
+
+### Return type
+
+[**GeneralStatus**](GeneralStatus.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

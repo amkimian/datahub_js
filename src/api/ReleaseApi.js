@@ -67,26 +67,23 @@
     /**
      * Create a new open release
      * This creates a new release in a data set. The release defaults to the open (and therefore unpublished) state. 
-     * @param {String} userId The id of the user that this dataset is associated with
-     * @param {String} repocode The id of the repository
+     * @param {String} apiKey The user api key
+     * @param {String} releasecode The id of the new release
      * @param {module:model/DataSetRelease} body Release object that defines the element in a data set
-     * @param {Object} opts Optional parameters
-     * @param {String} opts.apiKey The user api key
      * @param {module:api/ReleaseApi~addReleaseCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/GeneralStatus}
      */
-    this.addRelease = function(userId, repocode, body, opts, callback) {
-      opts = opts || {};
+    this.addRelease = function(apiKey, releasecode, body, callback) {
       var postBody = body;
 
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling addRelease";
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling addRelease";
       }
 
-      // verify the required parameter 'repocode' is set
-      if (repocode == undefined || repocode == null) {
-        throw "Missing the required parameter 'repocode' when calling addRelease";
+      // verify the required parameter 'releasecode' is set
+      if (releasecode == undefined || releasecode == null) {
+        throw "Missing the required parameter 'releasecode' when calling addRelease";
       }
 
       // verify the required parameter 'body' is set
@@ -96,13 +93,12 @@
 
 
       var pathParams = {
-        'userId': userId,
-        'repocode': repocode
+        'releasecode': releasecode
       };
       var queryParams = {
       };
       var headerParams = {
-        'api_key': opts['apiKey']
+        'api_key': apiKey
       };
       var formParams = {
       };
@@ -113,7 +109,7 @@
       var returnType = GeneralStatus;
 
       return this.apiClient.callApi(
-        '/releases/{userId}/{repocode}', 'POST',
+        '/release/{releasecode}', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -237,22 +233,16 @@
      * Get releases for a repository
      * Get all releases for a repository (with maybe paging later)
      * @param {String} apiKey The user api key
-     * @param {String} userId The id of the user that this dataset is associated with
      * @param {String} repocode The id of the repository
      * @param {module:api/ReleaseApi~getReleasesCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/DataSetRelease>}
      */
-    this.getReleases = function(apiKey, userId, repocode, callback) {
+    this.getReleases = function(apiKey, repocode, callback) {
       var postBody = null;
 
       // verify the required parameter 'apiKey' is set
       if (apiKey == undefined || apiKey == null) {
         throw "Missing the required parameter 'apiKey' when calling getReleases";
-      }
-
-      // verify the required parameter 'userId' is set
-      if (userId == undefined || userId == null) {
-        throw "Missing the required parameter 'userId' when calling getReleases";
       }
 
       // verify the required parameter 'repocode' is set
@@ -262,7 +252,6 @@
 
 
       var pathParams = {
-        'userId': userId,
         'repocode': repocode
       };
       var queryParams = {
@@ -279,7 +268,7 @@
       var returnType = [DataSetRelease];
 
       return this.apiClient.callApi(
-        '/releases/{userId}/{repocode}', 'GET',
+        '/releases/{repocode}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -333,6 +322,65 @@
 
       return this.apiClient.callApi(
         '/release/publish/{releasecode}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateRelease operation.
+     * @callback module:api/ReleaseApi~updateReleaseCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/GeneralStatus} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Update a release
+     * This updates a release in a repository. 
+     * @param {String} apiKey The user api key
+     * @param {String} releasecode The id of the new release
+     * @param {module:model/DataSetRelease} body Release object that defines the element in a data set
+     * @param {module:api/ReleaseApi~updateReleaseCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GeneralStatus}
+     */
+    this.updateRelease = function(apiKey, releasecode, body, callback) {
+      var postBody = body;
+
+      // verify the required parameter 'apiKey' is set
+      if (apiKey == undefined || apiKey == null) {
+        throw "Missing the required parameter 'apiKey' when calling updateRelease";
+      }
+
+      // verify the required parameter 'releasecode' is set
+      if (releasecode == undefined || releasecode == null) {
+        throw "Missing the required parameter 'releasecode' when calling updateRelease";
+      }
+
+      // verify the required parameter 'body' is set
+      if (body == undefined || body == null) {
+        throw "Missing the required parameter 'body' when calling updateRelease";
+      }
+
+
+      var pathParams = {
+        'releasecode': releasecode
+      };
+      var queryParams = {
+      };
+      var headerParams = {
+        'api_key': apiKey
+      };
+      var formParams = {
+      };
+
+      var authNames = [];
+      var contentTypes = ['application/json'];
+      var accepts = ['application/json'];
+      var returnType = GeneralStatus;
+
+      return this.apiClient.callApi(
+        '/release/{releasecode}', 'PUT',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
